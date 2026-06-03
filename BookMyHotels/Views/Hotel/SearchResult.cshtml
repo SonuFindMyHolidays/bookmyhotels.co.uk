@@ -1,0 +1,694 @@
+﻿@model Data.GetMeRoom.Models.Search.SearchRS_V1
+
+@if (Model != null && Model?.Hotels?.Hotel != null && Model.Hotels?.Hotel.Count > 0)
+{
+    string location = Session["location"].ToString();
+    ViewBag.Title = "Search Cheapest Hotel Result for " + location;
+    Layout = "~/Views/Shared/_result_Layout.cshtml";
+    var currency = Model.Hotels?.Hotel.FirstOrDefault().GrossCurrency;
+
+    List<Data.GetMeRoom.Models.Search.Hotel> hotels = new List<Data.GetMeRoom.Models.Search.Hotel>();
+
+    hotels = Model.Hotels?.Hotel.OrderBy(x => x.GrossPrice).ToList();
+
+    Data.GetMeRoom.Models.Search.SearchRQ_V1 searchRQ = new Data.GetMeRoom.Models.Search.SearchRQ_V1();
+    searchRQ = (Data.GetMeRoom.Models.Search.SearchRQ_V1)Session["searchRequest"];
+
+
+    int AdultsCount = searchRQ.room_details.Sum(x => x.adt_cnt);
+    int ChildsCount = searchRQ.room_details.Sum(x => x.chd_cnt);
+    int TotalRooms = searchRQ.room_details.Count();
+
+    string TotalRoomInfo = TotalRooms == 1 ? Convert.ToString(TotalRooms) + " room" : Convert.ToString(TotalRooms) + " room(s), ";
+    string TotalAdultInfo = AdultsCount == 1 ? Convert.ToString(AdultsCount) + " adult" : Convert.ToString(AdultsCount) + " adults";
+    string TotalChildInfo = ChildsCount == 0 ? string.Empty : ChildsCount == 1 ? Convert.ToString(ChildsCount) + " child" : Convert.ToString(ChildsCount) + " children";
+
+    if (!string.IsNullOrEmpty(TotalChildInfo))
+    {
+        TotalChildInfo = " & " + TotalChildInfo;
+    }
+
+
+    TotalRoomInfo = TotalRoomInfo + ", " + TotalAdultInfo + TotalChildInfo;
+
+    //1 room, 2 adult(s) & 1 Child(s)
+
+    int TotalNoOfStay = hotels.Count;
+
+    string[] checkind = searchRQ.checkin_date.Split('-');
+    string[] checkoutd = searchRQ.checkout_date.Split('-');
+    DateTime Checkin = Convert.ToDateTime(checkind[0] + "/" + checkind[1] + "/" + checkind[2]);
+    DateTime Checkot = Convert.ToDateTime(checkoutd[0] + "/" + checkoutd[1] + "/" + checkoutd[2]);
+
+    string CheckInDate = Checkin.ToString("dd MMM");
+    string CheckOutDate = Checkot.ToString("dd MMM");
+    var minPrice = hotels.Min(x => x.GrossPrice);
+    var maxPrice = hotels.Max(x => x.GrossPrice);
+
+    var hotelList = hotels.Select(x => x.Name).ToList();
+    var joinname = string.Join(",", hotelList);
+    var listName = hotelList.Select(x => x.ToString()).ToArray();
+
+    var amenitiesList = hotels.SelectMany(x => x.Facilities)
+.Select(rt => new
+{
+    id = rt.Id,
+    name = rt.Name
+}).Distinct().ToList();
+
+    var ratingList = hotels.GroupBy(l => l.Star)
+    .Select(g => new
+    {
+        Start = g.Key,
+        Count = g.Select(l => l.Star).Count()
+    }).OrderByDescending(x => x.Start);
+    int a = 0;
+    int c = 0;
+
+
+    Random random = new Random();
+    int randimg = random.Next(1, 5);
+    string srcurl = "../../Content/promoimg/" + randimg + ".jpg";
+
+
+
+    <link rel="stylesheet" href="~/Content/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="~/Content/vendor/ion-rangeslider/css/ion.rangeSlider.css">
+    <style type="text/css">
+        a {
+            cursor: pointer;
+        }
+
+        .bg_chg {
+            border: 1px solid #000;
+            padding: 13px 13px 13px 20px;
+            border-radius: 50px !important;
+            background-color: #3554d1;
+            color: #fff;
+        }
+
+            .bg_chg:hover {
+                border: 1px solid #000;
+                padding: 13px 13px 13px 20px;
+                border-radius: 50px !important;
+                background-color: #fff;
+                color: #000;
+            }
+
+            .bg_chg:active {
+                border: 1px solid #000 !important;
+                padding: 13px 13px 13px 20px;
+                border-radius: 50px !important;
+                background-color: #fff;
+            }
+
+            .bg_chg:focus {
+                border: 1px solid #000 !important;
+                padding: 13px 13px 13px 20px;
+                border-radius: 50px !important;
+                background-color: #fff;
+            }
+
+        .bg_chg_morefilter {
+            height: auto !important;
+            align-items: center !important;
+            border: 1px solid #ccc !important;
+            padding: 13px 13px 13px 20px;
+            border-radius: 50px !important;
+            background-color: #f3f3f3 !important;
+        }
+
+            .bg_chg_morefilter:hover {
+                background-color: #fff !important;
+            }
+
+            .bg_chg_morefilter:focus {
+                background-color: #fff !important;
+            }
+
+        .card {
+           
+            border-radius: 8px;
+          
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            // Hide div by setting display to none
+            $(".hide-btn02").click(function () {
+                $("#myDiv_searchotelbyname").hide();
+            });
+
+            // Show div by removing inline display none style rule
+            $(".show-btn02").click(function () {
+                $("#myDiv_searchotelbyname").show();
+            });
+
+            // Toggle div display
+            $(".toggle-btn02").click(function () {
+                $("#myDiv_searchotelbyname").toggle();
+            });
+        });
+        $(function () {
+
+            var avaialbalelist = '@joinname'.split(',');
+            //console.log(avaialbalelist);
+            $("#inputhotelsearch").autocomplete({
+                source: avaialbalelist,
+                select: function (event, ui) {
+                    //alert("You selected: " + ui.item.label);
+                    applyHotelfilter(ui.item.label);
+                }
+            });
+
+            $('.ui-autocomplete-clear').click(function () {
+                //alert('hi');
+                applyHotelfilter('ALL');
+            });
+
+
+
+        });
+        ; (function ($) {
+
+            $.widget("ui.autocomplete", $.ui.autocomplete, {
+
+                // extend default options
+                options: {
+                    clearButton: true,
+                    clearButtonHtml: '&times;',
+                    //clearButtonPosition: {
+                    //    my: "right center",
+                    //    at: "right center"
+                    //}
+                },
+
+                _create: function () {
+
+                    var self = this;
+
+                    // Invoke the parent widget's method.
+                    self._super();
+
+                    if (self.options.clearButton) {
+                        self._createClearButton();
+                    }
+
+                },
+
+                _createClearButton: function () {
+
+                    var self = this;
+
+                    self.clearElement = $("<span>")
+                        .attr("tabindex", "-1")
+                        .addClass("ui-autocomplete-clear")
+                        .html(self.options.clearButtonHtml)
+                        .appendTo(self.element.parent());
+
+                    if (self.options.clearButtonPosition !== false && typeof self.options.clearButtonPosition === 'object') {
+                        if (typeof self.options.clearButtonPosition.of === 'undefined') {
+                            self.options.clearButtonPosition.of = self.element;
+                        }
+                        self.clearElement.position(self.options.clearButtonPosition);
+                    }
+
+                    self._on(self.clearElement, {
+                        click: function () {
+                            self.element.val('').focus();
+                            self._hideClearButton();
+                        }
+                    });
+
+                    self.element.addClass('ui-autocomplete-input-has-clear');
+
+                    self._on(self.element, {
+                        input: function () {
+                            if (self.element.val() !== "") {
+                                self._showClearButton();
+                            } else {
+                                self._hideClearButton();
+                            }
+                        }
+                    });
+
+                    self._on(self.menu.element, {
+                        menuselect: function () {
+                            self._showClearButton();
+                        }
+                    });
+
+                    // show clearElement if input has some content on initialization
+                    if (self.element.val() !== "") {
+                        self._showClearButton();
+                    } else {
+                        self._hideClearButton();
+                    }
+
+                },
+
+                _showClearButton: function () {
+                    this.clearElement.css({ 'display': 'inline-block' });
+                },
+
+                _hideClearButton: function () {
+                    this.clearElement.css({ 'display': 'none' });
+                }
+
+            });
+
+        })(window.jQuery);
+
+        
+    </script>
+    <!--Autocomplete Jquery Code END-->
+
+
+    <main id="content" style="background-color: #f3f3f3 !important;">
+        <section class="" >
+            <div class="container py-3">
+                <div class="modify-mobile-box " style="display:none;">
+                    <a class="link-collapse  link-collapse-custom text-black" data-toggle="collapse" href="#collapseLinkExample_modify" role="button" aria-expanded="false" aria-controls="collapseLinkExample_modify">
+                        <div class="d-flex justify-content-between">
+
+                            <div class="row w-100 " >
+                                <div class="search-value-txt col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <i class="fas fa-map-marker-alt mr-1"></i> @location
+                                </div>
+                                <div class="search-value-txt col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <span class="mr-4"><i class="fas fa-hotel mr-1"></i> @TotalRoomInfo</span>
+                                    <span style="display:none;">@TotalNoOfStay+ Stays -</span>
+                                    <i class="fa fa-calendar mr-1" aria-hidden="true"></i> @CheckInDate - @CheckOutDate
+                                </div>
+
+
+                            </div>
+                            <div class="float-right align-self-center">
+                                <span style="margin-top:-5px !important; margin-left:10px;">
+                                    <span class="link-collapse__default font-size-15" style="background-color:#3554d1;  color:#fff; padding:6px; padding-left:12px;padding-right:12px; border-radius: 0.25rem !important;"><span class="d-none d-sm-block d-lg-inline d-md-inline">Modify</span> <i class="fas fa-pencil-alt"></i></span>
+                                    <span class="link-collapse__active font-size-15" style="background-color:#3554d1; color:#fff; padding:6px; padding-left:12px;padding-right:12px;border-radius: 0.25rem !important;"><span class="d-none d-sm-block d-lg-inline d-md-inline">Modify</span> <i class="fas fa-pencil-alt"></i></span>
+                                </span>
+                            </div>
+
+                        </div>
+                    </a>
+
+
+                </div>
+                <div class="collapse show" id="collapseLinkExample_modify">
+                    @{
+                        Html.RenderPartial("~/Views/Shared/_ModifySearch.cshtml", searchRQ);
+                    }
+
+                </div>
+
+
+
+            </div>
+        </section>
+        
+        <!--map collapse collapse end-->
+        <section class="">
+            <!--HOTEL LISTING SHOWING WITH MAP BEGIN CODE-->
+
+            <div class="container">
+                <div class="map-collapse-hidden ">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 mb-2">
+                            <!-- Mobile Filter Toggle Button -->
+                            <div class="">
+                                <span class="filter-toggle text-primary" onclick="toggleMobileFilter()">
+                                    <i class="fas fa-filter"></i> Filters
+                                </span>
+                            </div>
+                            <div id="filterBox" class="filter-container desktop-visible">
+                                <div class="mobile-sticky-title filter-title"><div><h4 class="mb-0">Filters</h4></div><div><i class="fa fa-times" onclick="toggleMobileFilter()"></i></div></div>
+                                <div id="sidebar-filter" class="flex-column">
+                                    <!-- Accordiaon -->
+                                    <div id="shopCartAccordion" class="accordion rounded shadow-none w-100 filterSectionOuter">
+                                        <div class="border-0">
+                                            <div id="myDiv_searchotelbyname">
+                                                <h6 class="mb-0">
+                                                    Search by Hotel Name
+                                                </h6>
+                                            </div>
+                                            <div id="SearchByHotel" @*class="collapse show" aria-labelledby="SearchByHotel" data-parent="#SearchByHotel"*@>
+                                               
+
+
+                                                    <!-- Guest Rating -->
+                                                    <div style="width:100%; float:left; height:auto;">
+                                                        <div id="txtautocomplete" class="x align-items-center text-primary font-weight-semi-bold" style="margin-bottom:15px; ">
+                                                            <div class="ui-widget position-relative">
+
+                                                                <i><img src="~/images/search_icon.svg" class="position-absolute" style="top:14px; left:10px; width:22px;" /></i>
+
+                                                                <input id="inputhotelsearch" class="form-control pl-5" placeholder="e.g. Marriott" type="text" onclick="javascript:this.select();">
+                                                                @*<i class="demo-label">   <img src="~/images/close_icon.svg" class="position-absolute demo-label" style="top:18px; right:10px;" /></i>*@
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                    <div id="shopCartAccordion" class="accordion rounded shadow-none border-top w-100 filterSectionOuter">
+                                        <div class="border-0">
+                                            <div>
+                                                <h6 class="mb-0">
+                                                    Cancellation flexibility
+                                                </h6>
+                                            </div>
+                                            <div id="SearchByCancellation" @*class="collapse show" aria-labelledby="SearchByCancellation" data-parent="#SearchByCancellation"*@>
+                                                <div>
+                                                    <div class="rounded-xs">
+                                                        <div class="js-validate" novalidate="novalidate" method="post">
+                                                            <!-- Cancellation Flexibility Popup Code Begin -->
+                                                            <div id="login" style="opacity: 1;" data-target-group="idForm" class="animated fadeIn">
+                                                                <!-- Header -->
+                                                                <!-- End Header -->
+                                                                    <!-- Form Group -->
+                                                                    <div class="form-group">
+                                                                        <div class="font-size-13 mb-3">Only show stays that offer free cancellation</div>
+                                                                        <div class="d-flex justify-content-between">
+
+                                                                            <div>
+                                                                                <div style="margin-top:5px;" class="custom-control map-switch map-lable custom-switch text-lh-2 order-1" data-toggle="collapse" href="#MapcollapseExample02" role="button" aria-expanded="false" aria-controls="MapcollapseExample02">
+                                                                                    <input type="checkbox" class="custom-control-input" id="customSwitch12">
+                                                                                    <label class="custom-control-label" for="customSwitch12"></label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div>
+                                                                                <button type="button" class="btn btn-blue-theme" onclick="applyfilter();" aria-controls="signUpDropdown" aria-haspopup="true" aria-expanded="true" data-unfold-event="click" data-unfold-target="#signUpDropdown" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-delay="300" data-unfold-hide-on-scroll="true" data-unfold-animation-in="slideInUp" data-unfold-animation-out="fadeOut">Save</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                            <!-- Cancellation Flexibility Popup Code End -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                    <div id="propertyCategoryAccordionamen" class="accordion rounded-0 shadow-none border-top w-100 filterSectionOuter">
+                                        <div class="border-0">
+                                            <div id="propertyCategoryHeadingOneamen">
+                                                <h6 class="mb-0">
+                                                    Filter Amenities
+                                                </h6>
+                                            </div>
+                                            <div id="propertyCategoryOneamen" class="collapse show" @*aria-labelledby="propertyCategoryHeadingOneamen" data-parent="#propertyCategoryAccordionamen"*@>
+                                                <div class="">
+
+                                                    @foreach (var item in amenitiesList.Take(5))
+                                                    {
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-dark mb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" id="f_@item.id" value="@item.id" onclick="applyfilter()" class="custom-control-input">
+                                                                <label class="custom-control-label" for="f_@item.id">@item.name</label>
+                                                            </div>
+                                                        </div>
+                                                    }
+
+
+
+
+                                                    <!-- End Checkboxes -->
+                                                    <!-- View More - Collapse -->
+                                                    <div class="collapse" id="collapseBrand2amen">
+                                                        @foreach (var item in amenitiesList.Skip(5))
+                                                        {
+                                                            c++;
+                                                            if (amenitiesList.Skip(5).Count() == c)
+                                                            {
+                                                                <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-dark mb-3 pb-1">
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input type="checkbox" class="custom-control-input" id="f_@item.id" value="@item.id" onclick="applyfilter()">
+                                                                        <label class="custom-control-label" for="f_@item.id">@item.name</label>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+
+                                                                <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-dark mb-1">
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input type="checkbox" id="f_@item.id" value="@item.id" onclick="applyfilter()" class="custom-control-input">
+                                                                        <label class="custom-control-label" for="f_@item.id">@item.name</label>
+                                                                    </div>
+                                                                </div>
+                                                            }
+
+
+                                                        }
+
+
+                                                    </div>
+                                                    <!-- End View More - Collapse -->
+                                                    <!-- Link -->
+                                                    <a class="link link-collapse small font-size-1" data-toggle="collapse" href="#collapseBrand2amen" role="button" aria-expanded="false" aria-controls="collapseBrand2amen">
+                                                        <span class="link-collapse__default font-size-14">Show all (@amenitiesList.Skip(5).Count())</span>
+                                                        <span class="link-collapse__active font-size-14">Show less</span>
+                                                    </a>
+                                                    <!-- End Link -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                    <div id="shopCartAccordion" class="accordion rounded shadow-none border-top w-100 filterSectionOuter">
+                                        <div class="border-0">
+                                            <div id="shopCardHeadingOne">
+                                                <h6 class="mb-0">
+                                                    Price Range (@currency)
+                                                </h6>
+                                            </div>
+                                            <div id="shopCardOne" class="collapse show" aria-labelledby="shopCardHeadingOne" data-parent="#shopCartAccordion">
+                                                <div class="">
+                                                    <div class="pb-3 mb-1 d-flex text-lh-1 font-size-13">
+                                                        <span>@currency </span>
+                                                        <span id="rangeSliderExample3MinResult" class=""></span>
+                                                        <span class="mx-0dot5"> — </span>
+                                                        <span>@currency </span>
+                                                        <span id="rangeSliderExample3MaxResult" class=""></span>
+                                                    </div>
+                                                    <input class="js-range-slider" type="text"
+                                                           data-extra-classes="u-range-slider height-35"
+                                                           data-type="double"
+                                                           data-grid="false"
+                                                           data-hide-from-to="true"
+                                                           data-min="0"
+                                                           data-max="@maxPrice"
+                                                           data-from="@minPrice"
+                                                           data-to="@maxPrice"
+                                                           data-prefix="$"
+                                                           data-result-min="#rangeSliderExample3MinResult"
+                                                           data-result-max="#rangeSliderExample3MaxResult">
+                                                </div>
+                                                <input type="hidden" id="minfareslide" value="" />
+                                                <input type="hidden" id="maxfareslide" value="" />
+                                                @*<div style="width:100%; float:left; height:auto; padding:20px; padding-top:5px; background-color:#f3f3f3;">
+                            <div style="width:50%; float:left; height:40px; ">
+                                <input type="number" class="form-control" name="min_txt" id="min_txt" placeholder="Min Price £" aria-label="Min Price £" aria-describedby="signinEmail" required="" data-msg="Please enter a valid number." data-error-class="u-has-error" data-success-class="u-has-success" style="border:1px solid #ccc;">
+                            </div>
+                            <div style="width:50%; float:left; height:40px;  ">
+                                <input type="number" class="form-control" name="max_txt" id="max_txt" placeholder="Max Price £" aria-label="Max Price £" aria-describedby="signinEmail" required="" data-msg="Please enter a valid number." data-error-class="u-has-error" data-success-class="u-has-success" style="border:1px solid #ccc;">
+                            </div>
+                        </div>
+                        <div style="width:100%; float:left; height:auto; padding:20px; padding-top:5px; background-color:#f3f3f3; text-align:center;">
+                            <button type="button" class="btn btn-blue-theme" onclick="applyfilter()">Save</button>
+                        </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                    <div id="propertyCategoryAccordionstar" class="accordion rounded-0 shadow-none border-top w-100 filterSectionOuter">
+                                        <div class="border-0">
+                                            <div id="propertyCategoryHeadingOnestar">
+                                                <h6 class="mb-0">
+                                                    Star Rating
+                                                </h6>
+                                            </div>
+                                            <div id="propertyCategoryOne01star" class="collapse show" @*aria-labelledby="propertyCategoryHeadingOnestar" data-parent="#propertyCategoryAccordionstar"*@>
+                                                
+                                                    @foreach (var item in ratingList)
+                                                    {
+
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-dark mb-1 pb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" value="@item.Start" id="r_@item.Start" onclick="applyfilter()" style="border: #3554d1 solid 2px !important;">
+                                                                <label class="custom-control-label" for="r_@item.Start">
+                                                                    @if (item.Start != "")
+                                                                    {
+                                                                        for (int b = 0; b < Convert.ToInt32(item.Start); b++)
+                                                                        {
+                                                                            <small class="fas fa-star star_color star_color"></small>
+                                                                        }
+                                                                    }
+                                                                </label>
+                                                            </div>
+                                                            @*<small>@item.Count</small>*@
+                                                        </div>
+                                                    }
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    
+                                    @*<div class="py-5">
+                                        <button type="button" class="btn btn-outline-primary rounded-pill removeallfilter w-100 d-block d-sm-none d-md-none d-lg-none d-xl-none d-xl-none" style="margin:0 auto;"><strong>Apply all filters</strong></button>
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9 order-1 order-lg-0" id="hotelaccomodation">
+                            @{
+                                Html.RenderPartial("~/Views/Shared/searchresult/_SearchResult.cshtml", hotels);
+                            }
+                        </div>
+
+
+                        <!--HOTEL LISTING SHOWING WITH MAP END CODE-->
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!--HOTEL LISTING SHOWING WITH MAP END CODE-->
+
+    <!-- JS Implementing Plugins -->
+}
+else
+{
+    var rootPath = Data.GetMeRoom.GlobalConstant.ConfigVariables.SITEROOTPATH;
+    <main id="content" style="background-color: #fff !important;">
+        <div class="border-bottom" style="margin-bottom: 10px;">
+            <a href="@rootPath">
+                <div class="container-fluid" style="background-color: #f3f3f3;padding-top: 5px;padding-bottom: 5px; height:700px; background-color:#3554d1; background-image:url('@rootPath/Content/img/404bg.jpg'); background-position:center top;  ">
+                    <h3 class="font-size-21 font-weight-bold mb-0 text-lh-1 mr-2 mb-3 mb-md-0 flex-shrink-0" style="padding-top: 20px;padding-bottom: 5px;
+        font-weight: 400 !important;font-size: 15px;">
+                    </h3>
+                </div>
+            </a>
+        </div>
+    </main>
+}
+<script type="text/javascript">
+
+    function applyFilterbutton() {
+        $("#minfareslide").val("");
+        $("#maxfareslide").val("");
+        applyfilter();
+    }
+
+    function applyfilter() {
+        var minfare = $("#min_txt").val();
+        var maxfare = $("#max_txt").val();
+        if ($("#minfareslide").val() !== "") {
+            minfare = $("#minfareslide").val();
+            maxfare = $("#maxfareslide").val();
+        }
+
+        var amenities = $("#propertyCategoryAccordionamen input:checkbox:checked").map(function () {
+            return $(this).val();
+        }).get();
+
+        var starrating = $("#propertyCategoryOne01star input:checkbox:checked").map(function () {
+            return $(this).val();
+        }).get();
+
+        var guestratingtop = $("#propertyCategoryOne047gr01 input:checkbox:checked").map(function () {
+            return $(this).val();
+        }).get();
+
+        var guestrating = $("#propertyCategoryAccordion046 input:checkbox:checked").map(function () {
+            return $(this).val();
+        }).get();
+
+        var ourrecom = $("#propertyCategoryAccordion047rec input:checkbox:checked").map(function () {
+            return $(this).val();
+        }).get();
+
+        var customSwitch12 = $("#customSwitch12").prop("checked");
+        var guestrate = $.merge(guestratingtop, guestrating);
+
+        var jsondata = JSON.stringify({
+            'guestrating': guestrate,
+            'amenities': amenities,
+            'starrating': starrating,
+            'ourrecom': ourrecom,
+            'IsFreeCancellation': customSwitch12,
+            'minfare': minfare,
+            'maxfare': maxfare
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/Hotel/FilterAccomodation",
+            data: jsondata,
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                $('#hotelaccomodation').html('');
+                $('#hotelaccomodation').html(response);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+
+
+    function applyHotelfilter(hotelname) {
+        // var hotelname = $("#inputhotelsearch").val();
+        if (hotelname === "") {
+            alert("Please select hotel name");
+            return false;
+        }
+
+        var jsondata = JSON.stringify({
+            'hotelname': hotelname,
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/Hotel/FilterByName",
+            data: jsondata,
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                $('#hotelaccomodation').html('');
+                $('#hotelaccomodation').html(response);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+
+</script>
+

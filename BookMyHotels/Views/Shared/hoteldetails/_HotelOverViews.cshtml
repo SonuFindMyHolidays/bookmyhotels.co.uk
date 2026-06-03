@@ -1,0 +1,31 @@
+﻿@model List<Data.GetMeRoom.Models.Detail.Description>
+
+@if (Model != null && Model.Count > 0)
+{
+   
+    int bindFirst = Convert.ToInt32((Model.Count / 2).ToString().Split('.')[0]);
+
+    <h5 class="desc-main-title">
+        Overview
+    </h5>
+    <b style="text-transform:capitalize;">@Model.FirstOrDefault().Type.Replace("-", " ").Replace("_", " ")</b>
+    <p style="text-align:justify; font-weight:300;">@Html.Raw(Model.FirstOrDefault().Text)</p>
+
+
+    for (int i = 0; i < Model.Count(); i++)
+    {
+        <div class="collapse" id="collapseLinkExample">
+            <b style="text-transform:capitalize;">@Model[i].Type.Replace("-", " ").Replace("_", " ")</b>
+            <p style="text-align:justify;font-weight:300;">@Html.Raw(Model[i].Text)</p>
+        </div>
+    }
+    if (Model.Count > 1)
+    {
+    <p class="link-collapse link-collapse-custom gradient-overlay-half mb-5 d-inline-block border-bottom border-primary" data-toggle="collapse" href="#collapseLinkExample" role="button" aria-expanded="false" aria-controls="collapseLinkExample" style="padding-top:8px; cursor:pointer;">
+        <span class="link-collapse__default font-size-14">View More <i class="flaticon-down-chevron font-size-10 ml-1" style="font-size:14px !important;"></i></span>
+        <span class="link-collapse__active font-size-14">View Less <i class="flaticon-arrow font-size-10 ml-1"></i></span>
+    </p>
+    }
+}
+
+

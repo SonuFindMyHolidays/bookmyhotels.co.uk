@@ -1,0 +1,1 @@
+{"hotel_city_code":"IDDEL","checkin_date":"2026-06-17","checkout_date":"2026-06-19","room_details":[{"adt_cnt":2,"chd_cnt":0,"ages":[],"room_rates":null}],"currency":"INR","hotel_reference":{"chain_code":"ID","hotel_code":"935585","hotel_code_context":"RS","provider_name":"restle"}}

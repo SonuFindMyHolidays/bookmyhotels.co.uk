@@ -1,0 +1,613 @@
+﻿@model Data.GetMeRoom.Models.Search.SearchRQ_V1
+@using Data.GetMeRoom.Models.Search
+@{
+    SearchFormRequest searchFormRequest = (SearchFormRequest)Session["searchFormRequest"];
+    string request = Newtonsoft.Json.JsonConvert.SerializeObject(searchFormRequest);
+    string roomInfo = searchFormRequest.roomInfo;
+    string destination = searchFormRequest.destination;
+    string destCode = searchFormRequest.destCode;
+    string daterange = searchFormRequest.daterange;
+    int totalrooms = searchFormRequest.roomCount;
+}
+
+<!--//////////////Modify Result Code Begin //////////////-->
+<style>
+    .a_remo_txt {
+        cursor: pointer !important;
+        position: absolute !important;
+        font-size: 15px !important;
+        color: #1b72b3 !important;
+    }
+
+        .a_remo_txt:hover {
+            cursor: pointer !important;
+            position: absolute !important;
+            font-size: 15px !important;
+            color: #1b72b3 !important;
+            text-decoration: underline !important;
+        }
+</style>
+<script>
+    $(document).ready(function () {
+        // Hide div by setting display to none
+        $(".hide-btn").click(function () {
+            $("#myDiv").hide();
+        });
+
+        // Show div by removing inline display none style rule
+        $(".show-btn").click(function () {
+            $("#myDiv").show();
+        });
+
+        // Toggle div display
+        $(".toggle-btn").click(function () {
+            $("#myDiv").toggle();
+        });
+    });
+</script>
+
+<div class="card w-100">
+    <!-- Nav Classic -->
+    <!-- End Nav Classic -->
+    <div class="tab-content hero-tab-pane">
+        <div class="tab-pane fade active show" id="pills-one-example2" role="tabpanel" aria-labelledby="pills-one-example2-tab">
+            <!-- Search Jobs Form -->
+            <div class="p-3 gradient-overlay-half-white-gradient" style="padding: 0rem !important;">
+                <div class="card border-0">
+                    <div class="js-validate">
+                        @using (Html.BeginForm("HotelSearch", "Home", FormMethod.Post, new { name = "frmsearch", id = "frmsearch" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="row d-block nav-select d-lg-flex mb-lg-2 p-3">
+                                <div class="col-sm-12 col-xl-3dot7 mb-4 mb-xl-0 ">
+                                    <!-- Input -->
+                                    <span class="d-block text-black font-size-13 font-weight-bold text-left mb-0">Destination or Hotel Name</span>
+                                    <input type="hidden" id="hdnlocation" name="hdnlocation" />
+                                    <input type="hidden" name="hdnrooms" id="hdnrooms" value="1" />
+                                    <input type="hidden" name="hdndate" id="hdndate" value="" />
+                                    <!-- Autocompete Input Code Begin -->
+                                    <div id="txtautocomplete" class="dropdown bootstrap-select js-select dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold">
+
+                                        <div class="ui-widget" style="width: 100% !important;">
+                                            <input id="location" placeholder="Country" name="location" type="text" style="width: 100%; line-height: 1.8 !important;">
+                                        </div>
+                                    </div>
+                                    <!-- Autocompete Input Code End -->
+                                </div>
+
+
+                                <div class="col-sm-12 col-lg-5 col-xl-3dot6 mb-4 mb-lg-0 ">
+                                    <!-- Input -->
+                                    <span class="d-block text-black font-size-13 font-weight-bold text-left mb-0">Check In - Out</span>
+                                    <div class="border-bottom border-width-2 border-color-1">
+                                        <!-- Datepicker -->
+                                        <div id="datepickerWrapper" class="u-datepicker w-auto input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text p-0">
+                                                    <span class="fas fa-calendar"></span>
+                                                </span>
+                                            </div>
+                                            <input id="datepicker" data-provide="datepicker" name="datepicker" style="border:0px solid #ccc;" class="js-range-datepicker form-control bg-transparent rounded-right" type="date"
+                                                   data-rp-wrapper="#datepickerWrapper"
+                                                   data-rp-type="range"
+                                                   data-rp-date-format="d/m/y"
+                                                   placeholder="Check-in & Check-out">
+                                        </div>
+
+                                        <!-- End Datepicker -->
+                                    </div>
+                                    <!-- End Input -->
+                                </div>
+
+
+
+
+
+
+                                <div id="form1" class="col-sm-12 col-lg-4 col-xl-2dot8 mb-4 mb-lg-0 dropdown-custom">
+                                    <!-- Input -->
+                                    <span class="d-block text-black font-size-13 font-weight-bold text-left mb-0">Rooms and Guests</span>
+                                    <a id="basicDropdownClickInvoker" class="dropdown-nav-link dropdown-toggle d-flex pt-3 pb-2 toggle-btn" role="button" aria-controls="basicDropdownClick" aria-haspopup="true" aria-expanded="false" data-unfold-event="click" data-unfold-target="#basicDropdownClick" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-delay="300" data-unfold-hide-on-scroll="true" data-unfold-animation-in="slideInUp" data-unfold-animation-out="fadeOut">
+                                        <i class="flaticon-plus d-flex align-items-center mr-3 font-size-18 text-primary font-weight-semi-bold"></i>
+                                        <span class="text-black font-size-15 font-weight-semi-bold">  <span id="totalpaxes">2</span> Travellers, <span id="spanadults">1</span> Room's </span>
+                                    </a>
+                                    <div id="myDiv" style="height:auto; width:100%; float:left; position:absolute; z-index:111111 !important; background-color:#fff; display:none;box-shadow: 0px 0.5rem 1rem 0px rgba(0, 11, 38, 0.24);">
+                                        @*<div id="basicDropdownClick" class="dropdown-menu dropdown-unfold col-11 m-0 u-unfold--css-animation u-unfold--hidden" aria-labelledby="basicDropdownClickInvoker" style="animation-duration: 300ms;margin-top:0px !important;">*@
+                                        <div>
+                                            <div id="Room1">
+                                                <div style="margin-bottom:10px; margin-top:15px;">
+                                                    <span style="font-weight: bold;padding: 10px;color: #2b2b2b;padding-left: 30px;">Room 1:</span>
+                                                </div>
+                                                <div class="w-100  px-3 mb-3">
+                                                    <div class="js-quantity mx-3 row align-items-center justify-content-between">
+                                                        <span class="d-block font-size-16 text-secondary font-weight-medium">Adults</span>
+                                                        <div class="d-flex">
+                                                            <select name="room-1-adults" class="add" onchange="calculatepax()" id="topic" style="width:120px; height:auto; padding:10px;">
+                                                                <option value="1">1</option>
+                                                                <option value="2" selected>2</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="w-100 px-3">
+                                                    <div class="js-quantity mx-3 row align-items-center justify-content-between">
+                                                        <span class="d-block font-size-16 text-secondary font-weight-medium">Children</span>
+                                                        <div class="d-flex">
+                                                            <select class="DropdownClass add" name="room-1-childs" onchange="calculatepax()" id="selectModelNumber" style="width:120px; height:auto; padding:10px;">
+                                                                <option value="0" selected>0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div id="child_age_dv" style="width:100%; height:auto; float:left; margin-top:0px; ">
+                                                        <div style="width:100%; height:auto; float:left;padding-left:10px;">
+                                                            <div class="CommonAttribute DivElement1" id="room-1-child-1" style="display:none;width:50%; height:auto; float:left;padding-bottom:5px;">
+                                                                <label style="font-size:10px !important;"> Child 1 age</label>
+                                                                <select name="room-1-child-1-age" id="room-1-child-1-age" style="padding:1px; padding-top:6px; padding-bottom:6px; width:90%;">
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+                                                                    <option value="7">7</option>
+                                                                    <option value="8">8</option>
+                                                                    <option value="9">9</option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="11">11</option>
+                                                                    <option value="12">12</option>
+                                                                    <option value="13">13</option>
+                                                                    <option value="14">14</option>
+                                                                    <option value="15">15</option>
+                                                                    <option value="16">16</option>
+                                                                    <option value="17">17</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="CommonAttribute DivElement1" id="room-1-child-2" style="display:none; width:50%; height:auto; float:left; ">
+                                                                <label style="font-size:10px !important;"> Child 2 age</label>
+                                                                <select name="room-1-child-2-age" id="room-1-child-2-age" style="padding:1px; padding-top:6px; padding-bottom:6px; width:90%;">
+                                                                    <option value="0">< 1</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+                                                                    <option value="7">7</option>
+                                                                    <option value="8">8</option>
+                                                                    <option value="9">9</option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="11">11</option>
+                                                                    <option value="12">12</option>
+                                                                    <option value="13">13</option>
+                                                                    <option value="14">14</option>
+                                                                    <option value="15">15</option>
+                                                                    <option value="16">16</option>
+                                                                    <option value="17">17</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Room 2 Code Begin-->
+                                            <div id="more01" style="display:none; height:auto; width:100%; float:left;margin-top:20px;padding-bottom:20px; border-top:1px solid #ccc;border-bottom:1px solid #ccc; padding-top:8px;  ">
+
+                                                <div style="margin-bottom:10px;">
+                                                    <span style="font-weight:bold;padding:10px;color:#2b2b2b;padding-left:30px;">Room 2:</span>
+                                                </div>
+
+
+                                                <div style="float:right;position:relative; right:85px; top:-35px;">
+                                                    <!--<span onclick="myFunction01()" style="border:2px solid #ff0000;  cursor:pointer; font-weight:bold; padding:2px; color:#ff0000">X</span>-->
+                                                    <a id="dv_rem_2" onclick="myFunction01()" class="a_remo_txt">
+                                                        Remove
+                                                    </a>
+                                                </div>
+
+
+                                                <div id="Room2">
+
+                                                    <div class="w-100  px-3 mb-3">
+                                                        <div class="js-quantity mx-3 row align-items-center justify-content-between">
+                                                            <span class="d-block font-size-16 text-secondary font-weight-medium">Adults</span>
+                                                            <div class="d-flex">
+                                                                <select name="room-2-adults" class="add" onchange="calculatepax()" id="topic02" style="width:120px; height:auto; padding:10px;">
+                                                                    <option value="1" selected>1</option>
+                                                                    <option value="2">2</option>
+
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="w-100 px-3">
+                                                        <div class="js-quantity mx-3 row align-items-center justify-content-between">
+                                                            <span class="d-block font-size-16 text-secondary font-weight-medium">Children</span>
+                                                            <div class="d-flex">
+                                                                <select class="DropdownClass_02 add" onchange="calculatepax()" name="room-2-childs" id="selectModelNumber02" style="width:120px; height:auto; padding:10px;">
+                                                                    <option value="0" selected>0</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div id="child_age_dv" style="width:100%; height:auto; float:left;  ">
+                                                            <div style="width:100%; height:auto; float:left;padding-left: 10px;">
+                                                                <div class="CommonAttribute_02 DivElement1" id="room-2-child-1" style="display:none;width:50%; height:auto; float:left;">
+                                                                    <label id="child0201" style="font-size:12px !important;"> Child 1 age</label>
+                                                                    <select id="room_02_ch01" name="room-2-child-1-age" style="padding:1px; padding-top:6px; padding-bottom:6px; width:90%;">
+                                                                        <option value="1" selected>1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="7">7</option>
+                                                                        <option value="8">8</option>
+                                                                        <option value="9">9</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="11">11</option>
+                                                                        <option value="12">12</option>
+                                                                        <option value="13">13</option>
+                                                                        <option value="14">14</option>
+                                                                        <option value="15">15</option>
+                                                                        <option value="16">16</option>
+                                                                        <option value="17">17</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="CommonAttribute_02 DivElement1" id="room-2-child-2" style="display:none; width:50%; height:auto; float:left;">
+                                                                    <label id="child0202" style="font-size:12px !important;"> Child 2 age</label>
+                                                                    <select id="room_02_ch02" name="room-2-child-2-age" style="padding:1px; padding-top:6px; padding-bottom:6px; width:90%;">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="7">7</option>
+                                                                        <option value="8">8</option>
+                                                                        <option value="9">9</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="11">11</option>
+                                                                        <option value="12">12</option>
+                                                                        <option value="13">13</option>
+                                                                        <option value="14">14</option>
+                                                                        <option value="15">15</option>
+                                                                        <option value="16">16</option>
+                                                                        <option value="17">17</option>
+                                                                    </select>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div style="width:50%; height:auto;  float:left;margin-top:15px;padding-left:15px;  ">
+                                                            <span><span id="dots03"></span></span>
+                                                            <span onclick="myFunction03()" id="myBtn03" class="" style="font-weight:500; text-align:center; display:block; cursor:pointer;  font-size:12px; border:1px solid #3554d1; padding:6px; color:#3554d1;width: 70px; ">
+                                                                Add another room
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Room 3 Code Begin-->
+                                            <div id="more03" style="display:none; height:auto; width:100%; float:left;margin-top:0px;border-bottom:1px solid #ccc;  padding-top:8px;padding-bottom:20px;  ">
+
+                                                <div style="margin-bottom:10px;">
+                                                    <span style="font-weight:bold;padding:10px;color:#2b2b2b;padding-left:25px;">Room 3:</span>
+                                                </div>
+
+
+                                                <div style="float:right;position:relative; right:85px; top:-35px;">
+                                                    <a id="dv_rem_3" onclick="myFunction03()" class="a_remo_txt">
+                                                        Remove
+                                                    </a>
+                                                </div>
+
+
+
+                                                <div id="Room2">
+
+                                                    <div class="w-100  px-3 mb-3">
+                                                        <div class="js-quantity mx-3 row align-items-center justify-content-between">
+                                                            <span class="d-block font-size-16 text-secondary font-weight-medium">Adults</span>
+                                                            <div class="d-flex">
+                                                                <select name="room-3-adults" onchange="calculatepax()" id="topic03" style="width:120px; height:auto; padding:10px;">
+                                                                    <option value="1" selected>1</option>
+                                                                    <option value="2">2</option>
+
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="w-100 px-3">
+                                                        <div class="js-quantity mx-3 row align-items-center justify-content-between">
+                                                            <span class="d-block font-size-16 text-secondary font-weight-medium">Children</span>
+                                                            <div class="d-flex">
+                                                                <select class="DropdownClass_03" onchange="calculatepax()" name="room-3-childs" id="selectModelNumber03" style="width:120px; height:auto; padding:10px;">
+                                                                    <option value="0" selected>0</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+
+                                                                </select>
+
+
+
+                                                            </div>
+
+                                                        </div>
+                                                        <div id="child_age_dv" style="width:100%; height:auto; float:left;  ">
+                                                            <div style="width:100%; height:auto; float:left;padding-left: 10px;">
+                                                                <div class="CommonAttribute_03 DivElement1" id="room-3-child-1" style="display:none;width:50%; height:auto; float:left;">
+                                                                    <label id="child0301" style="font-size:12px !important;"> Child 1 age</label>
+                                                                    <select id="room_03_ch01" name="room-3-child-1-age" style="padding:1px; padding-top:6px; padding-bottom:6px; width:90%;">
+                                                                        <option value="1" selected>1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="7">7</option>
+                                                                        <option value="8">8</option>
+                                                                        <option value="9">9</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="11">11</option>
+                                                                        <option value="12">12</option>
+                                                                        <option value="13">13</option>
+                                                                        <option value="14">14</option>
+                                                                        <option value="15">15</option>
+                                                                        <option value="16">16</option>
+                                                                        <option value="17">17</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="CommonAttribute_03 DivElement1" id="room-3-child-2" style="display:none; width:50%; height:auto; float:left;">
+                                                                    <label id="child0302" style="font-size:12px !important;"> Child 2 age</label>
+                                                                    <select id="room_03_ch02" name="room-3-child-2-age" style="padding:1px; padding-top:6px; padding-bottom:6px; width:90%;">
+                                                                        <option value="1" selected>1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="7">7</option>
+                                                                        <option value="8">8</option>
+                                                                        <option value="9">9</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="11">11</option>
+                                                                        <option value="12">12</option>
+                                                                        <option value="13">13</option>
+                                                                        <option value="14">14</option>
+                                                                        <option value="15">15</option>
+                                                                        <option value="16">16</option>
+                                                                        <option value="17">17</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div style="width:50%; height:auto;  float:left; margin-top:12px;padding-left:15px;  ">
+                                                            <span><span id="dots03"></span></span>
+                                                            <span onclick="myFunction04()" id="myBtn04" class="" style="font-weight:500; text-align:center; display:block;cursor:pointer;  font-size:12px; border:1px solid #3554d1; padding:6px; color:#3554d1;width: 70px; ">
+                                                                Add another room
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+
+                                                </div>
+
+
+
+
+                                            </div>
+
+                                            <!--Room 4 Code Begin-->
+                                            <div id="more04" style="display:none; height:auto; width:100%; float:left;margin-top:10px; border-top:0px solid #ccc; ">
+
+                                                <div style="margin-bottom:10px;">
+                                                    <span style="font-weight:bold;padding:10px;color:#2b2b2b;padding-left:30px;">Room 4:</span>
+                                                </div>
+                                                <div style="float:right;position:relative; right:85px; top:-35px;">
+
+
+                                                    <a id="dv_rem_4" onclick="myFunction04()" style=" cursor: pointer; " class="a_remo_txt">
+                                                        Remove
+                                                    </a>
+                                                </div>
+
+
+
+                                                <div id="Room2">
+
+                                                    <div class="w-100  px-3 mb-3">
+                                                        <div class="js-quantity mx-3 row align-items-center justify-content-between">
+                                                            <span class="d-block font-size-16 text-secondary font-weight-medium">Adults</span>
+                                                            <div class="d-flex">
+                                                                <select name="room-4-adults" onchange="calculatepax()" id="topic04" style="width:120px; height:auto; padding:10px;">
+                                                                    <option value="1" selected>1</option>
+                                                                    <option value="2">2</option>
+
+                                                                </select>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="w-100 px-3">
+                                                        <div class="js-quantity mx-3 row align-items-center justify-content-between">
+                                                            <span class="d-block font-size-16 text-secondary font-weight-medium">Children</span>
+                                                            <div class="d-flex">
+
+
+                                                                <select class="DropdownClass_04" onchange="calculatepax()" name="room-4-childs" id="selectModelNumber04" style="width:120px; height:auto; padding:10px;">
+                                                                    <option value="0" selected>0</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                </select>
+
+
+
+                                                            </div>
+
+                                                        </div>
+                                                        <div id="child_age_dv" style="width:100%; height:auto; float:left;  ">
+                                                            <div style="width:100%; height:auto; float:left;padding-left: 10px;">
+                                                                <div class="CommonAttribute_04 DivElement1" id="room-4-child-1" style="display:none;width:50%; height:auto; float:left;">
+                                                                    <label id="child0401" style="font-size:12px !important;"> Child 1 age</label>
+                                                                    <select id="room_04_ch01" name="room-4-child-1-age" style="padding:1px; padding-top:6px; padding-bottom:6px; width:90%;">
+                                                                        <option value="1" selected>1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="7">7</option>
+                                                                        <option value="8">8</option>
+                                                                        <option value="9">9</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="11">11</option>
+                                                                        <option value="12">12</option>
+                                                                        <option value="13">13</option>
+                                                                        <option value="14">14</option>
+                                                                        <option value="15">15</option>
+                                                                        <option value="16">16</option>
+                                                                        <option value="17">17</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="CommonAttribute_04 DivElement1" id="room-4-child-2" style="display:none; width:50%; height:auto; float:left;">
+                                                                    <label id="child0402" style="font-size:12px !important;"> Child 2 age</label>
+                                                                    <select id="room_04_ch02" name="room-4-child-2-age" style="padding:1px; padding-top:6px; padding-bottom:6px; width:90%;">
+                                                                        <option value="0">< 1</option>
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="7">7</option>
+                                                                        <option value="8">8</option>
+                                                                        <option value="9">9</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="11">11</option>
+                                                                        <option value="12">12</option>
+                                                                        <option value="13">13</option>
+                                                                        <option value="14">14</option>
+                                                                        <option value="15">15</option>
+                                                                        <option value="16">16</option>
+                                                                        <option value="17">17</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div style="width:100%; height:auto; float:left; padding:0px;  text-align:left; margin-bottom:10px;margin-top:15px; ">
+
+                                                @*<div style=" height:auto; float:left; margin-bottom:10px; padding-left:30px;">
+                                                    <span><span id="dots01"></span></span>
+                                                    <span onclick="myFunction01()" id="myBtn01" class="add-room-btn" style="cursor:pointer; text-align:left; font-size:14px;  font-weight:bold; padding:6px; color:#3554d1;margin-left:0px;  ">
+                                                        Add another room
+                                                    </span>
+                                                </div>
+
+                                                <div style="height:auto;  float:left; margin-bottom:10px;padding-left:30px; ">
+                                                    <span><span id="dots03"></span></span>
+                                                    <span onclick="myFunction03()" id="myBtn03" class="add-room-btn" style="font-weight: bold; cursor: pointer; text-align: center; display: none; font-size: 14px; padding: 6px; color: #3554d1; width: 100%; margin-left: 0px;">
+                                                        Add another room
+                                                    </span>
+                                                </div>
+
+                                                <div style="width:50%; height:auto;  float:left; margin-bottom:10px; padding-left:30px;">
+                                                    <span><span id="dots04"></span></span>
+                                                    <span onclick="myFunction04()" id="myBtn04" class="add-room-btn" style="font-weight:500;cursor:pointer;text-align:center; display:none; font-size:12px; border:1px solid #3554d1; padding:6px; color:#3554d1; width: 100px;margin-left:0px;">
+                                                        Add another room
+                                                    </span>
+                                                </div>*@
+
+
+
+                                            </div>
+
+
+                                        </div>
+                                        <p style="text-align:center;padding-bottom:10px;">
+                                            <span class="btn btn-primary text-white font-weight-bold btn-normal transition-3d-hover w-100 w-md-auto w-lg-100 hide-btn" style="width:82% !important; cursor:pointer; ">Done</span>
+                                        </p>
+                                    </div>
+                                    <!-- End Input -->
+                                </div>
+
+
+
+                                <div class="col-sm-12 col-md-12 col-lg-3 col-xl-1dot8 align-self-lg-end text-md-right">
+                                    <button type="submit" value="Submit" onclick="return validateForm()" class="btn btn-primary text-white font-weight-bold btn-normal transition-3d-hover w-100 w-sm-100 w-md-100 w-lg-100 bdr-radius">Search</button>
+                                </div>
+                            </div>
+
+                            <!-- End Checkbox -->
+                        }
+                    </div>
+                </div>
+            </div>
+            <!-- End Search Jobs Form -->
+        </div>
+    </div>
+</div>
+
+<!--//////////////Modify Result Code Begin //////////////-->
+
+<script src="~/Content/js/js-common-s.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#location").autocomplete({
+            source: function (request, response) {
+                $.getJSON("/Suggest/autosuggest", { location: $('#location').val() },
+                    response);
+            },
+            dataType: "json",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            minLength: 3,
+            select: function (event, ui) {
+                $("#location").val(ui.item.PropertyName);
+                $("#hdnlocation").val(ui.item.Code);
+                event.preventDefault();
+            }
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li></li>").addClass("airport-bg")
+                .append(item.RawString)
+                .appendTo(ul);
+        };
+    });
+
+    $(document).ready(function () {
+        var roomInfo = '@roomInfo';
+        var destination = '@destination';
+        var destCode = '@destCode';
+        var daterange = '@daterange';
+        var totalrooms = '@totalrooms';
+        if (destination != '' && destCode != '' && roomInfo != '' && totalrooms != '') {
+            SetSearchVariables(destination, destCode, daterange, roomInfo, totalrooms);
+        }
+    });
+</script>

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>@ViewBag.Title</title>
+
+    <meta name="description" content="@ViewBag.MetaDescription" />
+
+    <link rel="canonical" href="@ViewBag.CanonicalUrl" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/img/FavIcon.png">
+
+    <link rel="stylesheet" href="~/Content/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="~/Content/css/font-mytravel.css">
+    <link rel="stylesheet" href="~/Content/vendor/jquery-ui/themes/base/jquery-ui.min.css">
+
+    <link rel="stylesheet" href="~/Content/vendor/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/dzsparallaxer/dzsparallaxer.css">
+    <link rel="stylesheet" href="~/Content/css/theme.css">
+    <link rel="stylesheet" href="~/Content/css/sandycommon.css" />
+    <link rel="stylesheet" href="~/Content/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="~/Content/vendor/fancybox/jquery.fancybox.css">
+
+    <script src="~/Content/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="canonical" href="@Request.Url.AbsoluteUri" />
+</head>
+<body>
+    @{
+        Html.RenderPartial("_header");
+    }
+    <main id="content">
+        @RenderBody()
+    </main>
+    @{
+        Html.RenderPartial("_footer");
+    }
+    <!-- Go to Top -->
+    <a class="js-go-to u-go-to-modern" href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400" data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown">
+        <span class="flaticon-arrow u-go-to-modern__inner"></span>
+    </a>
+    <!-- End Go to Top -->
+  
+    <script src="~/Content/js/js-common-s.js"></script>
+
+
+    <script src="~/Content/vendor/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="~/Content/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="~/Content/vendor/slick-carousel/slick/slick.js"></script>
+    <script src="~/Content/vendor/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="~/Content/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+    <!-- JS crousol -->
+    <script src="~/Content/js/hs.core.js"></script>
+    <script src="~/Content/js/components/hs.header.js"></script>
+    <script src="~/Content/js/components/hs.unfold.js"></script>
+    <script src="~/Content/js/components/hs.show-animation.js"></script>
+    <script src="~/Content/vendor/gmaps/gmaps.min.js"></script>
+    <script src="~/Content/vendor/fancybox/jquery.fancybox.min.js"></script>
+    <script src="~/Content/vendor/appear.js"></script>
+
+    <!-- JS Common -->
+    <script src="~/Content/js/components/hs.range-datepicker.js"></script>
+    <script src="~/Content/js/components/hs.selectpicker.js"></script>
+    <script src="~/Content/js/components/hs.range-slider.js"></script>
+    <script src="~/Content/js/components/hs.toggle-state.js"></script>
+    <script src="~/Content/js/components/hs.malihu-scrollbar.js"></script>
+    <script src="~/Content/js/components/hs.scroll-nav.js"></script>
+
+    <script src="~/Content/js/components/hs.go-to.js"></script>
+    <script src="~/Content/js/components/hs.quantity-counter.js"></script>
+    <script src="~/Content/js/components/hs.slick-carousel.js"></script>
+    <script src="~/Content/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/bootstrap.min.js"></script>
+
+</body>
+</html>

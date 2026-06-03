@@ -1,0 +1,508 @@
+﻿.star_color {
+    color: #febb02 !important;
+}
+
+@media screen and (max-width: 996px) {
+    .sa_hidden {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1208px) {
+    .sa_hidden_txt {
+        display: none !important;
+    }
+}
+
+.flaticon-down-chevron::before {
+    content: url('../img/arrowup-down.png') !important;
+}
+
+.p_sa_txt {
+    text-align: left;
+    margin-bottom: 0px !important;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1010px) {
+    .p_sa_txt {
+        text-align: center;
+    }
+}
+
+.p_sa02_txt {
+    padding-left: 0px;
+    padding-right: 0px;
+    float: left;
+    text-align: right;
+}
+
+@media screen and (max-width: 1010px) {
+    .p_sa02_txt {
+        text-align: center;
+    }
+}
+
+
+@media screen and (max-width: 1210px) {
+    .hiddensa_xs {
+        display:none !important;
+    }
+}
+
+
+
+.star_color {
+    color: #febb02 !important;
+}
+
+@media screen and (max-width: 996px) {
+    .sa_hidden {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1208px) {
+    .sa_hidden_txt {
+        display: none !important;
+    }
+}
+
+.dropdown-menu {
+    margin-top: 20px !important;
+    font-size: 0.875rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 5px 9px rgba(41, 124, 187, 0.075), 0 5px 9px rgba(119, 131, 143, 0.075);
+}
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+.custom-control-label {
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: top;
+    text-align: left !important;
+}
+
+.amen_sa {
+    padding-top: 90px;
+}
+
+@media only screen and (max-width: 600px) {
+    .amen_sa {
+        padding-top: 10px;
+    }
+}
+
+.u-slick__pagination--white li.slick-active span {
+    border-color: none;
+    background-color: inherit !important;
+}
+
+
+
+
+.star_color {
+    color: #febb02 !important;
+}
+
+@media screen and (max-width: 996px) {
+    .sa_hidden {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1208px) {
+    .sa_hidden_txt {
+        display: none !important;
+    }
+}
+
+.dropdown-menu {
+    margin-top: 20px !important;
+    font-size: 0.875rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 5px 9px rgba(41, 124, 187, 0.075), 0 5px 9px rgba(119, 131, 143, 0.075);
+}
+
+
+
+
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+.flaticon-medal::before {
+    content: url('../img/medalnew.png') !important;
+    vertical-align: middle !important;
+    padding-right: 3px !important;
+    display: inline-block !important;
+}
+
+.flaticon-placeholder-1::before {
+    content: url('../img/mapmarker.png') !important;
+    vertical-align: middle !important;
+    padding-right: 3px !important;
+    display: inline-block !important;
+}
+
+.flaticon-home::before {
+    content: url('../img/neibhour.png') !important;
+    vertical-align: middle !important;
+    padding-right: 3px !important;
+    display: inline-block !important;
+}
+
+
+
+
+
+.flaticon-next::before {
+    font-family: FontAwesome !important;
+    content: "\f105" !important;
+    display: inline-block !important;
+    padding-right: 3px !important;
+    vertical-align: middle !important;
+}
+
+.flaticon-back::before {
+    font-family: FontAwesome !important;
+    content: "\f104" !important;
+    display: inline-block !important;
+    padding-right: 3px !important;
+    vertical-align: middle !important;
+}
+
+.flaticon-placeholder::before {
+    font-family: FontAwesome !important;
+    content: "\f041" !important;
+    display: inline-block !important;
+    padding-right: 3px !important;
+    vertical-align: middle !important;
+}
+
+.flaticon-like::before {
+    font-family: FontAwesome !important;
+    content: "\f004" !important;
+    display: inline-block !important;
+    padding-right: 3px !important;
+    vertical-align: middle !important;
+}
+
+.flaticon-share::before {
+    font-family: FontAwesome !important;
+    content: "\f1e0" !important;
+    display: inline-block !important;
+    padding-right: 3px !important;
+    vertical-align: middle !important;
+}
+
+.flaticon-down-chevron::before {
+    content: url('../img/arrowup-down.png') !important;
+}
+
+._3E-II4._3aQ08V {
+    background-color: #effbf3;
+}
+
+._1LiSgk, ._1LiSgk + article {
+    margin-top: 16px;
+}
+
+.B8D2gM {
+    position: relative;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: #333333;
+}
+
+
+.star_color {
+    color: #febb02 !important;
+}
+
+@media screen and (max-width: 996px) {
+    .sa_hidden {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1208px) {
+    .sa_hidden_txt {
+        display: none !important;
+    }
+}
+
+.dropdown-menu {
+    margin-top: 20px !important;
+    font-size: 0.875rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 5px 9px rgba(41, 124, 187, 0.075), 0 5px 9px rgba(119, 131, 143, 0.075);
+}
+
+
+
+.user_data {
+    width: 50px !important;
+    height: 40px !important;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/*the container must be positioned autocomplete css relative:*/
+.autocomplete {
+    position: relative;
+    display: inline-block;
+}
+
+input {
+    border: 1px solid transparent;
+    padding: 10px;
+    font-size: 16px;
+}
+
+    input[type=text] {
+        width: 100%;
+    }
+
+    input[type=submit] {
+        color: #fff;
+        cursor: pointer;
+    }
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+    .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        border-bottom: 1px solid #d4d4d4;
+    }
+
+        /*when hovering an item:*/
+        .autocomplete-items div:hover {
+            background-color: #e9e9e9;
+        }
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+
+.ui-widget.ui-widget-content {
+    border: 1px solid #c5c5c5;
+    overflow: hidden scroll !important;
+    height: auto !important;
+    max-height:200px !important;
+}
+
+/* autocomplete css relative end:*/
+
+/**
+        * Tooltip Styles
+        */
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+    /* Hide the tooltip content by default */
+    [data-tooltip]:before,
+    [data-tooltip]:after {
+        visibility: hidden;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Position tooltip above the element */
+    [data-tooltip]:before {
+        position: absolute;
+        bottom: 150%;
+        left: 50%;
+        margin-bottom: 5px;
+        margin-left: -80px;
+        padding: 7px;
+        width: 160px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        background-color: #297cbb;
+        color: #fff;
+        content: attr(data-tooltip);
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    /* Triangle hack to make tooltip look like a speech bubble */
+    [data-tooltip]:after {
+        position: absolute;
+        bottom: 150%;
+        left: 50%;
+        margin-left: -5px;
+        width: 0;
+        border-top: 5px solid #297cbb;
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+        content: " ";
+        font-size: 0;
+        line-height: 0;
+    }
+
+    /* Show tooltip content on hover */
+    [data-tooltip]:hover:before,
+    [data-tooltip]:hover:after {
+        visibility: visible;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1;
+    }
+
+.sa_topmargin {
+    background-color: #fff !important;
+    margin-top: 0px;
+    border-top: 1px solid #0d558b
+}
+
+@media only screen and (max-width: 1202px) {
+    .sa_topmargin {
+        background-color: #fff !important;
+        margin-top: 0px !important;
+        border-top: 1px solid #0d558b !important;
+    }
+}
+
+.sa_hotdettopmargin {
+    margin-top: 20px !important;
+}
+
+@media only screen and (max-width: 1202px) {
+    .sa_hotdettopmargin {
+        margin-top: 0px !important;
+    }
+}
+
+.hotelpaymentmt {
+    margin-top: 0px !important;
+}
+
+@media only screen and (max-width: 1202px) {
+    .hotelpaymentmt {
+        margin-top: 0px !important;
+    }
+}
+.sa_bgchange {
+    background: rgba(0,53,128,0) !important;
+}
+@media only screen and (max-width: 1202px) {
+    .sa_bgchange {
+        background: rgba(0,53,128,1.0) !important;
+    }
+}
+
+
+@media only screen and (max-width: 1202px) {
+    .tabcontent {
+        float: left;
+        padding: 0px 12px;
+        border: 1px solid #cadcf6;
+        width: 100% !important;
+        height: auto;
+        color: #00408a !important;
+    }
+}
+
+
+.sa_breadbread {
+    border-top: 1px solid #e7eaf3;
+    background-color: #f3f3f3;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+
+@media only screen and (max-width: 1202px) {
+    .sa_breadbread {
+        border-top: 1px solid #e7eaf3;
+        background-color: #f3f3f3;
+        margin-bottom: 10px;
+        margin-top: 0px !important;
+    }
+}

@@ -1,0 +1,21 @@
+﻿@model List<Data.GetMeRoom.Models.Detail.Amenity>
+    @if (Model != null && Model.Count > 0)
+    {
+        
+        <div style="background-color:#fff; padding:20px;box-shadow: 0 1px 4px 0 rgba(10,17,33,65%) !important;">
+
+            <h5 class="font-size-16 font-weight-bold text-dark" style="padding-left: 15px; background-color: #0071c2 !important; padding:8px; color:#fff !important; ">
+                Amenities
+            </h5>
+            <ul class="list-group list-group-borderless list-group-horizontal list-group-flush no-gutters row">
+                @foreach (var item in Model)
+                {
+                    var path = "~/../../Content/icons/amen_" + @item + ".png";
+
+                <span style="margin-right:30px;"><img alt="@item" src="@path"> @item</span>
+                    @*<li class="col-md-4 list-group-item"><i class="fa fa-check-square mr-3 text-primary font-size-24"></i>@item.Name</li>*@
+                }
+            </ul>
+
+        </div>
+    }

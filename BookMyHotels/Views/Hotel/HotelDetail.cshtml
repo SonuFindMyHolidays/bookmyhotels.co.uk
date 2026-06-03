@@ -1,0 +1,578 @@
+﻿@model Data.GetMeRoom.Models.Detail.GetRoomsRS_V1
+
+@{
+    string location = Session["location"].ToString();
+    ViewBag.Title = "Hotel Detail for " + location;
+    Layout = "~/Views/Shared/_result_Layout.cshtml";
+    string currency = "";
+
+    Data.GetMeRoom.Models.Search.SearchRQ_V1 searchRQ = new Data.GetMeRoom.Models.Search.SearchRQ_V1();
+    searchRQ = (Data.GetMeRoom.Models.Search.SearchRQ_V1)Session["searchRequest"];
+
+    int AdultsCount = searchRQ.room_details.Sum(x => x.adt_cnt);
+    int ChildsCount = searchRQ.room_details.Sum(x => x.chd_cnt);
+
+    var TotalNights = Convert.ToString(Session["TotalNights"]);
+    var TotalRooms = searchRQ.room_details.Count();
+
+}
+<title>Hotel Search Details</title>
+<style type="text/css">
+    .top-container {
+        background-color: #f1f1f1;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .header {
+        padding: 10px 16px;
+        background: #555;
+        color: #f1f1f1;
+    }
+
+    .content {
+        padding: 16px;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+        .sticky + .content {
+            padding-top: 102px;
+        }
+
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+    }
+
+    .switchonoff {
+        width: auto !important;
+        float: right !important;
+        height: auto;
+        margin-left: 20px;
+    }
+
+
+    .list-group-item {
+        position: relative;
+        display: block;
+        padding: 0.425rem 1.25rem;
+        margin-bottom: -1px;
+        background-color: #f3f3f3 !important;
+        border: 1px solid #e7eaf3;
+    }
+
+    .list-group-item {
+        background-color: #fff !important;
+    }
+
+    .custom-switch .custom-control-label::before {
+        background-color: rgb(79, 111, 143) !important;
+    }
+
+
+    .map-switch .custom-control-input:checked ~ .custom-control-label::before {
+        border-color: #0d4493 !important;
+        background-color: #0d4493 !important;
+        cursor: pointer;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="~/Content/css/hoteldetails.css">
+<script src="~/Content/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Add smooth scrolling to all links
+        $("a.slideInUp").on('click', function (event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function () {
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    });
+</script>
+
+
+@if (Model != null && Model.Hotels?.Hotel?.Rates?.Count > 0)
+{
+    var Latitude = Model.Hotels.Hotel.Latitude;
+    var Longitude = Model.Hotels.Hotel.Longitude;
+
+
+    var minPrice = Model.Hotels.Hotel.Rates.Select(x => x.Room.Select(y => y.GrossPrice)).FirstOrDefault()?.FirstOrDefault();
+
+    <link rel="stylesheet" href="~/Content/vendor/slick-carousel/slick/slick.css">
+
+    <script type="text/javascript">
+        // Initialize and add the map
+        function initMap() {
+            // The location of Delhi
+            const uluru = { lat: @Latitude, lng: @Longitude };
+            // The map, centered at Delhi
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 18,
+                center: uluru,
+            });
+            // The marker, positioned at Delhi
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
+    </script>
+
+    <main id="content" style="background-color: #fff !important;">
+
+
+
+
+        <!-- Breadcrumb -->
+        <div style="background-color: #e8f7f8">
+            <div class="container">
+                <nav class="py-3" aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-no-gutter mb-0 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble sa_pad_bot_10_breadcrumb">
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 "><a href="~/">Home</a></li>
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 "><a href="~/Hotel/SearchResult">@location Hotels</a></li>
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active " aria-current="page">@Model.Hotels.Hotel.Name</li>
+
+
+                    </ol>
+                    <p class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active sa_block_smailldev" style="padding:0px;margin:0px;display:none;" aria-current="page"><a onclick="history.go(-1); return false;"><i class="fa fa-arrow-left"></i> Go back to properties   </a></p>
+                </nav>
+            </div>
+        </div>
+        <!-- End Breadcrumb -->
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="mb-3 mt-4">
+                        @{
+                            if (Model?.Hotels?.Hotel?.Images?.Count > 0)
+                            {
+                                Html.RenderPartial("~/Views/Shared/hoteldetails/_HotelGallery.cshtml", Model?.Hotels?.Hotel?.Images);
+                            }
+                            else
+                            {
+                                <img class="img-fluid border-radius-3 sa_gallery_hoteldetail" src="../images/hotel_img.jpg" alt="" style="border:1px solid #ccc">
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-12 sa_hidden_smailldev">
+                    <div class="mb-4" style="display:none;">
+                        <div class="flex-horizontal-center">
+
+                            <div class="flex-horizontal-center ml-2">
+                                <div class="badge-primary rounded-xs px-1">
+                                    <span class="badge font-size-19 px-2 py-2 mb-0 text-lh-inherit">@Model.Hotels.Hotel.ReviewRating /5 </span>
+                                </div>
+                                <div class="ml-2 text-lh-1">
+                                    <div class="ml-1">
+                                        <h4 class="text-primary font-size-17 font-weight-bold mb-0">Excellent</h4>
+                                        <span class="text-gray-1 font-size-14">(@Model.Hotels.Hotel.ReviewCount Reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="mb-4 ">
+                            <div class="border border-color-7 rounded mb-5" style="background-color:#fff;margin-bottom: 2rem !important;">
+                                <div class="border-bottom">
+                                    <div class="p-4" style="text-align:center !important;">
+                                        <span class="font-size-14">From</span>
+                                        @if (Data.GetMeRoom.GlobalConstant.ConfigVariables.SITEROOTPATH.Contains("bookmyhotels.co.in"))
+                                        {
+                                            currency = "INR";
+                                        }
+                                        else
+                                        {
+                                            currency = Model.Hotels.Hotel.Rates.FirstOrDefault().Room.FirstOrDefault().GrossCurrency;
+                                        }
+                                        <span class="font-size-24 text-gray-6 font-weight-bold ml-1">@currency @minPrice</span><br />
+                                        <span class="font-size-14"> for @TotalRooms room for @TotalNights nights <br />excluding taxes & fees</span>
+                                    </div>
+                                    <div class="p-4" style="text-align:center !important; padding-top:0px !important;">
+                                        <a id="chooseroom" href="#scroll-rooms" class="btn btn-outline-primary border-radius-3 border-width-2 px-4 font-weight-bold min-width-200 py-2 text-lh-lg">Choose room</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+            <div class="sticky-top">
+                <div>
+                    <!-- Topbar -->
+                    <!-- End Topbar -->
+                    <div id="logoAndNav">
+                        <div class="js-sticky-block py-2 px-3 z-index-4 bg-strip bdr-bottom" data-parent="#stickyBlockStartPoint" data-offset-target="#logoAndNav" data-sticky-view="lg" data-start-point="#stickyBlockStartPoint" data-end-point="#stickyBlockEndPoint" data-offset-top="30" data-offset-bottom="30" style=" position:sticky; left: 146.5px; width: auto !important; top:0px;">
+                            <ul class="js-scroll-nav nav tab-nav-pill flex-nowrap tab-nav">
+                                <li class="nav-item" id="overview_li" data-target="scroll-description">
+                                    <a class="nav-link font-weight-medium slideInUp">
+                                        <div class="d-flex flex-column flex-md-row  position-relative text-dark align-items-center">
+                                            <span class="tabtext font-weight-semi-bold">Overview</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="rooms_li" data-target="scroll-rooms">
+                                    <a class="nav-link font-weight-medium slideInUp">
+                                        <div class="d-flex flex-column flex-md-row  position-relative text-dark align-items-center">
+                                            <span class="tabtext font-weight-semi-bold">Rooms</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="amenities_li" data-target="scroll-amenities">
+                                    <a class="nav-link font-weight-medium slideInUp">
+                                        <div class="d-flex flex-column flex-md-row  position-relative text-dark align-items-center">
+                                            <span class="tabtext font-weight-semi-bold">Amenities</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                @*<li class="nav-item">
+                                        <a class="nav-link font-weight-medium slideInUp" href="#scroll-around">
+                                            <div class="d-flex flex-column flex-md-row  position-relative text-dark align-items-center">
+                                                <span class="tabtext font-weight-semi-bold sa_hidden_smailldev">What's Around</span>
+                                                <span class="tabtext font-weight-semi-bold sa_block_smailldev">Around</span>
+                                            </div>
+                                        </a>
+                                    </li>*@
+                                <li class="nav-item" id="map_li" data-target="scroll_Map">
+                                    <a class="nav-link font-weight-medium slideInUp">
+                                        <div class="d-flex flex-column flex-md-row  position-relative text-dark align-items-center">
+                                            <span class="tabtext font-weight-semi-bold">Map</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section id="scroll-description" class="htl-content-layout-box">
+                @*<p id="scroll-description" style="padding-bottom:0px; visibility:hidden;margin-top: -5px;"></p>*@
+                <div class="row py-3">
+                    <div class="col-lg-9 col-xl-9">
+                        <div class="d-block d-md-flex flex-horizontal-center mb-2 mb-md-0">
+                            <h4 class="font-size-23 font-weight-bold mb-1">@Model.Hotels.Hotel.Name</h4>
+                            <div class="ml-3 font-size-10 letter-spacing-2">
+                                <span class="d-block green-lighter ml-1">
+                                    @{
+                                        bool isNumerics = int.TryParse(Model.Hotels.Hotel.Star, out _);
+                                        if (isNumerics)
+                                        {
+                                            for (int i = 0; i < Convert.ToInt32(Model.Hotels.Hotel.Star); i++)
+                                            {
+                                                <small><img src="~/Content/img/star.png" /></small>
+                                            }
+                                        }
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-block d-md-flex flex-horizontal-center font-size-14 text-gray-1">
+                            <img src="~/images/location-icon.png" style="max-width:15px; margin-right:6px;" class="mCS_img_loaded"> @Model.Hotels.Hotel.Address
+                        </div>
+
+                        <div class="position-relative my-5">
+                            @{
+                                if (Model.Hotels.Hotel.Descriptions != null && Model.Hotels.Hotel.Descriptions[0].Text != "null") { Html.RenderPartial("~/Views/Shared/hoteldetails/_HotelOverViews.cshtml", Model?.Hotels?.Hotel?.Descriptions); }
+                            }
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-xl-3">
+                        <div class="border border-color-7 rounded p-2">
+                            <div>
+                                <a id="map02" href="#map_href" class="d-block border rounded mb-2 slideInUp">
+                                    <img class="img-fluid" src="~/Content/img/map-markers/map.jpg" alt="Image-Description">
+                                </a>
+                                <div class="mb-2">
+                                    <div class="">
+                                        <a href="#map_href" class="btn btn-outline-primary border-radius-3 w-100">View in a Map</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    @*<i class="flaticon-placeholder-1 font-size-25 text-primary"></i>*@
+                                    <h6 class="mb-0 font-size-14 text-success">
+                                        <a href="#">Better than 99% of properties in @location</a>
+                                    </h6>
+                                </div>
+
+                                @*<div class="d-flex align-items-center mb-2">
+                                        <i class="flaticon-medal font-size-25 text-primary mr-3 pr-1"></i>
+                                        <h6 class="mb-0 font-size-14 text-gray-1">
+                                            <a href="#">Exceptional location - Inside city center</a>
+                                        </h6>
+                                    </div>
+                                        <div class="d-flex align-items-center mb-2">
+                                        <i class="flaticon-home font-size-25 text-primary mr-3 pr-1"></i>
+                                        <h6 class="mb-0 font-size-14 text-gray-1">
+                                            <a href="#">Popular neighborhood</a>
+                                        </h6>
+                                    </div>*@
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <style type="text/css">
+                a {
+                    cursor: pointer;
+                }
+
+                .bg_chg {
+                    border: 1px solid #ccc;
+                    padding: 13px 13px 13px 20px;
+                    border-radius: 25px !important;
+                    background-color: #144d9d;
+                }
+
+                    .bg_chg:hover {
+                        border: 1px solid #ccc;
+                        padding: 13px 13px 13px 20px;
+                        border-radius: 25px !important;
+                        background-color: #084191;
+                    }
+
+                    .bg_chg:active {
+                        border: 1px solid #000 !important;
+                        padding: 13px 13px 13px 20px;
+                        border-radius: 25px !important;
+                        background-color: #084191;
+                    }
+
+                    .bg_chg:focus {
+                        border: 1px solid #ff9100 !important;
+                        padding: 13px 13px 13px 20px;
+                        border-radius: 25px !important;
+                        background-color: #084191;
+                    }
+
+                .bg_chg_morefilter {
+                    height: auto !important;
+                    align-items: center !important;
+                    border: 1px solid #ccc !important;
+                    padding: 13px 13px 13px 20px;
+                    border-radius: 5px !important;
+                    background-color: #f3f3f3 !important;
+                }
+
+                    .bg_chg_morefilter:hover {
+                        background-color: #fff !important;
+                    }
+
+                    .bg_chg_morefilter:focus {
+                        background-color: #fff !important;
+                    }
+
+
+                svg {
+                    margin-bottom: -1.4375rem !important;
+                    vertical-align: baseline;
+                }
+
+                .ui-widget.ui-widget-content {
+                    border: 1px solid #c5c5c5;
+                    overflow: hidden scroll !important;
+                    height: auto !important;
+                    max-height: 200px !important;
+                    z-index: 111111 !important;
+                }
+
+
+                .flatpickr-calendar.open, .flatpickr-calendar.inline {
+                    opacity: 1;
+                    max-height: 640px;
+                    visibility: visible;
+                    top: 50px !important;
+                }
+            </style>
+
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Form Group -->
+                    <div class="form-group pb-1 d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="hide_sa111">
+                                <a href="javascript:;" onclick="filteroom('all')" class="btn btn-primary">
+                                    <span>All Rooms</span>
+                                </a>
+                            </span>
+
+                            <span class="hide_sa111">
+                                <a href="javascript:;" onclick="filteroom('breakfast')" class="btn btn-primary">
+                                    <span>Breakfast Included </span>
+                                </a>
+                            </span>
+                        </div>
+                        <div>
+                            <div class="switchonoff">
+
+                                <div style="width: auto; float: left; height: auto; padding-right: 10px;">Only shows free cancellation &nbsp; @*<input type="checkbox" id="customSwitch12" onchange="showfreecalc()">*@</div>
+                                <div style=" width: auto; float: left; height: auto; text-align: right;">
+
+                                    <div style="margin-top: -5px;" class="custom-control map-switch map-lable custom-switch text-lh-2 order-1" data-toggle="collapse" href="#MapcollapseExample02" role="button" aria-expanded="false" aria-controls="MapcollapseExample02">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch12" onchange="showfreecalc()">
+                                        <label class="custom-control-label" for="customSwitch12"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <section id="scroll-rooms" class="htl-content-layout-box">
+                <div class="py-4">
+                    @{
+                        Html.RenderPartial("~/Views/Shared/hoteldetails/_HotelRooms.cshtml", Model?.Hotels?.Hotel);
+                    }
+
+                </div>
+            </section>
+            <section id="scroll-amenities" class="htl-content-layout-box mb-6">
+                @{
+                    if (Model?.Hotels?.Hotel?.Amenities?.Count > 0) { Html.RenderPartial("~/Views/Shared/hoteldetails/_HotelAmenities.cshtml", Model?.Hotels?.Hotel?.Amenities); }
+                }
+                @{
+                    if (Model?.Hotels?.Hotel?.Facilities?.Count > 0) { Html.RenderPartial("~/Views/Shared/hoteldetails/_HotelFacilities.cshtml", Model?.Hotels?.Hotel?.Facilities); }
+                }
+            </section>
+            <section id="scroll_Map" class="htl-content-layout-box">
+                <h5 class="desc-main-title">
+                    Location: @Model.Hotels.Hotel.Address
+                </h5>
+                <div id="map"></div>
+            </section>
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-12 col-xl-12" style="padding-left:0px; padding-right:0px;">
+
+
+                        @{
+                            if (Model.Hotels.Hotel.NearByAttractions != null)
+                            {
+                                Html.RenderPartial("~/Views/Shared/hoteldetails/_WhatsAround.cshtml", Model?.Hotels?.Hotel?.NearByAttractions);
+                            }
+                        }
+
+                        @*@{
+                                Html.RenderPartial("~/Views/Shared/hoteldetails/_AtAGlance.cshtml");
+                            }*@
+                        @{
+                            Html.RenderPartial("~/Views/Shared/hoteldetails/_HotelAverageReview.cshtml", Model?.Hotels?.Hotel);
+                        }
+
+
+
+                        <div id="stickyBlockEndPoint"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+}
+else
+{
+    <div class="border-bottom " style="border-top:1px solid #e7eaf3; background-color:#f3f3f3;margin-bottom:10px;">
+        <div class="container">
+            <nav class="py-3" aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-no-gutter mb-0 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
+                    <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1">Selected Hotel Not Available</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+}
+
+
+<script src="~/Content/vendor/slick-carousel/slick/slick.js"></script>
+@*<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDd2BhJHUCwtO7d7AmLqOnbhy1Xws5ecsY&amp;callback=initMap&amp;libraries=&amp;v=weekly&amp;channel=2" async=""></script>*@
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd2BhJHUCwtO7d7AmLqOnbhy1Xws5ecsY&callback=initMap" async defer></script>
+
+<script>
+
+    $("a#chooseroom").click(function () {
+        $('html, body').animate({
+            scrollTop: $("#scroll-rooms").offset().top
+        }, 1000);
+    });
+
+    $(document).on('ready', function () {
+        // initialization of header
+        $.HSCore.components.HSHeader.init($('#header'));
+
+        // initialization of google map
+        function initMap() {
+            $.HSCore.components.HSGMap.init('.js-g-map');
+        }
+
+        // initialization of unfold component
+        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+
+        // initialization of toggle state
+        $.HSCore.components.HSToggleState.init('.js-toggle-state');
+
+        // initialization of show animations
+        $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+        // initialization of datepicker
+        $.HSCore.components.HSRangeDatepicker.init('.js-range-datepicker');
+
+        // initialization of forms
+        $.HSCore.components.HSRangeSlider.init('.js-range-slider');
+
+        // initialization of malihu scrollbar
+        $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+        // initialization of select
+        $.HSCore.components.HSSelectPicker.init('.js-select');
+
+        // initialization of quantity counter
+        $.HSCore.components.HSQantityCounter.init('.js-quantity');
+
+        // initialization of slick carousel
+        $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+    });
+
+</script>
+<script type="text/javascript">
+    console.log('guid Id on Hotel Detail Page:- ' + '@Session["guid"]');
+</script>

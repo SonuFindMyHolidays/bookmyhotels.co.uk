@@ -1,0 +1,41 @@
+﻿.loadingtxt {
+    font-size: 80px !important;
+    padding-bottom: 20px;
+    padding-top: 50px;
+    color: #3b444f !important;
+    font-weight: 400 !important;
+}
+
+@media screen and (max-width: 600px) {
+    .loadingtxt {
+        font-size: 50px !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wayto {
+        text-align: left !important;
+    }
+}
+
+.logoatol {
+    text-align: center !important;
+}
+
+@media screen and (max-width: 600px) {
+    .logoatol {
+        text-align: left !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .logoatol {
+        text-align: left !important;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .logoatol {
+        text-align: left !important;
+    }
+}

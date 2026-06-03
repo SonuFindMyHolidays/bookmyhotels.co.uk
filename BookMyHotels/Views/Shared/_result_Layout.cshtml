@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <title>@ViewBag.Title</title>
+
+    <meta name="description" content="@ViewBag.MetaDescription" />
+
+    <link rel="canonical" href="@ViewBag.CanonicalUrl" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/img/FavIcon.png">
+
+    <link rel="stylesheet" href="~/Content/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="~/Content/css/font-mytravel.css">
+    <link rel="stylesheet" href="~/Content/vendor/jquery-ui/themes/base/jquery-ui.min.css">
+
+    <link rel="stylesheet" href="~/Content/vendor/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/dzsparallaxer/dzsparallaxer.css">
+    <link rel="stylesheet" href="~/Content/css/theme.css">
+    <link rel="stylesheet" href="~/Content/css/sandycommon.css" />
+    <link rel="stylesheet" href="~/Content/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="~/Content/vendor/fancybox/jquery.fancybox.css">
+
+    <script src="~/Content/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/ui/1.12.1/jquery-ui.js"></script>
+
+    <style>
+        .u-header {
+            position: relative !important;
+        }
+    </style>
+</head>
+<body>
+
+    @{
+        Html.RenderPartial("_result_header");
+    }
+    @*style="background-color: #ebecee !important;"*@
+
+    @RenderBody()
+
+
+
+
+    @{
+        Html.RenderPartial("_footer");
+    }
+    <a class="js-go-to u-go-to-modern" href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400" data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown">
+        <span class="flaticon-arrow u-go-to-modern__inner"></span>
+    </a>
+    <!-- End Go to Top -->
+
+
+
+    <script src="~/Content/js/js-common-s.js"></script>
+    <script src="~/Content/vendor/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="~/Content/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="~/Content/vendor/slick-carousel/slick/slick.js"></script>
+    <script src="~/Content/vendor/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="~/Content/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+    <!-- JS crousol -->
+    <script src="~/Content/js/hs.core.js"></script>
+    <script src="~/Content/js/components/hs.header.js"></script>
+    <script src="~/Content/js/components/hs.unfold.js"></script>
+    <script src="~/Content/js/components/hs.show-animation.js"></script>
+    <script src="~/Content/vendor/gmaps/gmaps.min.js"></script>
+    <script src="~/Content/vendor/fancybox/jquery.fancybox.min.js"></script>
+    <script src="~/Content/vendor/appear.js"></script>
+
+    <!-- JS Common -->
+    <script src="~/Content/js/components/hs.range-datepicker.js"></script>
+    <script src="~/Content/js/components/hs.selectpicker.js"></script>
+    <script src="~/Content/js/components/hs.range-slider.js"></script>
+    <script src="~/Content/js/components/hs.toggle-state.js"></script>
+    <script src="~/Content/js/components/hs.malihu-scrollbar.js"></script>
+    <script src="~/Content/js/components/hs.scroll-nav.js"></script>
+
+    <script src="~/Content/js/components/hs.go-to.js"></script>
+    <script src="~/Content/js/components/hs.quantity-counter.js"></script>
+
+    <script src="~/Content/js/components/hs.slick-carousel.js"></script>
+    <script src="~/Content/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    @*<script src="~/Content/vendor/bootstrap/bootstrap.min.js"></script>*@
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <div class="modal fade" id="sessionModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content text-center">
+                <div class="modal-body">
+                    <h3>Session Expired !</h3>
+                    <p style="font-size:13px;">
+                        Hotel price may change frequently owing to demand & availability.<br />
+                        Start a new research to view the best deals.
+                    </p>
+                    <p>
+                        <i class="fas fa-clock" style=" font-size: 50px;"></i>
+                    </p>
+                    <button id="logOut" class="btn btn-outline-secondary btn-sm">Go To Home</button>
+                    <button id="stayLoggedIn" class="btn btn-primary btn-sm">Keep Browsing</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var timeout;
+
+            function setupSessionTimeout() {
+                var modal = document.getElementById("sessionModal");
+                var stayLoggedInBtn = document.getElementById("stayLoggedIn");
+                var logOutBtn = document.getElementById("logOut");
+
+                if (!modal || !stayLoggedInBtn || !logOutBtn) {
+                    return;
+                }
+
+                function startTimer() {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => {
+                        $('#sessionModal').modal({
+                            backdrop: 'static',
+                            keyboard: false
+                        });
+                    }, 600000); // timer
+                }
+
+                function resetTimer() {
+                    startTimer();
+                }
+
+                stayLoggedInBtn.addEventListener("click", () => {
+                    $('#sessionModal').modal('hide'); // ✅ Bootstrap hide
+                    startTimer();
+                });
+
+                logOutBtn.addEventListener("click", function () {
+                    modal.querySelector('.modal-content').innerHTML = `
+                    <div class="p-4 text-center"><h2>Redirecting...</h2></div>`;
+                    setTimeout(function () {
+                        window.location.href = "/";
+                    }, 1000);
+                });
+
+                ['click', 'mousemove', 'keypress', 'touchstart'].forEach(function (evt) {
+                    document.addEventListener(evt, resetTimer, false);
+                });
+
+                startTimer();
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupSessionTimeout);
+            } else {
+                setupSessionTimeout();
+            }
+        })();
+
+
+
+
+    </script>
+
+</body>
+</html>
+
+

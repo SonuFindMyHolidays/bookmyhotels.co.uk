@@ -1,0 +1,278 @@
+﻿<style type="text/css">
+    .bottom-right {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+    }
+
+
+    .chkrooms_btn {
+        text-decoration: none;
+        font-weight: 500;
+        cursor: pointer;
+        border: 1px solid #3554d1;
+        padding: 6px;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-radius: 0.25rem !important;
+        font-size: 15px;
+        background-color: #337ab7;
+        color: #fff;
+    }
+
+        .chkrooms_btn:hover {
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid #3554d1;
+            padding: 6px;
+            padding-left: 12px;
+            padding-right: 12px;
+            border-radius: 0.25rem !important;
+            font-size: 15px;
+            background-color: #fff;
+            color: #337ab7;
+        }
+</style>
+
+
+@model List<Data.GetMeRoom.Models.Search.Hotel>
+
+@if (Model != null && Model.Count > 0)
+{
+
+    <div class="pt-4 " style="padding-top:0px !important;">
+        <ul class="d-block list-unstyled products-group prodcut-list-view ">
+            <!--HOTEL LISTING DIV CODE BEGIN-->
+
+            @using (Html.BeginForm("HotelDetail", "Hotel", FormMethod.Post, new { id = "ResultForm" }))
+            {
+                @Html.Hidden("HotelCode", "", new { id = "HotelCode" });
+                @Html.Hidden("HotelProviderId", "", new { id = "HotelProviderId" });
+                @Html.Hidden("HotelCodeContext", "", new { id = "HotelCodeContext" });
+                @Html.Hidden("ChainCode", "", new { id = "ChainCode" });
+                int a = 0;
+                @Html.AntiForgeryToken()
+                var fac = "";
+
+                foreach (Data.GetMeRoom.Models.Search.Hotel _hotel in Model)
+                {
+                    var refundText = "";
+                    int ProviderNum = _hotel.ProviderName == "amadeus-avh" ? 80 : _hotel.ProviderName == "Restel" ? 75 : 86;
+                    int star = 0;
+                    bool isNumeric = int.TryParse(_hotel.Star, out _);
+                    string HotelDesc = string.Empty;
+                    if (!isNumeric)
+                    {
+                        star = 0;
+                    }
+                    else
+                    {
+                        star = Convert.ToInt32(Math.Round(Convert.ToDecimal(_hotel.Star)));
+                    }
+                    var amenities = string.Join("|", _hotel.Facilities.Select(x => x.Id).ToList());
+                    fac += string.Join("|", _hotel.Facilities.Select(x => x.Id).ToList());
+                    fac += string.Join("|", _hotel.Facilities.Select(x => x.Name).ToList());
+
+                    var HotelImg = "/images/notfound.jpeg";
+
+                    if (_hotel.IsRefundable)
+                    {
+                        refundText = "Fully Refundable";
+                    }
+
+                    if (!string.IsNullOrEmpty(_hotel.Image))
+                    {
+                        HotelImg = _hotel.Image;
+                    }
+
+                    if (_hotel.HotelDesc.ToCharArray().Count() > 130)
+                    {
+                        HotelDesc = _hotel.HotelDesc.Substring(0, 130) + "<b>...</b>";
+                    }
+                    else
+                    {
+                        HotelDesc = _hotel.HotelDesc;
+                    }
+
+                    <li class="hotel-listing-box mb-5 overflow-hidden recommendation" onclick="GetDetails('@_hotel.Code','@_hotel.ProviderName','@_hotel.HotelCodeContext','@_hotel.ChainCode')" data-name="@_hotel.Name" data-star="@star" data-guestrating="@_hotel.ReviewRating" data-amenities="@amenities" data-gprice="@_hotel.GrossPrice" data-payathotel="@_hotel.PayAtHotel" data-IsRecommended="@_hotel.IsRecommended" data-IsFreeCancellation="@_hotel.IsFreeCancellation" data-IsRefundable="@_hotel.IsRefundable">
+                        <div class="product-item__outer w-100">
+                            <div class="row">
+
+                                <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xl-3dot5">
+                                    <div class="product-item__header">
+                                        <div class="position-relative">
+                                            <div>
+                                                <div class="js-slide">
+                                                    <a onclick="GetDetails('@_hotel.Code','@_hotel.ProviderName','@_hotel.HotelCodeContext','@_hotel.ChainCode')" id="@_hotel.Code" data-code="@_hotel.Code" data-providerid="@_hotel.ProviderId" data-token="@_hotel.Token" class="booking d-block gradient-overlay-half-bg-gradient-v5">
+                                                        <img class="img-fluid  card-img-top" src="@HotelImg" style="height: 250px !important;" alt="@_hotel.Name Image">
+                                                        @*<div class="bottom-right"><img src="../images/gallery-icon.png" style="max-width:40px;" /></div>*@
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8dot5" style=" display: flex; flex-direction: column; justify-content: space-around; ">
+                                    <div class="resultContentBox">
+                                        <h2>
+                                            <a class="booking" onclick="GetDetails('@_hotel.Code', '@_hotel.ProviderName', '@_hotel.HotelCodeContext', '@_hotel.ChainCode')" id="@_hotel.Code" data-code="@_hotel.Code" data-providerid="@_hotel.ProviderId" data-token="@_hotel.Token">
+                                                <span class="">@_hotel.Name</span>
+                                            </a>
+                                        </h2>
+                                        <div class="location">@_hotel.Address</div>
+                                        <div class="tags">
+                                            @foreach (Data.GetMeRoom.Models.Search.Facilities item in _hotel.Facilities.Take(5))
+                                            {
+                                                var path = "~/../../Content/icons/amen_" + @item.Id + ".png";
+                                                /*Amenity Binding Start From here*/
+                                                <a href="#" data-tooltip="@item.Name"><span style="margin-right:10px;"><img src="@path" /></span></a>
+
+                                            }
+                                        </div>
+                                        <div class="price-section">
+                                            <div class="left">
+                                                <div class="desc-text">
+                                                    @*@if (_hotel.HotelDesc != "")
+                                                    {
+                                                        <div class="font-size-12 text-black text-lh-sm shrt-dec-bg mb-2">@_hotel.HotelDesc</div>
+                                                    }*@
+
+
+                                                    @if (HotelDesc != "")
+                                                    {
+                                                        <div class="font-size-12 text-black text-lh-sm shrt-dec-bg mb-2">
+                                                            @Html.Raw(HotelDesc)
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <div class="textIconListingPage">
+                                                    @if (!string.IsNullOrEmpty(refundText))
+                                                    {
+                                                        <div class=""><i class="fa fa-check-circle mr-1" aria-hidden="true"></i> @refundText</div>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="right">
+                                                <div class="savings">From</div>
+                                                <div>
+                                                    <span class="price">@_hotel.GrossCurrency @String.Format("{0:0.00}", _hotel.GrossPrice)</span>
+                                                </div>
+                                                <div style="font-size: 0.85rem;">
+                                                    Per Night <br />
+                                                    <small>includes taxes &amp; fees</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                }
+            }
+            <!--HOTEL LISTING DIV CODE END-->
+        </ul>
+    </div>
+}
+else
+{
+    <li class="card mb-5 overflow-hidden">
+        <div class="product-item__outer w-100">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-item__header">
+                        <div class="position-relative">
+                            <div class="p-5 text-center">
+                                <h2 class="font-weight-bold">No exact matches</h2>
+                                <p>Try Removing Filters.</p>
+
+                                <button type="button" class="btn btn-outline-primary rounded-pill removeallfilter"><strong>Remove all filters</strong></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+}
+
+
+<script type="text/javascript">
+    function GetDetails(code, ProviderName, HotelCodeContext, ChainCode) {
+        document.getElementById("HotelCode").value = code;//(this).dataset.code;
+        document.getElementById("HotelProviderId").value = ProviderName;// (this).dataset.providerid;
+        document.getElementById("HotelCodeContext").value = HotelCodeContext;// (this).dataset.token;
+        document.getElementById("ChainCode").value = ChainCode;// (this).dataset.ChainCode;
+        $("#ResultForm").submit();
+    }
+    $(document).ready(function () {
+        $('.removeallfilter').click(function () {
+            location.reload();
+            //applyHotelfilter('ALL');
+        });
+    });
+
+
+</script>
+
+
+<!-- The Modal -->
+@*<div class="modal fade" id="#mymap">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Explore the area</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div style="max-width:100%;list-style:none; transition: none;overflow:hidden;width:500px;height:500px;">
+                        <div id="my-map-canvas" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=31-35+CLARENDON+ROAD+WATFORD+WD17+1JA+GB&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="googlecoder" href="https://www.bootstrapskins.com/themes" id="make-map-data">premium bootstrap themes</a>
+                        <style>
+                            #my-map-canvas img {
+                                max-height: none;
+                                max-width: none !important;
+                                background: none !important;
+                            }
+                        </style>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>*@
+
+<style>
+    .moretext {
+        display: none;
+    }
+</style>
+<script>
+    $('.moreless-button').click(function () {
+        $('.moretext').slideToggle();
+        if ($('.moreless-button').text() == "Read more") {
+            $(this).text("Read less")
+        } else {
+            $(this).text("Read more")
+        }
+    });
+
+</script>
+
+
+<div class="modal fade" id="loading" role="dialog" style="top:30%;">
+    <div class="modal-content modal-md modal-dialog">
+        <div class="modal-body">
+            <h2 class="font-size-20 txt-blue-theme font-weight-bold  text-capitalize text-center">Please wait </h2>
+            @*<p class="text-center"><img src="~/images/loading.gif" /></p>*@
+         <div class="loader"></div>
+
+        </div>
+    </div>
+</div>

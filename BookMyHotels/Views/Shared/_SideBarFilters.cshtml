@@ -1,0 +1,525 @@
+﻿@model Data.GetMeRoom.Models.Search.SearchRS
+
+    @if (Model != null && Model.Hotels?.Hotel != null && Model.Hotels.Hotel.Count > 0)
+    {
+        string location = Session["location"].ToString();
+        ViewBag.Title = "Search Cheapest Hotel Result for " + location;
+        Layout = "~/Views/Shared/_result_Layout.cshtml";
+
+        Data.GetMeRoom.Models.Search.Hotels hotels = new Data.GetMeRoom.Models.Search.Hotels
+        {
+            Hotel = Model.Hotels.Hotel
+        };
+        Data.GetMeRoom.Models.Search.SearchRQ searchRQ = new Data.GetMeRoom.Models.Search.SearchRQ();
+        searchRQ = (Data.GetMeRoom.Models.Search.SearchRQ)Session["searchRequest"];
+        int TotalNoOfStay = hotels.Hotel.Count;
+
+        string CheckInDate = Convert.ToDateTime(searchRQ.SearchRequest.Master.CheckIn).ToString("dd MMM");
+        string CheckOutDate = Convert.ToDateTime(searchRQ.SearchRequest.Master.CheckOut).ToString("dd MMM");
+        var minPrice = hotels.Hotel.Min(x => x.GrossPrice);
+        var maxPrice = hotels.Hotel.Max(x => x.GrossPrice);
+
+
+
+        var result = hotels.Hotel.GroupBy(x => new { x.Star})
+                     .Select(x => new
+                     {
+                         ID = x.Key.Star,
+                         Count = x.Select(z => Math.Round(z.Star)).Distinct().Count()
+                     });
+
+        List<int> starrating = hotels.Hotel.Select(x => Convert.ToInt32(Math.Round(x.Star))).ToList();
+
+        <aside id="sidebarContent" class="u-sidebar" aria-labelledby="sidebarNavToggler">
+            <div class="u-sidebar__scroller">
+                <div class="u-sidebar__container">
+                    <div class="u-header-sidebar__footer-offset pb-0" style="overflow: hidden !important;">
+                        <!-- Toggle Button -->
+                        <div class="d-flex align-items-center pt-2 px-5">
+                            <button type="button" class="btn btn-sm ml-auto font-size-14 p-0" style="margin-left: 0px !important;"
+                                    aria-controls="sidebarContent"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    data-unfold-event="click"
+                                    data-unfold-hide-on-scroll="false"
+                                    data-unfold-target="#sidebarContent"
+                                    data-unfold-type="css-animation"
+                                    data-unfold-animation-in="fadeInRight"
+                                    data-unfold-animation-out="fadeOutRight"
+                                    data-unfold-duration="500">
+                                <i class="fa fa-times" style="font-size:22px; "></i>
+                            </button>
+                            <button type="button" class="btn btn-sm ml-auto font-size-14 p-0"
+                                    aria-controls="sidebarContent"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    data-unfold-event="click"
+                                    data-unfold-hide-on-scroll="false"
+                                    data-unfold-target="#sidebarContent"
+                                    data-unfold-type="css-animation"
+                                    data-unfold-animation-in="fadeInRight"
+                                    data-unfold-animation-out="fadeOutRight"
+                                    data-unfold-duration="500">
+                                <span aria-hidden="true" class="text-primary">Back to List <i class="fa fa- ml-2 font-size-10"></i></span>
+                            </button>
+                        </div>
+                        <!-- End Toggle Button -->
+                        <!-- Content -->
+                        <div class="js-scrollbar u-sidebar__body">
+                            <div class="u-sidebar__content u-header-sidebar__content">
+
+                                <!-- Checkboxes -->
+                                <div class="sidenav border">
+                                    <!-- Accordiaon -->
+                                    <div id="shopCartAccordion" class="accordion rounded shadow-none">
+                                        <div class="border-0">
+                                            <div class="card-collapse" id="shopCardHeadingOne">
+                                                <h3 class="mb-0">
+                                                    <button type="button" class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed" data-toggle="collapse" data-target="#shopCardOne" aria-expanded="false" aria-controls="shopCardOne">
+                                                        <span class="row align-items-center">
+                                                            <span class="col-9">
+                                                                <span class="d-block font-size-lg-15 font-size-17 font-weight-bold text-dark">Price Range (£)</span>
+                                                            </span>
+                                                            <span class="col-3 text-right">
+                                                                <span class="card-btn-arrow">
+                                                                    <span class="fas fa-chevron-down small"></span>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </button>
+                                                </h3>
+                                            </div>
+                                            <div id="shopCardOne" class="collapse show" aria-labelledby="shopCardHeadingOne" data-parent="#shopCartAccordion">
+                                                <div class="card-body pt-0 px-5">
+                                                    <div class="pb-3 mb-1 d-flex text-lh-1">
+                                                        <span>£</span>
+                                                        <span id="rangeSliderExample3MinResult" class=""></span>
+                                                        <span class="mx-0dot5"> — </span>
+                                                        <span>£</span>
+                                                        <span id="rangeSliderExample3MaxResult" class=""></span>
+                                                    </div>
+                                                    <input class="js-range-slider" type="text"
+                                                           data-extra-classes="u-range-slider height-35"
+                                                           data-type="double"
+                                                           data-grid="false"
+                                                           data-hide-from-to="true"
+                                                           data-min="0"
+                                                           data-max="@maxPrice"
+                                                           data-from="@minPrice"
+                                                           data-to="@maxPrice"
+                                                           data-prefix="$"
+                                                           data-result-min="#rangeSliderExample3MinResult"
+                                                           data-result-max="#rangeSliderExample3MaxResult">
+                                                </div>
+                                                <div style="width:100%; float:left; height:auto; padding:20px; padding-top:5px; background-color:#f3f3f3;">
+                                                    <div style="width:50%; float:left; height:40px; ">
+                                                        <input type="email" class="form-control" name="email" id="min_txt" placeholder="Min Price £" aria-label="Min Price £" aria-describedby="signinEmail" required="" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" style="border:1px solid #ccc;">
+                                                    </div>
+                                                    <div style="width:50%; float:left; height:40px;  ">
+                                                        <input type="email" class="form-control" name="email" id="max-txt" placeholder="Max Price £" aria-label="Max Price £" aria-describedby="signinEmail" required="" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" style="border:1px solid #ccc;">
+                                                    </div>
+                                                </div>
+                                                <div style="width:100%; float:left; height:auto; padding:20px; padding-top:5px; background-color:#f3f3f3;">
+                                                    <button type="button" class="btn btn-secondary btn-sm">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="propertyCategoryAccordionstar" class="accordion rounded-0 shadow-none border-top">
+                                        <div class="border-0">
+                                            <div class="card-collapse" id="propertyCategoryHeadingOnestar">
+                                                <h3 class="mb-0">
+                                                    <button type="button" class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed" data-toggle="collapse" data-target="#propertyCategoryOne01star" aria-expanded="false" aria-controls="propertyCategoryOne01star">
+                                                        <span class="row align-items-center">
+                                                            <span class="col-9">
+                                                                <span class="font-weight-bold font-size-17 text-dark mb-3">Star Rating</span>
+                                                            </span>
+                                                            <span class="col-3 text-right">
+                                                                <span class="card-btn-arrow">
+                                                                    <span class="fas fa-chevron-down small"></span>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </button>
+                                                </h3>
+                                            </div>
+                                            <div id="propertyCategoryOne01star" class="collapse" aria-labelledby="propertyCategoryHeadingOnestar" data-parent="#propertyCategoryAccordionstar">
+                                                <div class="card-body pt-0 mt-1 px-5 pb-4">
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="fivestar" style="border: #3554d1 solid 2px !important;">
+                                                            <label class="custom-control-label" for="fivestar">
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top; "></small>
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top;"></small>
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top;"></small>
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top;"></small>
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top;"></small>
+                                                            </label>
+                                                        </div>
+                                                        <small>749</small>
+                                                    </div>
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="fourstar" style="border: #3554d1 solid 2px !important;">
+                                                            <label class="custom-control-label" for="fourstar">
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top; "></small>
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top;"></small>
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top;"></small>
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top;"></small>
+                                                            </label>
+                                                        </div>
+                                                        <small>630</small>
+                                                    </div>
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="threestar" style="border: #3554d1 solid 2px !important;">
+                                                            <label class="custom-control-label" for="threestar">
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top; "></small>
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top;"></small>
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top;"></small>
+                                                            </label>
+                                                        </div>
+                                                        <small>58</small>
+                                                    </div>
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-3 pb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="twostar" style="border: #3554d1 solid 2px !important;">
+                                                            <label class="custom-control-label" for="twostar">
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top; "></small>
+                                                                <small class="fas fa-star font-size-15" style="color:#fec000;vertical-align: top;"></small>
+                                                            </label>
+                                                        </div>
+                                                        <small>29</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="propertyCategoryAccordion" class="accordion rounded-0 shadow-none border-top">
+                                        <div class="border-0">
+                                            <div class="card-collapse" id="propertyCategoryHeadingOne">
+                                                <h3 class="mb-0">
+                                                    <button type="button" class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed" data-toggle="collapse" data-target="#propertyCategoryOne" aria-expanded="false" aria-controls="propertyCategoryOne">
+                                                        <span class="row align-items-center">
+                                                            <span class="col-9">
+                                                                <span class="font-weight-bold font-size-17 text-dark mb-3">Property Type</span>
+                                                            </span>
+                                                            <span class="col-3 text-right">
+                                                                <span class="card-btn-arrow">
+                                                                    <span class="fas fa-chevron-down small"></span>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </button>
+                                                </h3>
+                                            </div>
+                                            <div id="propertyCategoryOne" class="collapse" aria-labelledby="propertyCategoryHeadingOne" data-parent="#propertyCategoryAccordion">
+                                                <div class="card-body pt-0 mt-1 px-5 pb-4">
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="brandhotel">
+                                                            <label class="custom-control-label" for="brandhotel">Hotels</label>
+                                                        </div>
+                                                        <small>749</small>
+                                                    </div>
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="brandapartmet">
+                                                            <label class="custom-control-label" for="brandapartmet">Apartments</label>
+                                                        </div>
+                                                        <small>630</small>
+                                                    </div>
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="brandbed">
+                                                            <label class="custom-control-label" for="brandbed">Bed and Breakfasts</label>
+                                                        </div>
+                                                        <small>58</small>
+                                                    </div>
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-3 pb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="brandresorts">
+                                                            <label class="custom-control-label" for="brandresorts">Resorts</label>
+                                                        </div>
+                                                        <small>29</small>
+                                                    </div>
+                                                    <!-- End Checkboxes -->
+                                                    <!-- View More - Collapse -->
+                                                    <div class="collapse" id="collapseBrand2">
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="Gucci">
+                                                                <label class="custom-control-label" for="Gucci">House</label>
+                                                            </div>
+                                                            <small>5</small>
+                                                        </div>
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-3">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="Mango">
+                                                                <label class="custom-control-label" for="Mango">House / Apartment</label>
+                                                            </div>
+                                                            <small>1</small>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End View More - Collapse -->
+                                                    <!-- Link -->
+                                                    <a class="link link-collapse small font-size-1" data-toggle="collapse" href="#collapseBrand2" role="button" aria-expanded="false" aria-controls="collapseBrand2">
+                                                        <span class="link-collapse__default font-size-14">Show all 39</span>
+                                                        <span class="link-collapse__active font-size-14">Show less</span>
+                                                    </a>
+                                                    <!-- End Link -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="propertyCategoryAccordion045" class="accordion rounded-0 shadow-none border-top">
+                                        <div class="border-0">
+                                            <div class="card-collapse" id="propertyCategoryHeadingOne045">
+                                                <h3 class="mb-0">
+                                                    <button type="button" class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed" data-toggle="collapse" data-target="#propertyCategoryOne045" aria-expanded="false" aria-controls="propertyCategoryOne045">
+                                                        <span class="row align-items-center">
+                                                            <span class="col-9">
+                                                                <span class="font-weight-bold font-size-17 text-dark mb-3">Cancellation</span>
+                                                            </span>
+                                                            <span class="col-3 text-right">
+                                                                <span class="card-btn-arrow">
+                                                                    <span class="fas fa-chevron-down small"></span>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </button>
+                                                </h3>
+                                            </div>
+                                            <div id="propertyCategoryOne045" class="collapse" aria-labelledby="propertyCategoryHeadingOne045" data-parent="#propertyCategoryAccordion045">
+                                                <div class="card-body pt-0 mt-1 px-5 pb-4">
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="cancellation_chkbox">
+                                                            <label class="custom-control-label" for="cancellation_chkbox">Free Cancellation</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="propertyCategoryAccordion046" class="accordion rounded-0 shadow-none border-top">
+                                        <div class="border-0">
+                                            <div class="card-collapse" id="propertyCategoryHeadingOne046">
+                                                <h3 class="mb-0">
+                                                    <button type="button" class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed" data-toggle="collapse" data-target="#propertyCategoryOne046" aria-expanded="false" aria-controls="propertyCategoryOne046">
+                                                        <span class="row align-items-center">
+                                                            <span class="col-9">
+                                                                <span class="font-weight-bold font-size-17 text-dark mb-3">Guest Rating</span>
+                                                            </span>
+                                                            <span class="col-3 text-right">
+                                                                <span class="card-btn-arrow">
+                                                                    <span class="fas fa-chevron-down small"></span>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </button>
+                                                </h3>
+                                            </div>
+                                            <div id="propertyCategoryOne046" class="collapse" aria-labelledby="propertyCategoryHeadingOne045" data-parent="#propertyCategoryAccordion046">
+                                                <div class="card-body pt-0 mt-1 px-5 pb-4">
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="Excellent">
+                                                            <label class="custom-control-label" for="Excellent">Excellent</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="collapse" id="collapseBrand046">
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="vgood">
+                                                                <label class="custom-control-label" for="vgood">Very good</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="Good">
+                                                                <label class="custom-control-label" for="Good">Good</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="Fair">
+                                                                <label class="custom-control-label" for="Fair">Fair</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-3">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="Okay">
+                                                                <label class="custom-control-label" for="Okay">Okay</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End View More - Collapse -->
+                                                    <!-- Link -->
+                                                    <a class="link link-collapse small font-size-1" data-toggle="collapse" href="#collapseBrand046" role="button" aria-expanded="false" aria-controls="collapseBrand046">
+                                                        <span class="link-collapse__default font-size-14">Show all</span>
+                                                        <span class="link-collapse__active font-size-14">Show less</span>
+                                                    </a>
+                                                    <!-- End Link -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="propertyCategoryAccordion047" class="accordion rounded-0 shadow-none border-top">
+                                        <div class="border-0">
+                                            <div class="card-collapse" id="propertyCategoryHeadingOne047">
+                                                <h3 class="mb-0">
+                                                    <button type="button" class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed" data-toggle="collapse" data-target="#propertyCategoryOne047" aria-expanded="false" aria-controls="propertyCategoryOne047">
+                                                        <span class="row align-items-center">
+                                                            <span class="col-9">
+                                                                <span class="font-weight-bold font-size-17 text-dark mb-3">Recommendations</span>
+                                                            </span>
+                                                            <span class="col-3 text-right">
+                                                                <span class="card-btn-arrow">
+                                                                    <span class="fas fa-chevron-down small"></span>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </button>
+                                                </h3>
+                                            </div>
+                                            <div id="propertyCategoryOne047" class="collapse" aria-labelledby="propertyCategoryHeadingOne047" data-parent="#propertyCategoryAccordion047">
+                                                <div class="card-body pt-0 mt-1 px-5 pb-4">
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="rr">
+                                                            <label class="custom-control-label" for="rr">Rating & Recommended</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="collapse" id="collapseBrand047">
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="pr">
+                                                                <label class="custom-control-label" for="pr">Price & Recommended</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="dr">
+                                                                <label class="custom-control-label" for="dr">Distance & Recommended</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="ro">
+                                                                <label class="custom-control-label" for="ro">Rating only</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="po">
+                                                                <label class="custom-control-label" for="po">Price Only</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="do">
+                                                                <label class="custom-control-label" for="do">Distance Only</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End View More - Collapse -->
+                                                    <!-- Link -->
+                                                    <a class="link link-collapse small font-size-1" data-toggle="collapse" href="#collapseBrand047" role="button" aria-expanded="false" aria-controls="collapseBrand047">
+                                                        <span class="link-collapse__default font-size-14">Show all</span>
+                                                        <span class="link-collapse__active font-size-14">Show less</span>
+                                                    </a>
+                                                    <!-- End Link -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="propertyCategoryAccordionamen" class="accordion rounded-0 shadow-none border-top">
+                                        <div class="border-0">
+                                            <div class="card-collapse" id="propertyCategoryHeadingOneamen">
+                                                <h3 class="mb-0">
+                                                    <button type="button" class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed" data-toggle="collapse" data-target="#propertyCategoryOneamen" aria-expanded="false" aria-controls="propertyCategoryOneamen">
+                                                        <span class="row align-items-center">
+                                                            <span class="col-9">
+                                                                <span class="font-weight-bold font-size-17 text-dark mb-3">Filter Amenities </span>
+                                                            </span>
+                                                            <span class="col-3 text-right">
+                                                                <span class="card-btn-arrow">
+                                                                    <span class="fas fa-chevron-down small"></span>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </button>
+                                                </h3>
+                                            </div>
+                                            <div id="propertyCategoryOneamen" class="collapse" aria-labelledby="propertyCategoryHeadingOneamen" data-parent="#propertyCategoryAccordionamen">
+                                                <div class="card-body pt-0 mt-1 px-5 pb-4">
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" id="Pool" class="custom-control-input">
+                                                            <label class="custom-control-label" for="Pool">Pool</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="Wifi">
+                                                            <label class="custom-control-label" for="Wifi">Wifi</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="Air">
+                                                            <label class="custom-control-label" for="Air">Air Condtioning</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-3 pb-1">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="Pet">
+                                                            <label class="custom-control-label" for="Pet">Pet Friendly</label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Checkboxes -->
+                                                    <!-- View More - Collapse -->
+                                                    <div class="collapse" id="collapseBrand2amen">
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="Pay">
+                                                                <label class="custom-control-label" for="Pay">Pay at the Property</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-3">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="Spa">
+                                                                <label class="custom-control-label" for="Spa">Spa</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End View More - Collapse -->
+                                                    <!-- Link -->
+                                                    <a class="link link-collapse small font-size-1" data-toggle="collapse" href="#collapseBrand2amen" role="button" aria-expanded="false" aria-controls="collapseBrand2amen">
+                                                        <span class="link-collapse__default font-size-14">Show all (2)</span>
+                                                        <span class="link-collapse__active font-size-14">Show less</span>
+                                                    </a>
+                                                    <!-- End Link -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="pb-4 mb-2">
+                                    <a href="https://goo.gl/maps/kCVqYkjHX3XvoC4B9" class="d-block border">
+                                        <img src="~/Content/img/map-markers/map.jpg" alt="" width="100%">
+                                    </a>
+                                </div>*@
+                            </div>
+                        </div>
+                        <!-- End Content -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+    }
+
+

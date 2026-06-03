@@ -1,0 +1,158 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Data.GetMeRoom.Models.GetRoomResponse
+{
+
+    public class GetRoomRS
+    {
+        public object ResponseInfo { get; set; }
+        public Hotels Hotels { get; set; }
+    }
+
+    public class Hotels
+    {
+        public Hotel Hotel { get; set; }
+    }
+
+    public class Hotel
+    {
+        public List<Rate> Rates { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
+        public List<Description> Descriptions { get; set; }
+        public object Neighbourhoods { get; set; }
+        public List<Nearbyattraction> NearByAttractions { get; set; }
+        public List<Facility> Facilities { get; set; }
+        public List<Amenity> Amenities { get; set; }
+        public List<Image> Images { get; set; }
+        public string Star { get; set; }
+        public string ReviewRating { get; set; }
+        public string ReviewCount { get; set; }
+        public string Image { get; set; }
+        public object MinPrice { get; set; }
+        public object Offer { get; set; }
+    }
+
+    public class Rate
+    {
+        public string Token { get; set; }
+        public string RateCode { get; set; }
+        public List<Room> Room { get; set; }
+    }
+
+    public class Room
+    {
+        public string RateId { get; set; }
+        public string RoomId { get; set; }
+        public string RoomType { get; set; }
+        public string RoomDesc { get; set; }
+        public string BoardBasis { get; set; }
+        public object Rooms { get; set; }
+        public bool Avl { get; set; }
+        public float NetPrice { get; set; }
+        public string NetCurrency { get; set; }
+        public float GrossPrice { get; set; }
+        public string GrossCurrency { get; set; }
+        public string ProviderName { get; set; }
+        public string ProviderId { get; set; }
+        public bool NeedsPriceCheck { get; set; }
+        public bool IsPackageRate { get; set; }
+        public bool IsRefundable { get; set; }
+        public bool PayAtHotel { get; set; }
+        public bool SmokingAllowed { get; set; }
+        public int Adult { get; set; }
+        public int Child { get; set; }
+        public string ChildAge { get; set; }
+        public string ProviderHotelCode { get; set; }
+        public string RateType { get; set; }
+        public List<Image> Images { get; set; }
+        public List<Bed> Beds { get; set; }
+        public Policies Policies { get; set; }
+        public List<AdditionalCharges> AdditionalCharges { get; set; }
+        public List<Dailyrate> DailyRates { get; set; }
+        public List<Tax> Taxes { get; set; }
+    }
+
+    public class AdditionalCharges
+    {
+        public string Type { get; set; }
+        public string Description { get; set; }
+        public string Frequency { get; set; }
+        public string Unit { get; set; }
+        public float Amount { get; set; }
+        public string Currency { get; set; }
+        
+    }
+    public class Policies
+    {
+        public List<Policy> Policy { get; set; }
+    }
+
+    public class Policy
+    {
+        public string Value { get; set; }
+        public string ValueType { get; set; }
+        public float EstimatedValue { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+    public class Image
+    {
+        public string Type { get; set; }
+        public string Url { get; set; }
+        public string Size { get; set; }
+    }
+
+    public class Bed
+    {
+        public string Type { get; set; }
+        public int Count { get; set; }
+    }
+
+    public class Dailyrate
+    {
+        public float NetPrice { get; set; }
+        public float GrossPrice { get; set; }
+        public DateTime Date { get; set; }
+        public bool TaxIncluded { get; set; }
+    }
+
+    public class Tax
+    {
+        public float NetPrice { get; set; }
+        public float GrossPrice { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class Description
+    {
+        public string Type { get; set; }
+        public string Text { get; set; }
+    }
+
+    public class Nearbyattraction
+    {
+        public string Name { get; set; }
+        public string Distance { get; set; }
+        public string Unit { get; set; }
+    }
+
+    public class Facility
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
+
+    public class Amenity
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
+
+   
+
+}

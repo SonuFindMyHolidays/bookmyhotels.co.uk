@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bookmyhotels.co.uk", "BookMyHotels\bookmyhotels.co.uk.csproj", "{FF93DAA3-4941-4FA3-9384-6BB35FEF2FC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.GetMeRoom", "Business.GetMeRoom\Business.GetMeRoom.csproj", "{907251B1-D2CC-4C01-A730-B0BF22B23727}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.GetMeRoom", "Data.GetMeRoom\Data.GetMeRoom.csproj", "{B3818B48-6C1B-476F-B3A7-EC9392348ACC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF93DAA3-4941-4FA3-9384-6BB35FEF2FC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF93DAA3-4941-4FA3-9384-6BB35FEF2FC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF93DAA3-4941-4FA3-9384-6BB35FEF2FC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF93DAA3-4941-4FA3-9384-6BB35FEF2FC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{907251B1-D2CC-4C01-A730-B0BF22B23727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{907251B1-D2CC-4C01-A730-B0BF22B23727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{907251B1-D2CC-4C01-A730-B0BF22B23727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{907251B1-D2CC-4C01-A730-B0BF22B23727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3818B48-6C1B-476F-B3A7-EC9392348ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3818B48-6C1B-476F-B3A7-EC9392348ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3818B48-6C1B-476F-B3A7-EC9392348ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3818B48-6C1B-476F-B3A7-EC9392348ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5C8CD5D-08ED-4957-897D-9B4ED4A3B542}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/findmyholidays
+		SccProjectUniqueName0 = Business.GetMeRoom\\Business.GetMeRoom.csproj
+		SccProjectName0 = Business.GetMeRoom
+		SccAuxPath0 = https://dev.azure.com/findmyholidays
+		SccLocalPath0 = Business.GetMeRoom
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = Data.GetMeRoom\\Data.GetMeRoom.csproj
+		SccProjectName1 = Data.GetMeRoom
+		SccAuxPath1 = https://dev.azure.com/findmyholidays
+		SccLocalPath1 = Data.GetMeRoom
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = BookMyHotels\\bookmyhotels.co.uk.csproj
+		SccProjectName2 = BookMyHotels
+		SccAuxPath2 = https://dev.azure.com/findmyholidays
+		SccLocalPath2 = BookMyHotels
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

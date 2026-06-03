@@ -1,0 +1,24 @@
+﻿.p_sa_txt {
+    text-align: left;
+    margin-bottom: 0px !important;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1010px) {
+    .p_sa_txt {
+        text-align: center;
+    }
+}
+
+.p_sa02_txt {
+    padding-left: 0px;
+    padding-right: 0px;
+    float: left;
+    text-align: right;
+}
+
+@media screen and (max-width: 1010px) {
+    .p_sa02_txt {
+        text-align: center;
+    }
+}

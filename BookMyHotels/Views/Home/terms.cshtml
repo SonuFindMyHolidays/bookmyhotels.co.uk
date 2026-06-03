@@ -1,0 +1,597 @@
+﻿@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+   
+    /* Style the tab content */
+    .tabcontent {
+        float: left;
+        padding: 0px 12px;
+        border: 0px solid #cadcf6;
+        width: 100%;
+        height: auto;
+        color: #00408a !important;
+        text-align: justify;
+    }
+
+    p {
+        color: #3c586d;
+        line-height: 30px;
+    }
+
+        li {
+            color: #3c586d !important;
+        }
+</style>
+
+
+    <main id="content">
+        <!-- Hero Section -->
+        <div class="bg-img-hero text-center mb-5 mb-lg-8" style="background-image: url('../Content/img/terms.jpg');">
+            <div class="container space-top-xl-3 py-6 py-xl-0">
+                <div class="row justify-content-center py-xl-4">
+                    <!-- Info -->
+                    <div class="py-xl-10 py-5">
+                        <h1 class="font-size-40 font-size-xs-30 text-white font-weight-bold mb-0">Terms & Conditions</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb breadcrumb-no-gutter justify-content-center mb-0">
+                                <li class="breadcrumb-item font-size-14"><a class="text-white" href="@Data.GetMeRoom.GlobalConstant.ConfigVariables.SITEROOTPATH">Home</a></li>
+                                <li class="breadcrumb-item custom-breadcrumb-item font-size-14 text-white active" aria-current="page">Terms & Conditions</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!-- End Info -->
+                </div>
+            </div>
+        </div>
+        <!--End Hero Section -->
+        <div class=" terms_tab border-bottom border-color-8 pt-lg-1">
+
+            <div class="container mb-4 mb-lg-11 pb-lg-1">
+                <div class="row">
+
+                    <div class="col-md-12 col-lg-12 col-xl-12">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div id="general" class="tabcontent" style="padding: 25px; background-color: rgb(255, 255, 255) !important; display: block;">
+                                <h4>1. Scope of the Document</h4>
+
+                                <p>The following Terms and Conditions apply to all bookings made through BookMyHotels (owned and operated by PFMH Travel Solutions Private Limited) via its website, mobile application, or any affiliated platform.</p>
+
+                                <p>By accessing, browsing, or using our services, you acknowledge and agree to be bound by these Terms and Conditions. These terms govern the relationship between the customer (“you”) and BookMyHotels (“we,” “us,” or “our”) and outline the rights, obligations, and responsibilities of both parties concerning hotel bookings, payments, cancellations, and other related services.</p>
+
+                                <p>Please read these Terms and Conditions carefully before making any booking. If you do not agree to these terms, you must refrain from using our services.</p>
+
+
+
+                                <h4>2. Booking Policies</h4>
+
+                                <h5>2.1 General</h5>
+                                <p>All bookings made through BookMyHotels are subject to availability and confirmation from the respective hotel. A booking is considered valid only after the full or partial payment has been successfully processed and a confirmation voucher is issued.</p>
+
+                                <h5>2.2 Accuracy of Information</h5>
+                                <p>While we make every effort to ensure that the information provided on our website is accurate, certain details—such as hotel descriptions, amenities, images, or pricing—are provided by third-party suppliers. BookMyHotels does not guarantee the completeness, reliability, or accuracy of such information and shall not be held liable for any errors or omissions.</p>
+
+                                <h5>2.3 Customer Responsibility</h5>
+                                <p>Customers are responsible for verifying all booking details, including travel dates, room type, number of guests, and any special requests, before confirming the reservation. BookMyHotels will not be liable for any loss or inconvenience resulting from incorrect information provided at the time of booking.</p>
+
+                                <h5>2.4 Special Requests</h5>
+                                <p>Any special requests (e.g., early check-in, late check-out, specific room preferences, smoking/non-smoking rooms) are subject to hotel availability and cannot be guaranteed. Additional charges may apply depending on hotel policies.</p>
+
+                                <h5>2.5 Booking on Behalf of Others</h5>
+                                <p>If you make a booking on behalf of another person, you represent that you have the authority to act on their behalf and that they accept these Terms and Conditions.</p>
+
+
+
+                                <h4>3. Payment Policies</h4>
+
+                                <h5>3.1 Currency and Pricing</h5>
+                                <p>All fares and charges displayed on the BookMyHotels platform are quoted in INR (Indian Rupees) unless otherwise specified. Prices are subject to change based on availability, booking dates, hotel policies, and other market conditions until the booking is confirmed.</p>
+
+                                <h5>3.2 Payment Methods</h5>
+                                <p>Payments may be made using accepted methods such as credit cards, debit cards, net banking, UPI, or other payment gateways integrated into the BookMyHotels platform. By providing payment details, you authorize us (or our payment processing partners) to charge the specified amount for your booking.</p>
+
+                                <h5>3.3 Payment Confirmation</h5>
+                                <p>A booking will be deemed confirmed only after successful receipt of payment and issuance of a Booking Confirmation Voucher. In case of payment failure or technical errors, BookMyHotels reserves the right to cancel or reject the booking without prior notice.</p>
+
+                                <h5>3.4 Pricing Discrepancies</h5>
+                                <p>If an error in pricing or fare calculation occurs due to technical or human oversight, BookMyHotels reserves the right to cancel the booking or adjust the fare accordingly. Customers will be notified of such discrepancies and may choose to proceed at the corrected rate or cancel the booking with a full refund of the amount paid.</p>
+
+                                <h5>3.5 Taxes and Additional Charges</h5>
+                                <p>Displayed prices may not include certain charges such as local taxes, resort fees, or other hotel-imposed fees. Such charges, if applicable, are payable directly to the hotel at the time of check-in or check-out.</p>
+
+                                <h5>3.6 Refunds</h5>
+                                <p>Refunds, if applicable, will be processed in accordance with the Cancellation and Refund Policy outlined herein. Processing times may vary depending on the payment method and financial institutions involved.</p>
+
+
+
+                                <h4>4. Cancellation and Refund Policy</h4>
+
+                                <h5>4.1 General</h5>
+                                <p>All cancellations are subject to the specific cancellation policy of the respective hotel. The policy may vary based on room type, rate plan, season, or promotional offer. Customers are advised to review the applicable cancellation terms before completing the booking.</p>
+
+                                <h5>4.2 Non-Refundable Bookings</h5>
+                                <p>Certain bookings are strictly non-refundable and non-changeable once confirmed. In such cases, no refund or modification will be permitted under any circumstances, including no-shows or early check-outs.</p>
+
+                                <h5>4.3 Refundable Bookings</h5>
+                                <p>For bookings eligible for a refund, cancellations must be made within the stipulated time frame mentioned in the booking confirmation. Refund amounts, if any, will be processed after deducting applicable cancellation fees and service charges as per the hotel and BookMyHotels policy.</p>
+
+                                <h5>4.4 No-Show Policy</h5>
+                                <p>In the event of a no-show, where the customer fails to check in on the scheduled date without prior notice, the booking will be treated as canceled, and no refund will be applicable.</p>
+
+                                <h5>4.5 Early Check-Out</h5>
+                                <p>If the guest decides to check out before the confirmed departure date, the hotel’s early check-out policy will apply. Refunds, if any, will be at the discretion of the hotel and BookMyHotels will not be held responsible for the same.</p>
+
+                                <h5>4.6 Refund Processing Time</h5>
+                                <p>Approved refunds will be processed within 7 to 15 working days from the date of approval. The time required for the amount to reflect in the customer’s account may vary depending on the payment method and bank processing times.</p>
+
+                                <h5>4.7 Force Majeure and Exceptional Circumstances</h5>
+                                <p>In cases where cancellations occur due to unforeseen events beyond the control of either party—such as natural disasters, government restrictions, strikes, pandemics, or other force majeure events—refunds or rescheduling options will be provided in accordance with hotel and regulatory guidelines.</p>
+
+                                <h4>5. Modification and Rebooking Policy</h4>
+
+                                <h5>5.1 General</h5>
+                                <p>Once a booking is confirmed, modifications or changes to the reservation (including dates, room types, or guest details) are generally not permitted unless explicitly allowed under the hotel’s policy or the specific rate plan booked.</p>
+
+                                <h5>5.2 Hotel-Specific Rules</h5>
+                                <p>Each hotel maintains its own rules regarding amendments. Where permitted, modification requests will be subject to availability, rate differences, and any applicable service or amendment fees imposed by the hotel or BookMyHotels.</p>
+
+                                <h5>5.3 Procedure for Modifications</h5>
+                                <p>All modification or rebooking requests must be submitted to BookMyHotels through the official communication channels—either via the website, mobile app, or by contacting our Customer Service Department at 011-40550926 during business hours (08:00 AM – 09:00 PM, all days).</p>
+
+                                <h5>5.4 Rate Adjustments</h5>
+                                <p>If the modification results in a higher rate (due to a change in dates, room category, or hotel policy), the difference in fare must be paid by the customer before the modification is confirmed. Conversely, if the new fare is lower, the refund (if applicable) will be processed in accordance with the Cancellation and Refund Policy.</p>
+
+                                <h5>5.5 Non-Transferability</h5>
+                                <p>All bookings are non-transferable, non-saleable, and non-assignable. Transferring a confirmed booking to another individual or entity is strictly prohibited.</p>
+
+                                <h5>5.6 Denial of Modifications</h5>
+                                <p>BookMyHotels reserves the right to deny modification or rebooking requests if such requests violate hotel policy, rate plan terms, or applicable cancellation rules.</p>
+
+
+
+                                <h4>6. Check-in, Check-out, and Stay Policies</h4>
+
+                                <h5>6.1 Check-in and Check-out Timings</h5>
+                                <p>Standard check-in and check-out times are determined by the respective hotel and may vary from property to property. Early check-in or late check-out requests are subject to availability and may incur additional charges as per the hotel’s policy.</p>
+
+                                <h5>6.2 Identification Requirements</h5>
+                                <p>Guests are required to present a valid government-issued photo identification (such as a passport, Aadhaar card, driver’s license, or voter ID) at the time of check-in. Hotels reserve the right to deny check-in if valid identification is not provided. Foreign nationals must present a valid passport and visa.</p>
+
+                                <h5>6.3 Guest Verification</h5>
+                                <p>The name on the reservation must match the name on the identification document. Hotels may refuse check-in or cancel the booking if discrepancies are found, without any refund obligation from BookMyHotels.</p>
+
+                                <h5>6.4 Security Deposit</h5>
+                                <p>Some hotels may require a security deposit at check-in to cover incidental expenses. The amount and refund policy for such deposits are determined by the respective hotel and must be settled directly with the property.</p>
+
+                                <h5>6.5 Occupancy Limits</h5>
+                                <p>Guests must adhere to the maximum occupancy limit specified by the hotel. Additional guests may be allowed at the hotel’s discretion and may attract extra charges.</p>
+
+                                <h5>6.6 Behavior and Conduct</h5>
+                                <p>Guests are expected to maintain appropriate behavior during their stay. Any damage to hotel property, misconduct, or violation of hotel rules may result in immediate eviction without refund, and guests may be held liable for damages or losses incurred.</p>
+
+                                <h5>6.7 Pets and Special Requests</h5>
+                                <p>The acceptance of pets or fulfillment of special requests (such as accessibility features or specific amenities) is subject to individual hotel policies. Guests are advised to confirm such details directly with the hotel prior to check-in.</p>
+
+                                <h5>6.8 Unforeseen Circumstances</h5>
+                                <p>In case of overbooking, operational issues, or unforeseen circumstances, the hotel reserves the right to offer alternative accommodation of a comparable standard or issue a refund, at its discretion.</p>
+
+
+
+                                <h4>7. Guest Obligations and Responsibilities</h4>
+
+                                <h5>7.1 Accuracy of Information</h5>
+                                <p>Guests must ensure that all information provided at the time of booking—such as name, contact details, identification, and payment information—is accurate and complete. BookMyHotels shall not be liable for any issues or losses arising due to incorrect or incomplete information submitted by the guest.</p>
+
+                                <h5>7.2 Compliance with Laws and Hotel Policies</h5>
+                                <p>Guests are required to comply with all applicable local laws, hotel regulations, and public safety guidelines during their stay. Failure to adhere to these requirements may result in denial of service or eviction without any refund.</p>
+
+                                <h5>7.3 Damage and Loss</h5>
+                                <p>Guests are responsible for maintaining the condition of the accommodation during their stay. Any damage, loss, or theft caused to hotel property, whether accidental or intentional, will be charged to the guest as determined by the hotel’s management.</p>
+
+                                <h5>7.4 Prohibited Activities</h5>
+                                <p>Guests are strictly prohibited from engaging in any illegal, unethical, or disruptive activities, including but not limited to:</p>
+
+                                <ul>
+                                    <li>Possession or use of illegal substances,</li>
+                                    <li>Disorderly conduct or harassment of staff or other guests,</li>
+                                    <li>Commercial use of the accommodation without permission, or</li>
+                                    <li>Tampering with safety or security equipment.</li>
+                                </ul>
+
+                                <p>Violation of this clause may result in immediate termination of the stay, reporting to authorities, and forfeiture of any payment made.</p>
+
+                                <h5>7.5 Personal Belongings</h5>
+                                <p>Guests are solely responsible for the safekeeping of their personal belongings. BookMyHotels and the respective hotel shall not be liable for any loss, theft, or damage to personal items during the stay.</p>
+
+                                <h5>7.6 Use of Hotel Facilities</h5>
+                                <p>Guests must use all hotel facilities and amenities responsibly and in accordance with the hotel’s policies. Misuse of such facilities may result in additional charges or restricted access.</p>
+
+                                <h5>7.7 Health, Safety, and Hygiene</h5>
+                                <p>Guests are expected to follow all health, hygiene, and safety protocols implemented by the hotel or required by law, including those related to public health emergencies or safety advisories.</p>
+
+
+
+                                <h4>8. Hotel Obligations and Limitations of Liability</h4>
+
+                                <h5>8.1 Hotel Responsibilities</h5>
+                                <p>Each hotel listed on the BookMyHotels platform is an independent entity responsible for providing the accommodation and related services booked by the customer. The hotel is solely accountable for the quality, standard, and availability of the services offered.</p>
+
+                                <h5>8.2 Representation and Accuracy</h5>
+                                <p>While BookMyHotels strives to ensure that all information displayed—including hotel descriptions, amenities, photographs, and rates—is accurate and up to date, such content is largely provided by the respective hotels or third-party suppliers. Therefore, BookMyHotels shall not be held liable for any discrepancies, inaccuracies, or misrepresentations in the information displayed.</p>
+
+                                <h5>8.3 Hotel Service Failures</h5>
+                                <p>In the event of any deficiency, unavailability, or failure in hotel services, the guest must report the issue directly to the hotel management during their stay. BookMyHotels will, at its discretion, assist in facilitating communication or resolution but shall not be responsible for any compensation, damages, or refunds arising from hotel service issues.</p>
+
+                                <h5>8.4 Overbooking or Non-Availability</h5>
+                                <p>If a confirmed hotel booking cannot be honored due to overbooking or operational issues, the hotel is responsible for providing alternative accommodation of a comparable standard at no additional cost to the guest. BookMyHotels may assist in coordination but bears no direct liability for such situations.</p>
+
+                                <h5>8.5 Third-Party Involvement</h5>
+                                <p>Since BookMyHotels acts as an intermediary platform between the customer and the hotel, it cannot be held responsible for any direct or indirect losses, claims, or expenses arising from the hotel’s actions, omissions, or service shortcomings.</p>
+
+                                <h5>8.6 Limitation of Liability</h5>
+                                <p>To the fullest extent permitted by law, BookMyHotels, its parent company (PFMH Travel Solutions Pvt. Ltd.), affiliates, directors, employees, and agents shall not be liable for any indirect, incidental, consequential, or punitive damages, including but not limited to loss of profits, goodwill, data, or personal injury arising out of or in connection with the use of our platform or hotel services.</p>
+
+                                <h5>8.7 Force Majeure</h5>
+                                <p>Neither the hotel nor BookMyHotels shall be held liable for any failure or delay in performing obligations due to force majeure events, including but not limited to natural disasters, acts of government, war, terrorism, pandemics, labor disputes, or other events beyond reasonable control.</p>
+
+                                <h4>9. Platform Usage and Account Responsibilities</h4>
+
+                                <h5>9.1 Eligibility</h5>
+                                <p>Use of the BookMyHotels platform is permitted only to individuals who are 18 years of age or older and legally capable of entering into binding contracts under applicable law. By accessing or using the platform, you represent and warrant that you meet these eligibility requirements.</p>
+
+                                <h5>9.2 Account Creation</h5>
+                                <p>To access certain features, users may be required to create an account. You agree to provide accurate, complete, and up-to-date information when creating or updating your account. You are solely responsible for maintaining the confidentiality of your login credentials and for all activities conducted under your account.</p>
+
+                                <h5>9.3 Prohibited Use</h5>
+                                <p>You agree not to:</p>
+                                <ul>
+                                    <li>Use the platform for any unlawful or fraudulent purpose;</li>
+                                    <li>Access, modify, or attempt to interfere with any part of the website, its systems, or data;</li>
+                                    <li>Reproduce, distribute, or exploit any content or service offered by BookMyHotels without prior written consent;</li>
+                                    <li>Post or transmit any harmful, defamatory, or inappropriate content through the platform.</li>
+                                </ul>
+
+                                <h5>9.4 Intellectual Property Rights</h5>
+                                <p>All content available on the BookMyHotels website and mobile application, including but not limited to text, images, logos, designs, graphics, trademarks, and software, is the intellectual property of PFMH Travel Solutions Pvt. Ltd. or its licensors. Unauthorized copying, reproduction, or distribution is strictly prohibited and may result in legal action.</p>
+
+                                <h5>9.5 Third-Party Links</h5>
+                                <p>The platform may contain links to third-party websites or services for user convenience. Such links do not imply endorsement, and BookMyHotels is not responsible for the content, accuracy, or policies of any linked external websites. Users access such third-party links at their own risk.</p>
+
+                                <h5>9.6 System Integrity</h5>
+                                <p>Users must not engage in activities that may compromise the security, performance, or availability of the platform, including hacking attempts, automated data collection (scraping), or introducing harmful software or code.</p>
+
+                                <h5>9.7 Termination of Access</h5>
+                                <p>BookMyHotels reserves the right to suspend, restrict, or terminate user access to the platform, in whole or in part, at its discretion and without prior notice, if it believes that the user has violated these Terms and Conditions or applicable laws.</p>
+
+
+
+                                <h4>10. Privacy and Data Protection</h4>
+
+                                <h5>10.1 Commitment to Privacy</h5>
+                                <p>At BookMyHotels, protecting your privacy and maintaining the confidentiality of your personal information is a top priority. We collect, process, and store your data in accordance with the Information Technology Act, 2000 and the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011, along with other applicable data protection laws in India.</p>
+
+                                <h5>10.2 Information We Collect</h5>
+                                <p>When you use our website or mobile application, we may collect and process the following categories of data:</p>
+
+                                <ul>
+                                    <li><strong>Personal Information:</strong> including your full name, contact details (email, phone number, address), payment details, and identification documents (where required for verification or booking purposes).</li>
+                                    <li><strong>Booking Information:</strong> such as accommodation preferences, stay duration, and transaction history.</li>
+                                    <li><strong>Technical Data:</strong> including IP address, browser type, device information, and usage analytics to improve platform performance and user experience.</li>
+                                </ul>
+
+                                <h5>10.3 Purpose of Data Collection</h5>
+                                <p>Your information is collected and processed to:</p>
+                                <ul>
+                                    <li>a) Facilitate bookings and provide requested travel services;</li>
+                                    <li>b) Communicate booking confirmations, updates, and customer service notifications;</li>
+                                    <li>c) Process payments and prevent fraud;</li>
+                                    <li>d) Improve platform functionality, content, and security;</li>
+                                    <li>e) Comply with legal obligations or requests from authorized authorities.</li>
+                                </ul>
+
+                                <h5>10.4 Data Sharing and Disclosure</h5>
+                                <p>Your personal data may be shared with:</p>
+                                <ul>
+                                    <li>Service Providers (e.g., hotels, resorts, or booking partners) for the fulfillment of your reservation;</li>
+                                    <li>Payment Processors to complete financial transactions;</li>
+                                    <li>Government or Legal Authorities when required by law;</li>
+                                    <li>Technology Partners that assist in website hosting, analytics, or communications — all bound by confidentiality and data protection agreements.</li>
+                                </ul>
+                                <p>We do not sell, rent, or trade your personal data to third parties for marketing purposes.</p>
+
+                                <h5>10.5 Data Security</h5>
+                                <p>We employ robust administrative, technical, and physical safeguards to protect your data from unauthorized access, alteration, disclosure, or destruction. These include SSL encryption, secure server infrastructure, and regular audits to ensure compliance with applicable data protection standards.</p>
+
+                                <h5>10.6 Data Retention</h5>
+                                <p>Your personal data is retained only for as long as necessary to fulfill the purposes outlined in this section or as required by law. Once the retention period expires, data is securely deleted or anonymized.</p>
+
+                                <h5>10.7 Your Rights</h5>
+                                <p>You have the right to:</p>
+                                <ul>
+                                    <li>Access and review the personal data we hold about you;</li>
+                                    <li>Request corrections or updates to inaccurate information;</li>
+                                    <li>Withdraw consent for certain types of processing (where applicable);</li>
+                                    <li>Request deletion of your data, subject to legal and contractual obligations.</li>
+                                </ul>
+                                <p>Requests related to your personal data can be submitted to support@bookmyhotels.co.in. We will respond to all legitimate requests within a reasonable timeframe, in accordance with applicable laws.</p>
+
+                                <h5>10.8 Cookies and Tracking Technologies</h5>
+                                <p>Our website uses cookies and similar technologies to enhance your browsing experience, analyze traffic, and personalize content. You may manage your cookie preferences through your browser settings; however, disabling certain cookies may affect website functionality.</p>
+
+                                <h5>10.9 International Data Transfers</h5>
+                                <p>Where necessary, your data may be transferred to or processed in countries outside India. In such cases, BookMyHotels ensures that appropriate data protection measures and contractual safeguards are in place.</p>
+
+                                <h5>10.10 Policy Updates</h5>
+                                <p>We reserve the right to update this Privacy Policy periodically to reflect legal, regulatory, or operational changes. Any updates will be posted on our website with the effective date clearly indicated. Continued use of our services after such updates constitutes your acknowledgment and acceptance of the revised policy.</p>
+
+
+
+                                <h4>11. Refunds and Payment Policy</h4>
+
+                                <h5>11.1 Accepted Payment Methods</h5>
+                                <p>BookMyHotels accepts a wide range of payment options for your convenience, including major credit cards, debit cards, net banking, UPI, and other secure digital payment gateways. All payments are processed through trusted third-party payment processors using encrypted and PCI-compliant systems to ensure the security of your financial data.</p>
+
+                                <h5>11.2 Currency</h5>
+                                <p>All fares, charges, and prices displayed on the BookMyHotels platform are quoted in Indian Rupees (INR) unless stated otherwise. Any currency conversion, if applicable, is subject to the exchange rate determined by your payment provider or financial institution at the time of transaction.</p>
+
+                                <h5>11.3 Payment Authorization</h5>
+                                <p>By providing payment details, you authorize BookMyHotels and its payment partners to charge the specified amount to your selected payment method. You also agree that you are the rightful owner or authorized user of the payment instrument used for the transaction.</p>
+
+                                <h5>11.4 Booking Confirmation</h5>
+                                <p>A booking is considered confirmed only after successful payment and receipt of a booking confirmation email or voucher from BookMyHotels. In the event of a payment failure, the booking will not be processed, and the customer will be notified to attempt payment again.</p>
+
+                                <h5>11.5 Refund Eligibility</h5>
+                                <p>Refunds, where applicable, will be processed in accordance with the cancellation and refund policies of the respective hotel or service provider. BookMyHotels acts as an intermediary and follows the refund guidelines set by each property.</p>
+
+                                <ul>
+                                    <li>Refunds are only applicable for cancellable bookings as per the property’s policy.</li>
+                                    <li>Non-refundable bookings are not eligible for cancellation or refund.</li>
+                                    <li>In certain cases, partial refunds may apply, depending on the cancellation date, duration before check-in, or property-specific rules.</li>
+                                </ul>
+
+                                <h5>11.6 Refund Process and Timelines</h5>
+                                <p>Once a cancellation request has been successfully processed and approved, the refund (if applicable) will be initiated to the original mode of payment used during booking.</p>
+                                <ul>
+                                    <li>Refunds may take 7–15 business days to reflect in your account, depending on your bank or payment gateway.</li>
+                                    <li>Transaction or service fees, if any, are non-refundable.</li>
+                                </ul>
+
+                                <h5>11.7 Payment Disputes</h5>
+                                <p>In case of payment discrepancies, double charges, or unauthorized transactions, users must notify BookMyHotels immediately at support@bookmyhotels.co.in with transaction details and supporting documentation. Our team will investigate and coordinate with the payment processor or hotel partner to resolve the issue promptly.</p>
+
+                                <h5>11.8 Partial Payments</h5>
+                                <p>Some hotels may allow partial payments or deposits at the time of booking. In such cases:</p>
+                                <ul>
+                                    <li>The balance payment must be settled directly with the hotel at check-in.</li>
+                                    <li>Failure to complete payment may result in booking cancellation without refund.</li>
+                                </ul>
+
+                                <h5>11.9 No-Show Policy</h5>
+                                <p>If a customer fails to check in on the scheduled date without prior notice to BookMyHotels or the hotel, the entire booking amount will be forfeited and no refund will be issued.</p>
+
+                                <h5>11.10 Force Majeure Refunds</h5>
+                                <p>In cases of events beyond reasonable control — such as natural disasters, pandemics, political unrest, or government-imposed restrictions — refund processing will depend on the policy of the respective hotel or service provider. BookMyHotels will make reasonable efforts to secure refunds or credits wherever possible, but cannot guarantee compensation in such circumstances.</p>
+
+                                <h5>11.11 GST and Other Taxes</h5>
+                                <p>All displayed prices are inclusive of applicable GST, unless otherwise stated. However, additional local taxes, resort fees, or government-imposed levies may apply and are payable directly at the hotel or during checkout.</p>
+
+
+
+                                <h4>12. Cancellations and Amendments Policy</h4>
+
+                                <h5>12.1 General Policy</h5>
+                                <p>All cancellations and amendments are subject to the specific terms and conditions of the respective hotel or service provider. BookMyHotels functions as an intermediary platform and adheres strictly to each property's cancellation policy. Customers are therefore advised to review the hotel’s policy before confirming a booking.</p>
+
+                                <h5>12.2 Cancellable and Non-Cancellable Bookings</h5>
+                                <ul>
+                                    <li><strong>Cancellable Bookings:</strong> If your booking allows cancellation, you may request a cancellation within the permitted time frame specified by the hotel. Applicable cancellation fees (if any) will be deducted from your refund.</li>
+                                    <li><strong>Non-Cancellable / Non-Refundable Bookings:</strong> Bookings marked as non-refundable or non-amendable cannot be modified or cancelled under any circumstances. The full booking amount will be charged in case of cancellation or no-show.</li>
+                                </ul>
+
+                                <h5>12.3 Cancellation Procedure</h5>
+                                <p>To cancel a booking, customers must contact BookMyHotels Customer Service at 011-40550926 or email support@bookmyhotels.co.in with the booking reference number. Cancellations will be processed only after receiving a valid request through official communication channels.</p>
+
+                                <h5>12.4 Hotel-Specific Conditions</h5>
+                                <p>Each hotel may impose distinct conditions such as:</p>
+                                <ul>
+                                    <li>Deadline for free cancellation (e.g., 24 or 48 hours before check-in);</li>
+                                    <li>Applicable cancellation fees after the deadline;</li>
+                                    <li>Peak-season or event-based restrictions.</li>
+                                </ul>
+                                <p>BookMyHotels will display such conditions during the booking process and include them in the confirmation email or voucher.</p>
+
+                                <h5>12.5 Refund for Cancellations</h5>
+                                <ul>
+                                    <li>It will be processed to the original mode of payment;</li>
+                                    <li>Refund timelines typically range from 7 to 15 business days, depending on your bank or payment gateway;</li>
+                                    <li>Service charges, convenience fees, or transaction fees are non-refundable.</li>
+                                </ul>
+
+                                <h5>12.6 Amendments and Modifications</h5>
+                                <ul>
+                                    <li>Post-booking changes such as date modifications, guest name changes, or room upgrades are subject to hotel approval and availability.</li>
+                                    <li>Some hotels may treat date changes as a new booking, which may incur additional charges.</li>
+                                    <li>Requests for amendments must be submitted through BookMyHotels Customer Support at least 72 hours prior to the original check-in date.</li>
+                                </ul>
+
+                                <h5>12.7 Partial or Shortened Stays</h5>
+                                <p>If you choose to shorten your stay or check out earlier than the scheduled date, the unused portion of your booking is non-refundable, unless expressly permitted by the hotel’s policy.</p>
+
+                                <h5>12.8 No-Show Policy</h5>
+                                <p>If a guest fails to check in on the scheduled date without prior notification, the booking will be treated as a no-show, and the entire amount will be forfeited. No refund or amendment will be permitted in such cases.</p>
+
+                                <h5>12.9 Force Majeure or Unforeseen Circumstances</h5>
+                                <p>In the event of cancellations due to natural disasters, pandemics, government restrictions, or other force majeure events, refund eligibility will depend on the respective hotel’s policy. BookMyHotels will assist in coordinating with hotel partners to secure refunds or rescheduling options wherever feasible, but does not guarantee compensation.</p>
+
+                                <h5>12.10 Platform Rights</h5>
+                                <p>BookMyHotels reserves the right to cancel or amend bookings under exceptional circumstances such as overbooking, system errors, payment issues, or fraud detection. In such cases, the customer will be notified immediately, and a full refund or suitable alternative will be offered.</p>
+
+                                <h4>13. Liability and Disclaimer</h4>
+
+                                <h5>13.1 Role of BookMyHotels</h5>
+                                <p>BookMyHotels, owned and operated by PFMH Travel Solutions Pvt. Ltd., functions solely as an intermediary platform facilitating hotel reservations between customers and independent accommodation providers. We do not own, manage, or control the operations of the hotels listed on our platform.</p>
+
+                                <h5>13.2 Limitation of Liability</h5>
+                                <p>To the maximum extent permitted by applicable law, BookMyHotels shall not be held liable for:</p>
+                                <ul>
+                                    <li>a) Any direct, indirect, incidental, special, or consequential losses or damages arising from the use or inability to use our website, mobile application, or booking services;</li>
+                                    <li>b) Any errors, inaccuracies, or omissions in hotel descriptions, rates, facilities, or images provided by the respective property or third-party data sources;</li>
+                                    <li>c) Any personal injury, illness, death, property damage, or other loss suffered during your stay at a booked property;</li>
+                                    <li>d) Any failure, delay, or non-performance resulting from events beyond our reasonable control, including but not limited to natural disasters, government actions, strikes, technical failures, or pandemics.</li>
+                                </ul>
+
+                                <h5>13.3 Hotel Responsibility</h5>
+                                <p>Each hotel or accommodation provider listed on our platform is solely responsible for:</p>
+                                <ul>
+                                    <li>The accuracy of information displayed;</li>
+                                    <li>The quality and safety of its services;</li>
+                                    <li>Compliance with all applicable local laws, licenses, and regulations;</li>
+                                    <li>Resolving complaints or disputes related to stays, facilities, or guest experiences.</li>
+                                </ul>
+                                <p>BookMyHotels assumes no responsibility for the conduct, performance, or service standards of any listed property.</p>
+
+                                <h5>13.4 User Responsibility</h5>
+                                <p>Users are responsible for:</p>
+                                <ul>
+                                    <li>Providing accurate booking details, including names, contact information, and payment credentials;</li>
+                                    <li>Reviewing all terms, cancellation conditions, and inclusions prior to confirming a booking;</li>
+                                    <li>Ensuring possession of valid travel documents and compliance with all legal requirements of the destination.</li>
+                                </ul>
+
+                                <h5>13.5 Third-Party Services</h5>
+                                <p>Our website may include links or integrations with third-party services (such as payment gateways, review platforms, or partner offers). BookMyHotels does not control, endorse, or assume responsibility for such services or the content therein. Accessing these third-party services is at the user’s own discretion and risk.</p>
+
+                                <h5>13.6 Accuracy of Information</h5>
+                                <p>While BookMyHotels strives to ensure that all information displayed on the platform is accurate, complete, and up to date, we cannot guarantee absolute accuracy at all times due to reliance on third-party data sources. Prices, availability, and offers are subject to change without prior notice.</p>
+
+                                <h5>13.7 Technical and System Limitations</h5>
+                                <p>BookMyHotels makes every effort to maintain a smooth and uninterrupted service. However, we do not warrant that the platform will be error-free, secure, or continuously available. Temporary interruptions due to maintenance, upgrades, or technical issues may occur, and we shall not be liable for any loss arising from such interruptions.</p>
+
+                                <h5>13.8 Indemnification</h5>
+                                <p>By using the BookMyHotels platform, you agree to indemnify, defend, and hold harmless PFMH Travel Solutions Pvt. Ltd., its directors, employees, and partners from any claims, liabilities, damages, or expenses (including legal fees) arising from:</p>
+                                <ul>
+                                    <li>Your breach of these Terms and Conditions;</li>
+                                    <li>Misuse or unauthorized use of the platform; or</li>
+                                    <li>Violation of any applicable law or third-party rights.</li>
+                                </ul>
+
+                                <h5>13.9 Disclaimer of Warranties</h5>
+                                <p>All services, information, and materials provided through BookMyHotels are made available on an “as is” and “as available” basis. We make no express or implied warranties or representations regarding the quality, suitability, reliability, or availability of any accommodation or service.</p>
+
+                                <h5>13.10 Aggregate Liability Cap</h5>
+                                <p>In all cases, the total liability of BookMyHotels and its affiliates, whether arising in contract, tort, negligence, or otherwise, shall not exceed the total booking amount paid by the user for the specific reservation giving rise to the claim.</p>
+
+
+
+                                <h4>14. Governing Law and Jurisdiction</h4>
+
+                                <h5>14.1 Applicable Law</h5>
+                                <p>These Terms and Conditions, along with any disputes, claims, or matters arising out of or in connection with your use of the BookMyHotels platform, shall be governed by and construed in accordance with the laws of India, without regard to any conflict of law principles.</p>
+
+                                <h5>14.2 Jurisdiction</h5>
+                                <p>In the event of any dispute or claim arising between the user and BookMyHotels (operated by PFMH Travel Solutions Pvt. Ltd.), the parties agree that the exclusive jurisdiction shall lie with the courts of New Delhi, India. Users hereby submit to the jurisdiction of these courts for the resolution of all such matters.</p>
+
+                                <h5>14.3 Dispute Resolution and Arbitration</h5>
+                                <p>Before initiating formal legal proceedings, both parties shall make reasonable efforts to resolve disputes amicably through mutual discussion or mediation.</p>
+
+                                <ul>
+                                    <li>If the matter remains unresolved within 30 (thirty) days, it shall be referred to arbitration in accordance with the provisions of the Arbitration and Conciliation Act, 1996, as amended.</li>
+                                    <li>The arbitration shall be conducted by a sole arbitrator, mutually appointed by both parties.</li>
+                                    <li>The venue of arbitration shall be New Delhi, and the proceedings shall be conducted in the English language.</li>
+                                    <li>The arbitrator’s decision shall be final and binding on both parties.</li>
+                                </ul>
+
+                                <h5>14.4 Severability</h5>
+                                <p>If any provision of these Terms and Conditions is found to be invalid, unlawful, or unenforceable by a court of competent jurisdiction, such provision shall be severed from the agreement, and the remaining provisions shall continue in full force and effect.</p>
+
+                                <h5>14.5 Waiver</h5>
+                                <p>No waiver by BookMyHotels of any term or condition shall be deemed a continuing waiver or a waiver of any other term. Failure to enforce any right or provision shall not constitute a waiver of such right or provision.</p>
+
+                                <h5>14.6 Entire Agreement</h5>
+                                <p>These Terms and Conditions constitute the entire agreement between the user and BookMyHotels concerning the use of the website, mobile application, and related services, and supersede any prior agreements or understandings (whether oral or written).</p>
+
+                                <h5>14.7 Language</h5>
+                                <p>All communications, legal proceedings, and documentation under these Terms and Conditions shall be conducted in the English language only.</p>
+
+
+
+                                <h4>15. Contact Information and Customer Support</h4>
+
+                                <h5>15.1 Customer Support Assistance</h5>
+                                <p>BookMyHotels is committed to providing responsive and reliable customer support to ensure a seamless booking experience. Our dedicated support team is available to assist you with inquiries related to bookings, cancellations, refunds, or general assistance.</p>
+
+                                <p>
+                                    📞 Customer Care Number: +91 11 4055 0926<br>
+                                    🕒 Operating Hours: 08:00 AM – 09:00 PM (IST), all days<br>
+                                    📧 Email: support@bookmyhotels.co.in
+                                </p>
+
+                                <p>Please provide your Booking Reference Number and registered email ID when contacting support to help us serve you efficiently.</p>
+
+                                <h5>15.2 Feedback and Suggestions</h5>
+                                <p>We value your opinions and encourage users to share feedback or suggestions that can help us improve our services. Feedback can be submitted via our official website or through email at support@bookmyhotels.co.in.</p>
+
+                                <h5>15.3 Grievance Redressal</h5>
+                                <p>In compliance with applicable Indian consumer protection and IT laws, BookMyHotels has appointed a Grievance Officer to address and resolve complaints promptly.</p>
+
+                                <p>
+                                    Grievance Officer:<br>
+                                    Mr. Parth<br>
+                                    Designation: Grievance Redressal Officer<br>
+                                    Email: support@bookmyhotels.co.in<br><br>
+
+                                    Address:<br>
+                                    PFMH Travel Solutions Pvt. Ltd.<br>
+                                    Unit No – 683, Business Park, Vegas Mall,<br>
+                                    Plot No – 6, Sector 14, Dwarka,<br>
+                                    New Delhi – 110078, India
+                                </p>
+
+                                <p>The Grievance Officer shall acknowledge the receipt of any complaint within 48 hours and ensure its resolution within 30 days from the date of receipt, in accordance with applicable regulations.</p>
+
+
+
+                                <h4>16. General</h4>
+
+                                <h5>16.1 Independent Parties</h5>
+                                <p>Nothing contained in these Terms and Conditions shall be deemed to create any partnership, joint venture, agency, or employment relationship between you and BookMyHotels (operated by PFMH Travel Solutions Pvt. Ltd.). Each party shall act as an independent entity, and neither shall have the authority to bind or represent the other for any purpose unless expressly agreed in writing.</p>
+
+                                <h5>16.2 Assignment of Rights</h5>
+                                <p>You shall not assign, delegate, or transfer any of your rights, obligations, or responsibilities under these Terms without prior written consent from BookMyHotels.</p>
+                                <p>BookMyHotels reserves the right to assign or transfer its rights and obligations under these Terms, in whole or in part, to any affiliate, successor, or third party, without prior notice to you, provided such transfer does not prejudice your rights under these Terms and Conditions.</p>
+
+                                <h5>16.3 Governing Law and Jurisdiction</h5>
+                                <p>This Agreement shall be governed by and construed in accordance with the laws of India. In case of any dispute or difference arising out of or in connection with these Terms, the parties agree to submit to the exclusive jurisdiction of the courts located in New Delhi, India.</p>
+
+                                <h5>16.4 Ownership and Corporate Details</h5>
+                                <p>This travel website, BookMyHotels, is owned and operated by PFMH Travel Solutions Private Limited, a company engaged in Retail Travel Agency activities.</p>
+
+                                <ul>
+                                    <li>Company Registration Number: 395849</li>
+                                    <li>Corporate Identification Number (CIN): U63030DL2022PTC395849</li>
+                                    <li>
+                                        Registered Office:<br>
+                                        Unit No – 683, Business Park, Vegas Mall,<br>
+                                        Plot No – 6, Sector 14, Dwarka,<br>
+                                        New Delhi – 110078, India
+                                    </li>
+                                    <li>Ministry of Corporate Affairs (MCA) Registered Entity</li>
+                                </ul>
+
+                                <hr>
+                                <p class="text-center">© Copyright – All Rights Reserved</p>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+   

@@ -1,0 +1,67 @@
+.width50 {
+    width: 50%;
+    height: auto;
+    float: left;
+}
+
+.h1_error {
+    padding-top: 50px;
+    font-size: 55px;
+    color: #555;
+}
+
+.width_76per {
+    width: 76%;
+    height: auto;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .width50 {
+        width: 100%;
+        height: auto;
+        float: left;
+    }
+
+    .h1_error {
+        padding-top: 20px;
+        font-size: 55px;
+        color: #555;
+    }
+
+    .width_76per {
+        width: 96%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+.p_stys {
+    color: #333;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    font-weight: 400;
+}
+
+.p_plspro {
+    color: #333;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    font-weight: 300;
+}
+
+.p_should {
+    color: #333;
+    font-size: 19px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    font-weight: 500;
+}
+
+.wrapper_width_1000 {
+    width: 100%;
+    height: auto;
+    float: left;
+}

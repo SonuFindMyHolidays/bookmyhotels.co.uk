@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF93DAA3-4941-4FA3-9384-6BB35FEF2FC7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GetMeRoom</RootNamespace>
+    <AssemblyName>GetMeRoom</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.6.0.7\lib\net46\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.3.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.3.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppLogger.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\DataServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\FandHServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\SuggestController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PaytmParamKeys.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DataServices\FandHServices.wsdl" />
+    <None Include="Connected Services\DataServices\FandHServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DataServices\FandHServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DataServices\FandHServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DataServices\FandHServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\DataServices\GetMeRoom.DataServices.GetStaticDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\FandHServices\FlightBookingEngine.disco" />
+    <None Include="Connected Services\FandHServices\configuration91.svcinfo" />
+    <None Include="Connected Services\FandHServices\configuration.svcinfo" />
+    <None Include="Connected Services\DataServices\configuration91.svcinfo" />
+    <None Include="Connected Services\DataServices\configuration.svcinfo" />
+    <None Include="Connected Services\DataServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\FandHServices\GetMeRoom.FandHServices.FlightBookingRS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FandHServices\GetMeRoom.FandHServices.FlightFareMatchRS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FandHServices\GetMeRoom.FandHServices.GetAvailableFaresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FandHServices\GetMeRoom.FandHServices.GetLowFaresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FandHServices\GetMeRoom.FandHServices.Itinerary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FandHServices\GetMeRoom.FandHServices.RetrievePNRRS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\FandHServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Content\css\error.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\hoteldetails.css" />
+    <Content Include="Content\css\hotels-confirmation.css" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Content\icons\amen_48.png" />
+    <Content Include="Content\icons\amen_51.png" />
+    <Content Include="Content\Images\bg.png" />
+    <Content Include="Content\css\animate.min.css" />
+    <Content Include="Content\css\font-mytravel.css" />
+    <Content Include="Content\css\hotel-payment.css" />
+    <Content Include="Content\css\hotel-rooms.css" />
+    <Content Include="Content\css\loader-css.css" />
+    <Content Include="Content\css\sandycommon.css" />
+    <Content Include="Content\css\search-result-css.css" />
+    <Content Include="Content\css\theme.css" />
+    <Content Include="Content\icons\amen_1.png" />
+    <Content Include="Content\icons\amen_10.png" />
+    <Content Include="Content\icons\amen_11.png" />
+    <Content Include="Content\icons\amen_12.png" />
+    <Content Include="Content\icons\amen_13.png" />
+    <Content Include="Content\icons\amen_14.png" />
+    <Content Include="Content\icons\amen_15.png" />
+    <Content Include="Content\icons\amen_16.png" />
+    <Content Include="Content\icons\amen_17.png" />
+    <Content Include="Content\icons\amen_18.png" />
+    <Content Include="Content\icons\amen_19.png" />
+    <Content Include="Content\icons\amen_2.png" />
+    <Content Include="Content\icons\amen_20.png" />
+    <Content Include="Content\icons\amen_21.png" />
+    <Content Include="Content\icons\amen_22.png" />
+    <Content Include="Content\icons\amen_23.png" />
+    <Content Include="Content\icons\amen_24.png" />
+    <Content Include="Content\icons\amen_25.png" />
+    <Content Include="Content\icons\amen_26.png" />
+    <Content Include="Content\icons\amen_27.png" />
+    <Content Include="Content\icons\amen_28.png" />
+    <Content Include="Content\icons\amen_29.png" />
+    <Content Include="Content\icons\amen_3.png" />
+    <Content Include="Content\icons\amen_30.png" />
+    <Content Include="Content\icons\amen_31.png" />
+    <Content Include="Content\icons\amen_32.png" />
+    <Content Include="Content\icons\amen_33.png" />
+    <Content Include="Content\icons\amen_34.png" />
+    <Content Include="Content\icons\amen_35.png" />
+    <Content Include="Content\icons\amen_36.png" />
+    <Content Include="Content\icons\amen_4.png" />
+    <Content Include="Content\icons\amen_5.png" />
+    <Content Include="Content\icons\amen_6.png" />
+    <Content Include="Content\icons\amen_7.png" />
+    <Content Include="Content\icons\amen_8.png" />
+    <Content Include="Content\icons\amen_9.png" />
+    <Content Include="Content\Images\image-not-found.jpg" />
+    <Content Include="Content\Images\india.png" />
+    <Content Include="Content\Images\notfound.jpeg" />
+    <Content Include="Content\img\404bg.jpg" />
+    <Content Include="Content\img\about.jpg" />
+    <Content Include="Content\img\adult.png" />
+    <Content Include="Content\img\arrowup-down.png" />
+    <Content Include="Content\img\arrowup.png" />
+    <Content Include="Content\img\atol-pts-logo-02.png" />
+    <Content Include="Content\img\atollogo.png" />
+    <Content Include="Content\img\award.jpg" />
+    <Content Include="Content\img\Beachfront-Bliss-Best-India-Hotels.png" />
+    <Content Include="Content\img\Best-Family-Friendly-Hotels-in-India.png" />
+    <Content Include="Content\img\bgg.jpg" />
+    <Content Include="Content\img\bgnew.jpg" />
+    <Content Include="Content\img\bgsearch.jpg" />
+    <Content Include="Content\img\cal.png" />
+    <Content Include="Content\img\contact.jpg" />
+    <Content Include="Content\img\cookie-policy.jpg" />
+    <Content Include="Content\img\customer-care-service.jpg" />
+    <Content Include="Content\img\destination.png" />
+    <Content Include="Content\img\FavIcon.png" />
+    <Content Include="Content\img\halfstar.png" />
+    <Content Include="Content\img\herobanner-slide1.jpg" />
+    <Content Include="Content\img\herobanner-slide1.png" />
+    <Content Include="Content\img\home.png" />
+    <Content Include="Content\img\hotelbg.jpg" />
+    <Content Include="Content\img\icons\340.webp" />
+    <Content Include="Content\img\icons\img3.png" />
+    <Content Include="Content\img\icons\img4.png" />
+    <Content Include="Content\img\icons\img5.png" />
+    <Content Include="Content\img\icons\img6.png" />
+    <Content Include="Content\img\icons\img7.png" />
+    <Content Include="Content\img\icons\japan-airlines-logo-1.png" />
+    <Content Include="Content\img\img1.jpg" />
+    <Content Include="Content\img\img2.jpg" />
+    <Content Include="Content\img\img4.jpg" />
+    <Content Include="Content\img\img7.jpg" />
+    <Content Include="Content\img\India-Boutique-Beach-Hotels.png" />
+    <Content Include="Content\img\loader.gif" />
+    <Content Include="Content\img\Logo.png" />
+    <Content Include="Content\img\Logo02.png" />
+    <Content Include="Content\img\map-markers\map.jpg" />
+    <Content Include="Content\img\mapmarker.png" />
+    <Content Include="Content\img\medalnew.png" />
+    <Content Include="Content\img\neibhour.png" />
+    <Content Include="Content\img\object1.png" />
+    <Content Include="Content\img\oldbgnew.jpg" />
+    <Content Include="Content\img\pricing.jpg" />
+    <Content Include="Content\img\pricing.png" />
+    <Content Include="Content\img\privacy-policy.jpg" />
+    <Content Include="Content\img\sagepay-atol.jpg" />
+    <Content Include="Content\img\sagepay.jpg" />
+    <Content Include="Content\img\search.png" />
+    <Content Include="Content\img\slider\img1.jpg" />
+    <Content Include="Content\img\slider\img2.jpg" />
+    <Content Include="Content\img\slider\img3.jpg" />
+    <Content Include="Content\img\slider\img4.jpg" />
+    <Content Include="Content\img\star.png" />
+    <Content Include="Content\img\terms.jpg" />
+    <Content Include="Content\img\world-vector4.png" />
+    <Content Include="Content\img\worldwide.jpg" />
+    <Content Include="Content\js\components\hs.g-map.js" />
+    <Content Include="Content\js\components\hs.go-to.js" />
+    <Content Include="Content\js\components\hs.header.js" />
+    <Content Include="Content\js\components\hs.malihu-scrollbar.js" />
+    <Content Include="Content\js\components\hs.quantity-counter.js" />
+    <Content Include="Content\js\components\hs.range-datepicker.js" />
+    <Content Include="Content\js\components\hs.range-slider.js" />
+    <Content Include="Content\js\components\hs.selectpicker.js" />
+    <Content Include="Content\js\components\hs.show-animation.js" />
+    <Content Include="Content\js\components\hs.slick-carousel.js" />
+    <Content Include="Content\js\components\hs.toggle-state.js" />
+    <Content Include="Content\js\components\hs.unfold.js" />
+    <Content Include="Content\js\components\hs.validation.js" />
+    <Content Include="Content\js\hs.core.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\js-common-s.js" />
+    <Content Include="Content\js\js-common-s_old.js" />
+    <Content Include="Content\ui\1.12.1\jquery-ui.js" />
+    <Content Include="Content\vendor\animate.css\animate.min.css" />
+    <Content Include="Content\vendor\animate.css\hs.malihu-scrollbar.js" />
+    <Content Include="Content\vendor\bootstrap-select\dist\css\bootstrap-select.min.css" />
+    <Content Include="Content\vendor\bootstrap-select\dist\js\bootstrap-select.min.js" />
+    <Content Include="Content\vendor\bootstrap\bootstrap.min.js" />
+    <Content Include="Content\vendor\dzsparallaxer\dzsparallaxer.css" />
+    <Content Include="Content\vendor\dzsparallaxer\dzsparallaxer.js" />
+    <Content Include="Content\vendor\fancybox\animate.min.css" />
+    <Content Include="Content\vendor\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\vendor\flatpickr\dist\flatpickr.min.css" />
+    <Content Include="Content\vendor\flatpickr\dist\flatpickr.min.js" />
+    <Content Include="Content\vendor\font-awesome\css\fontawesome-all.min.css" />
+    <Content Include="Content\vendor\gmaps\gmaps.min.js" />
+    <Content Include="Content\vendor\hs-megamenu\src\hs.megamenu.css" />
+    <Content Include="Content\vendor\hs-megamenu\src\hs.megamenu.js" />
+    <Content Include="Content\vendor\img\137x137\img1.jpg" />
+    <Content Include="Content\vendor\img\137x137\img2.jpg" />
+    <Content Include="Content\vendor\img\137x137\img3.jpg" />
+    <Content Include="Content\vendor\img\1920x400\img3.jpg" />
+    <Content Include="Content\vendor\img\1920x450\img1.png" />
+    <Content Include="Content\vendor\img\1920x500\img5.jpg" />
+    <Content Include="Content\vendor\img\300x350\img1.jpg" />
+    <Content Include="Content\vendor\img\300x350\img2.jpg" />
+    <Content Include="Content\vendor\img\300x350\img3.jpg" />
+    <Content Include="Content\vendor\img\300x350\img4.jpg" />
+    <Content Include="Content\vendor\img\300x350\tj.jpg" />
+    <Content Include="Content\vendor\img\630x350\img1.jpg" />
+    <Content Include="Content\vendor\img\630x350\img2.jpg" />
+    <Content Include="Content\vendor\img\630x350\img3.jpg" />
+    <Content Include="Content\vendor\img\adult.png" />
+    <Content Include="Content\vendor\img\arrowup.png" />
+    <Content Include="Content\vendor\img\award.jpg" />
+    <Content Include="Content\vendor\img\cal.png" />
+    <Content Include="Content\vendor\img\destination.png" />
+    <Content Include="Content\vendor\img\herobanner-slide1.jpg" />
+    <Content Include="Content\vendor\img\herobanner-slide1.png" />
+    <Content Include="Content\vendor\img\icons\img3.png" />
+    <Content Include="Content\vendor\img\icons\img4.png" />
+    <Content Include="Content\vendor\img\icons\img5.png" />
+    <Content Include="Content\vendor\img\icons\img6.png" />
+    <Content Include="Content\vendor\img\icons\img7.png" />
+    <Content Include="Content\vendor\img\icons\japan-airlines-logo-1.png" />
+    <Content Include="Content\vendor\img\img1.jpg" />
+    <Content Include="Content\vendor\img\img2.jpg" />
+    <Content Include="Content\vendor\img\Logo.png" />
+    <Content Include="Content\vendor\img\Logo02.png" />
+    <Content Include="Content\vendor\img\pricing.jpg" />
+    <Content Include="Content\vendor\img\Screen Shot 2021-02-10 at 14.08.11.png" />
+    <Content Include="Content\vendor\img\search.png" />
+    <Content Include="Content\vendor\img\slider\img1.jpg" />
+    <Content Include="Content\vendor\img\slider\img2.jpg" />
+    <Content Include="Content\vendor\img\slider\img3.jpg" />
+    <Content Include="Content\vendor\img\slider\img4.jpg" />
+    <Content Include="Content\vendor\img\worldwide.jpg" />
+    <Content Include="Content\vendor\ion-rangeslider\css\ion.rangeSlider.css" />
+    <Content Include="Content\vendor\ion-rangeslider\css\logo.png" />
+    <Content Include="Content\vendor\ion-rangeslider\js\ion.rangeSlider.min.js" />
+    <Content Include="Content\vendor\jquery-migrate\dist\jquery-migrate.min.js" />
+    <Content Include="Content\vendor\jquery-ui\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\vendor\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="Content\vendor\jquery\dist\jquery.min.js" />
+    <Content Include="Content\vendor\malihu-custom-scrollbar-plugin\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Content\vendor\malihu-custom-scrollbar-plugin\jquery.mCustomScrollbar.css" />
+    <Content Include="Content\vendor\popper.js\dist\umd\popper.min.js" />
+    <Content Include="Content\vendor\prism\prism.css" />
+    <Content Include="Content\vendor\slick-carousel\slick\slick.css" />
+    <Content Include="Content\vendor\slick-carousel\slick\slick.js" />
+    <Content Include="cookie-policy.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\bg-loader.jpg" />
+    <Content Include="images\cards-select.png" />
+    <Content Include="images\flighs_ico.svg" />
+    <Content Include="images\fnpl_select.png" />
+    <Content Include="images\hotel-amen.jpg" />
+    <Content Include="images\hotelbg.jpg" />
+    <Content Include="images\hotel_ico.svg" />
+    <Content Include="images\hotel_img.jpg" />
+    <Content Include="images\linkedin-logo.jpg" />
+    <Content Include="images\location-icon.png" />
+    <Content Include="images\logo-footer.png" />
+    <Content Include="images\logo.jpeg" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\search_icon.svg" />
+    <Content Include="images\uk-flag.jpg" />
+    <Content Include="images\us-flag-icon.jpg" />
+    <Content Include="images\weekend-getway.jpg" />
+    <Content Include="privacy-policy.html" />
+    <Content Include="Content\vendor\img\herobanner-slide1.psd" />
+    <Content Include="Content\vendor\img\icons\340.webp" />
+    <Content Include="Jsons\PreBookRS.json" />
+    <Content Include="Jsons\DetailRS.json" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Jsons\HotelDetail.json" />
+    <None Include="Connected Services\FandHServices\FlightBookingEngine.wsdl" />
+    <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="Jsons\SeearchResult.json" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="terms-and-conditions.html" />
+    <Content Include="terms-and-policy.html" />
+    <Content Include="Views\Home\aboutus.cshtml" />
+    <Content Include="Views\Home\Loader1.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\contact-us.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_HotelSearchWidget.cshtml" />
+    <Content Include="Views\Shared\_RecommendedHotel.cshtml" />
+    <Content Include="Views\Shared\_SummerDealBanner.cshtml" />
+    <Content Include="Views\Shared\_PopularHotelWorldWide.cshtml" />
+    <Content Include="Views\Shared\_DiscountAndBudgetHotel.cshtml" />
+    <Content Include="Views\Shared\_WhyChooseUs.cshtml" />
+    <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\Shared\_header.cshtml" />
+    <Content Include="Views\Shared\_result_header.cshtml" />
+    <Content Include="Views\Shared\_result_Layout.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_HotelGallery.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_HotelOverViews.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_HotelFacilities.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_Neighbourhoods.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_NearByAttractions.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_HotelAmenities.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_WhatsAround.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_AtAGlance.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_HotelAverageReview.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_HotelMoreGreatChoices.cshtml" />
+    <Content Include="Views\Hotel\HotelPayment.cshtml" />
+    <Content Include="Views\Home\Loader.cshtml" />
+    <Content Include="Views\Hotel\HotelConfirmation.cshtml" />
+    <Content Include="Views\Shared\_ModifySearch.cshtml" />
+    <Content Include="Views\Shared\_HotelSearchWidget-v1.cshtml" />
+    <Content Include="Views\Shared\_SideBarFilters.cshtml" />
+    <Content Include="Views\Hotel\Confirmation.cshtml" />
+    <Content Include="Views\Hotel\CallBack.cshtml" />
+    <Content Include="Views\Hotel\TransactionFailed.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_AdditionalCharges.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_CancillationPolicy.cshtml" />
+    <Content Include="Views\TransactionProcess\Index.cshtml" />
+    <Content Include="Views\TransactionProcess\GetPaytmResponse.cshtml" />
+    <Content Include="Views\TransactionProcess\MakePaymentRequest.cshtml" />
+    <Content Include="Views\Hotel\HotelDetail.cshtml" />
+    <Content Include="Views\Shared\hoteldetails\_HotelRooms.cshtml" />
+    <Content Include="Views\Hotel\SearchResult.cshtml" />
+    <Content Include="Views\Shared\searchresult\_SearchResult.cshtml" />
+    <Content Include="Views\Shared\_FAQ.cshtml" />
+    <Content Include="Views\Shared\_About.cshtml" />
+    <Content Include="Views\Shared\_Blog.cshtml" />
+    <Content Include="Views\Shared\_Newsletter.cshtml" />
+    <Content Include="Views\Home\cookies-policy.cshtml" />
+    <Content Include="Views\Home\customer-care.cshtml" />
+    <Content Include="Views\Home\privacy-policy.cshtml" />
+    <Content Include="Views\Home\terms.cshtml" />
+    <Content Include="Views\Home\best-family-friendly-hotels-in-india.cshtml" />
+    <Content Include="Views\Home\boutique-beach-hotels-india-romantic-getaways.cshtml" />
+    <Content Include="Views\Home\beachfront-bliss-best-india-hotels-with-spa-and-sea-views.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\SearchDetails\" />
+    <Folder Include="Content\vendor\jquery\New folder\" />
+    <Folder Include="ErrorLog\" />
+    <Folder Include="HotelLogs\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\API\" />
+    <Folder Include="Views\SagePayServer_Reg\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\DataServices\" />
+    <WCFMetadataStorage Include="Connected Services\FandHServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business.GetMeRoom\Business.GetMeRoom.csproj">
+      <Project>{907251b1-d2cc-4c01-a730-b0bf22b23727}</Project>
+      <Name>Business.GetMeRoom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.GetMeRoom\Data.GetMeRoom.csproj">
+      <Project>{b3818b48-6c1b-476f-b3a7-ec9392348acc}</Project>
+      <Name>Data.GetMeRoom</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58225</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58225/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

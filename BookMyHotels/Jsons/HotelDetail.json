@@ -1,0 +1,2625 @@
+{
+  "ResponseInfo": null,
+  "Hotels": {
+    "Hotel": {
+      "Rates": [
+        {
+          "Token": "5630612e-9323-4df2-bcf1-230e02451a78",
+          "RateCode": "7a071868-cdc4-44a0-9de3-71120f9cb8e8",
+          "Room": [
+            {
+              "RateId": "0b6a6430-c081-4055-9c17-944614461cc6",
+              "RoomId": "306caab2-048f-4dda-b9f8-611841e2d3ac",
+              "RoomType": "Premium Room, 1 KingBed, Refundable",
+              "RoomDesc": "<p><strong>1 King Bed</strong></p><p>340-sq-foot room with city views </p><br/><p><b>Layout</b> - Separate sitting area</p><p><b>Relax</b> - Fireplace</p><p><b>Internet</b> - Free WiFi and wired Internet access</p><p><b>Entertainment</b> - 42-inch LED TV with premium channels</p><p><b>Food & Drink</b> - Coffee/tea maker, minibar, 24-hour room service, and free bottled water</p><p><b>Sleep</b> - Memory foam bed, Egyptian cotton linens, a down duvet, blackout drapes/curtains, and turndown service </p><p><b>Bathroom</b> - Private bathroom, bathrobes, and a separate bathtub and shower with a rainfall showerhead</p><p><b>Practical</b> - Safe, free newspaper, and iron/ironing board; rollaway/extra beds and free cribs/infant beds available on request</p><p><b>Comfort</b> - Climate-controlled air conditioning and daily housekeeping</p><p><b>Accessibility</b> - Low-height counters and sink, grab bar near toilet, wheelchair-width doorways, wheelchair accessible, and raised toilet seat</p><p>Non-Smoking</p><p>Connecting/adjoining rooms can be requested, subject to availability </p>",
+              "BoardBasis": "Breakfast Buffet",
+              "Rooms": null,
+              "Avl": true,
+              "NetPrice": 393.53,
+              "NetCurrency": "USD",
+              "GrossPrice": 393.53,
+              "GrossCurrency": "USD",
+              "ProviderName": "EAN",
+              "ProviderId": "ean-vt",
+              "NeedsPriceCheck": true,
+              "IsPackageRate": false,
+              "IsRefundable": true,
+              "PayAtHotel": true,
+              "SmokingAllowed": false,
+              "Adult": 2,
+              "Child": 2,
+              "ChildAge": "5,12",
+              "ProviderHotelCode": "13083538",
+              "RateType": "Published",
+              "Images": [
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_z.jpg",
+                  "Size": "Xl"
+                }
+              ],
+              "Beds": [
+                {
+                  "Type": "KingBed",
+                  "Count": 1
+                }
+              ],
+              "DailyRates": [
+                {
+                  "NetPrice": 184.99,
+                  "GrossPrice": 184.99,
+                  "Date": "2021-12-02T00:00:00Z",
+                  "TaxIncluded": true
+                },
+                {
+                  "NetPrice": 208.55,
+                  "GrossPrice": 208.55,
+                  "Date": "2021-12-03T00:00:00Z",
+                  "TaxIncluded": true
+                }
+              ],
+              "Taxes": [
+                {
+                  "NetPrice": 60.03,
+                  "GrossPrice": 60.03,
+                  "Description": "tax_and_service_fee"
+                }
+              ]
+            },
+            {
+              "RateId": "fa0502ee-44aa-4a6a-b740-089556bbb8ad",
+              "RoomId": "306caab2-048f-4dda-b9f8-611841e2d3ac",
+              "RoomType": "Premium Room, 1 KingBed, Refundable",
+              "RoomDesc": "<p><strong>1 King Bed</strong></p><p>340-sq-foot room with city views </p><br/><p><b>Layout</b> - Separate sitting area</p><p><b>Relax</b> - Fireplace</p><p><b>Internet</b> - Free WiFi and wired Internet access</p><p><b>Entertainment</b> - 42-inch LED TV with premium channels</p><p><b>Food & Drink</b> - Coffee/tea maker, minibar, 24-hour room service, and free bottled water</p><p><b>Sleep</b> - Memory foam bed, Egyptian cotton linens, a down duvet, blackout drapes/curtains, and turndown service </p><p><b>Bathroom</b> - Private bathroom, bathrobes, and a separate bathtub and shower with a rainfall showerhead</p><p><b>Practical</b> - Safe, free newspaper, and iron/ironing board; rollaway/extra beds and free cribs/infant beds available on request</p><p><b>Comfort</b> - Climate-controlled air conditioning and daily housekeeping</p><p><b>Accessibility</b> - Low-height counters and sink, grab bar near toilet, wheelchair-width doorways, wheelchair accessible, and raised toilet seat</p><p>Non-Smoking</p><p>Connecting/adjoining rooms can be requested, subject to availability </p>",
+              "BoardBasis": "Breakfast Buffet",
+              "Rooms": null,
+              "Avl": true,
+              "NetPrice": 336.07,
+              "NetCurrency": "USD",
+              "GrossPrice": 336.07,
+              "GrossCurrency": "USD",
+              "ProviderName": "EAN",
+              "ProviderId": "ean-vt",
+              "NeedsPriceCheck": true,
+              "IsPackageRate": false,
+              "IsRefundable": true,
+              "PayAtHotel": true,
+              "SmokingAllowed": false,
+              "Adult": 2,
+              "Child": 0,
+              "ChildAge": "",
+              "ProviderHotelCode": "13083538",
+              "RateType": "Published",
+              "Images": [
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_z.jpg",
+                  "Size": "Xl"
+                }
+              ],
+              "Beds": [
+                {
+                  "Type": "KingBed",
+                  "Count": 1
+                }
+              ],
+              "DailyRates": [
+                {
+                  "NetPrice": 156.26,
+                  "GrossPrice": 156.26,
+                  "Date": "2021-12-02T00:00:00Z",
+                  "TaxIncluded": true
+                },
+                {
+                  "NetPrice": 179.82,
+                  "GrossPrice": 179.82,
+                  "Date": "2021-12-03T00:00:00Z",
+                  "TaxIncluded": true
+                }
+              ],
+              "Taxes": [
+                {
+                  "NetPrice": 51.27,
+                  "GrossPrice": 51.27,
+                  "Description": "tax_and_service_fee"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Token": "5630612e-9323-4df2-bcf1-230e02451a78",
+          "RateCode": "dce9e5bd-9204-4178-b015-2f1cc5fd3e4f",
+          "Room": [
+            {
+              "RateId": "0b6a6430-c081-4055-9c17-944614461cc6",
+              "RoomId": "306caab2-048f-4dda-b9f8-611841e2d3ac",
+              "RoomType": "Premium Room, 1 KingBed, Refundable",
+              "RoomDesc": "<p><strong>1 King Bed</strong></p><p>340-sq-foot room with city views </p><br/><p><b>Layout</b> - Separate sitting area</p><p><b>Relax</b> - Fireplace</p><p><b>Internet</b> - Free WiFi and wired Internet access</p><p><b>Entertainment</b> - 42-inch LED TV with premium channels</p><p><b>Food & Drink</b> - Coffee/tea maker, minibar, 24-hour room service, and free bottled water</p><p><b>Sleep</b> - Memory foam bed, Egyptian cotton linens, a down duvet, blackout drapes/curtains, and turndown service </p><p><b>Bathroom</b> - Private bathroom, bathrobes, and a separate bathtub and shower with a rainfall showerhead</p><p><b>Practical</b> - Safe, free newspaper, and iron/ironing board; rollaway/extra beds and free cribs/infant beds available on request</p><p><b>Comfort</b> - Climate-controlled air conditioning and daily housekeeping</p><p><b>Accessibility</b> - Low-height counters and sink, grab bar near toilet, wheelchair-width doorways, wheelchair accessible, and raised toilet seat</p><p>Non-Smoking</p><p>Connecting/adjoining rooms can be requested, subject to availability </p>",
+              "BoardBasis": "Breakfast Buffet",
+              "Rooms": null,
+              "Avl": true,
+              "NetPrice": 393.53,
+              "NetCurrency": "USD",
+              "GrossPrice": 393.53,
+              "GrossCurrency": "USD",
+              "ProviderName": "EAN",
+              "ProviderId": "ean-vt",
+              "NeedsPriceCheck": true,
+              "IsPackageRate": false,
+              "IsRefundable": true,
+              "PayAtHotel": true,
+              "SmokingAllowed": false,
+              "Adult": 2,
+              "Child": 2,
+              "ChildAge": "5,12",
+              "ProviderHotelCode": "13083538",
+              "RateType": "Published",
+              "Images": [
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_z.jpg",
+                  "Size": "Xl"
+                }
+              ],
+              "Beds": [
+                {
+                  "Type": "KingBed",
+                  "Count": 1
+                }
+              ],
+              "DailyRates": [
+                {
+                  "NetPrice": 184.99,
+                  "GrossPrice": 184.99,
+                  "Date": "2021-12-02T00:00:00Z",
+                  "TaxIncluded": true
+                },
+                {
+                  "NetPrice": 208.55,
+                  "GrossPrice": 208.55,
+                  "Date": "2021-12-03T00:00:00Z",
+                  "TaxIncluded": true
+                }
+              ],
+              "Taxes": [
+                {
+                  "NetPrice": 60.03,
+                  "GrossPrice": 60.03,
+                  "Description": "tax_and_service_fee"
+                }
+              ]
+            },
+            {
+              "RateId": "2d08c8c5-39cb-4616-937e-3753d192d5cc",
+              "RoomId": "306caab2-048f-4dda-b9f8-611841e2d3ac",
+              "RoomType": "Premium Room, 1 KingBed, Refundable",
+              "RoomDesc": "<p><strong>1 King Bed</strong></p><p>340-sq-foot room with city views </p><br/><p><b>Layout</b> - Separate sitting area</p><p><b>Relax</b> - Fireplace</p><p><b>Internet</b> - Free WiFi and wired Internet access</p><p><b>Entertainment</b> - 42-inch LED TV with premium channels</p><p><b>Food & Drink</b> - Coffee/tea maker, minibar, 24-hour room service, and free bottled water</p><p><b>Sleep</b> - Memory foam bed, Egyptian cotton linens, a down duvet, blackout drapes/curtains, and turndown service </p><p><b>Bathroom</b> - Private bathroom, bathrobes, and a separate bathtub and shower with a rainfall showerhead</p><p><b>Practical</b> - Safe, free newspaper, and iron/ironing board; rollaway/extra beds and free cribs/infant beds available on request</p><p><b>Comfort</b> - Climate-controlled air conditioning and daily housekeeping</p><p><b>Accessibility</b> - Low-height counters and sink, grab bar near toilet, wheelchair-width doorways, wheelchair accessible, and raised toilet seat</p><p>Non-Smoking</p><p>Connecting/adjoining rooms can be requested, subject to availability </p>",
+              "BoardBasis": "Breakfast Buffet",
+              "Rooms": null,
+              "Avl": true,
+              "NetPrice": 341.51,
+              "NetCurrency": "USD",
+              "GrossPrice": 341.51,
+              "GrossCurrency": "USD",
+              "ProviderName": "EAN",
+              "ProviderId": "ean-vt",
+              "NeedsPriceCheck": true,
+              "IsPackageRate": false,
+              "IsRefundable": true,
+              "PayAtHotel": false,
+              "SmokingAllowed": false,
+              "Adult": 2,
+              "Child": 0,
+              "ChildAge": "",
+              "ProviderHotelCode": "13083538",
+              "RateType": "Negotiated",
+              "Images": [
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_z.jpg",
+                  "Size": "Xl"
+                }
+              ],
+              "Beds": [
+                {
+                  "Type": "KingBed",
+                  "Count": 1
+                }
+              ],
+              "DailyRates": [
+                {
+                  "NetPrice": 158.78,
+                  "GrossPrice": 158.78,
+                  "Date": "2021-12-02T00:00:00Z",
+                  "TaxIncluded": true
+                },
+                {
+                  "NetPrice": 182.73,
+                  "GrossPrice": 182.73,
+                  "Date": "2021-12-03T00:00:00Z",
+                  "TaxIncluded": true
+                }
+              ],
+              "Taxes": [
+                {
+                  "NetPrice": 57.54,
+                  "GrossPrice": 57.54,
+                  "Description": "tax_and_service_fee"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Token": "5630612e-9323-4df2-bcf1-230e02451a78",
+          "RateCode": "26e29163-9aa1-4019-9d44-ea3e5220e9d3",
+          "Room": [
+            {
+              "RateId": "6c474b80-4a63-4cba-86bf-b1e11367e9f3",
+              "RoomId": "306caab2-048f-4dda-b9f8-611841e2d3ac",
+              "RoomType": "Premium Room, 1 KingBed, Refundable",
+              "RoomDesc": "<p><strong>1 King Bed</strong></p><p>340-sq-foot room with city views </p><br/><p><b>Layout</b> - Separate sitting area</p><p><b>Relax</b> - Fireplace</p><p><b>Internet</b> - Free WiFi and wired Internet access</p><p><b>Entertainment</b> - 42-inch LED TV with premium channels</p><p><b>Food & Drink</b> - Coffee/tea maker, minibar, 24-hour room service, and free bottled water</p><p><b>Sleep</b> - Memory foam bed, Egyptian cotton linens, a down duvet, blackout drapes/curtains, and turndown service </p><p><b>Bathroom</b> - Private bathroom, bathrobes, and a separate bathtub and shower with a rainfall showerhead</p><p><b>Practical</b> - Safe, free newspaper, and iron/ironing board; rollaway/extra beds and free cribs/infant beds available on request</p><p><b>Comfort</b> - Climate-controlled air conditioning and daily housekeeping</p><p><b>Accessibility</b> - Low-height counters and sink, grab bar near toilet, wheelchair-width doorways, wheelchair accessible, and raised toilet seat</p><p>Non-Smoking</p><p>Connecting/adjoining rooms can be requested, subject to availability </p>",
+              "BoardBasis": "Breakfast Buffet",
+              "Rooms": null,
+              "Avl": true,
+              "NetPrice": 399.9,
+              "NetCurrency": "USD",
+              "GrossPrice": 399.9,
+              "GrossCurrency": "USD",
+              "ProviderName": "EAN",
+              "ProviderId": "ean-vt",
+              "NeedsPriceCheck": true,
+              "IsPackageRate": false,
+              "IsRefundable": true,
+              "PayAtHotel": false,
+              "SmokingAllowed": false,
+              "Adult": 2,
+              "Child": 2,
+              "ChildAge": "5,12",
+              "ProviderHotelCode": "13083538",
+              "RateType": "Negotiated",
+              "Images": [
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_z.jpg",
+                  "Size": "Xl"
+                }
+              ],
+              "Beds": [
+                {
+                  "Type": "KingBed",
+                  "Count": 1
+                }
+              ],
+              "DailyRates": [
+                {
+                  "NetPrice": 187.98,
+                  "GrossPrice": 187.98,
+                  "Date": "2021-12-02T00:00:00Z",
+                  "TaxIncluded": true
+                },
+                {
+                  "NetPrice": 211.92,
+                  "GrossPrice": 211.92,
+                  "Date": "2021-12-03T00:00:00Z",
+                  "TaxIncluded": true
+                }
+              ],
+              "Taxes": [
+                {
+                  "NetPrice": 67.37,
+                  "GrossPrice": 67.37,
+                  "Description": "tax_and_service_fee"
+                }
+              ]
+            },
+            {
+              "RateId": "fa0502ee-44aa-4a6a-b740-089556bbb8ad",
+              "RoomId": "306caab2-048f-4dda-b9f8-611841e2d3ac",
+              "RoomType": "Premium Room, 1 KingBed, Refundable",
+              "RoomDesc": "<p><strong>1 King Bed</strong></p><p>340-sq-foot room with city views </p><br/><p><b>Layout</b> - Separate sitting area</p><p><b>Relax</b> - Fireplace</p><p><b>Internet</b> - Free WiFi and wired Internet access</p><p><b>Entertainment</b> - 42-inch LED TV with premium channels</p><p><b>Food & Drink</b> - Coffee/tea maker, minibar, 24-hour room service, and free bottled water</p><p><b>Sleep</b> - Memory foam bed, Egyptian cotton linens, a down duvet, blackout drapes/curtains, and turndown service </p><p><b>Bathroom</b> - Private bathroom, bathrobes, and a separate bathtub and shower with a rainfall showerhead</p><p><b>Practical</b> - Safe, free newspaper, and iron/ironing board; rollaway/extra beds and free cribs/infant beds available on request</p><p><b>Comfort</b> - Climate-controlled air conditioning and daily housekeeping</p><p><b>Accessibility</b> - Low-height counters and sink, grab bar near toilet, wheelchair-width doorways, wheelchair accessible, and raised toilet seat</p><p>Non-Smoking</p><p>Connecting/adjoining rooms can be requested, subject to availability </p>",
+              "BoardBasis": "Breakfast Buffet",
+              "Rooms": null,
+              "Avl": true,
+              "NetPrice": 336.07,
+              "NetCurrency": "USD",
+              "GrossPrice": 336.07,
+              "GrossCurrency": "USD",
+              "ProviderName": "EAN",
+              "ProviderId": "ean-vt",
+              "NeedsPriceCheck": true,
+              "IsPackageRate": false,
+              "IsRefundable": true,
+              "PayAtHotel": true,
+              "SmokingAllowed": false,
+              "Adult": 2,
+              "Child": 0,
+              "ChildAge": "",
+              "ProviderHotelCode": "13083538",
+              "RateType": "Published",
+              "Images": [
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_z.jpg",
+                  "Size": "Xl"
+                }
+              ],
+              "Beds": [
+                {
+                  "Type": "KingBed",
+                  "Count": 1
+                }
+              ],
+              "DailyRates": [
+                {
+                  "NetPrice": 156.26,
+                  "GrossPrice": 156.26,
+                  "Date": "2021-12-02T00:00:00Z",
+                  "TaxIncluded": true
+                },
+                {
+                  "NetPrice": 179.82,
+                  "GrossPrice": 179.82,
+                  "Date": "2021-12-03T00:00:00Z",
+                  "TaxIncluded": true
+                }
+              ],
+              "Taxes": [
+                {
+                  "NetPrice": 51.27,
+                  "GrossPrice": 51.27,
+                  "Description": "tax_and_service_fee"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Token": "5630612e-9323-4df2-bcf1-230e02451a78",
+          "RateCode": "e22a4b2b-7bfe-40a6-b2ee-b16b451c8192",
+          "Room": [
+            {
+              "RateId": "2d08c8c5-39cb-4616-937e-3753d192d5cc",
+              "RoomId": "306caab2-048f-4dda-b9f8-611841e2d3ac",
+              "RoomType": "Premium Room, 1 KingBed, Refundable",
+              "RoomDesc": "<p><strong>1 King Bed</strong></p><p>340-sq-foot room with city views </p><br/><p><b>Layout</b> - Separate sitting area</p><p><b>Relax</b> - Fireplace</p><p><b>Internet</b> - Free WiFi and wired Internet access</p><p><b>Entertainment</b> - 42-inch LED TV with premium channels</p><p><b>Food & Drink</b> - Coffee/tea maker, minibar, 24-hour room service, and free bottled water</p><p><b>Sleep</b> - Memory foam bed, Egyptian cotton linens, a down duvet, blackout drapes/curtains, and turndown service </p><p><b>Bathroom</b> - Private bathroom, bathrobes, and a separate bathtub and shower with a rainfall showerhead</p><p><b>Practical</b> - Safe, free newspaper, and iron/ironing board; rollaway/extra beds and free cribs/infant beds available on request</p><p><b>Comfort</b> - Climate-controlled air conditioning and daily housekeeping</p><p><b>Accessibility</b> - Low-height counters and sink, grab bar near toilet, wheelchair-width doorways, wheelchair accessible, and raised toilet seat</p><p>Non-Smoking</p><p>Connecting/adjoining rooms can be requested, subject to availability </p>",
+              "BoardBasis": "Breakfast Buffet",
+              "Rooms": null,
+              "Avl": true,
+              "NetPrice": 341.51,
+              "NetCurrency": "USD",
+              "GrossPrice": 341.51,
+              "GrossCurrency": "USD",
+              "ProviderName": "EAN",
+              "ProviderId": "ean-vt",
+              "NeedsPriceCheck": true,
+              "IsPackageRate": false,
+              "IsRefundable": true,
+              "PayAtHotel": false,
+              "SmokingAllowed": false,
+              "Adult": 2,
+              "Child": 0,
+              "ChildAge": "",
+              "ProviderHotelCode": "13083538",
+              "RateType": "Negotiated",
+              "Images": [
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_z.jpg",
+                  "Size": "Xl"
+                }
+              ],
+              "Beds": [
+                {
+                  "Type": "KingBed",
+                  "Count": 1
+                }
+              ],
+              "DailyRates": [
+                {
+                  "NetPrice": 158.78,
+                  "GrossPrice": 158.78,
+                  "Date": "2021-12-02T00:00:00Z",
+                  "TaxIncluded": true
+                },
+                {
+                  "NetPrice": 182.73,
+                  "GrossPrice": 182.73,
+                  "Date": "2021-12-03T00:00:00Z",
+                  "TaxIncluded": true
+                }
+              ],
+              "Taxes": [
+                {
+                  "NetPrice": 57.54,
+                  "GrossPrice": 57.54,
+                  "Description": "tax_and_service_fee"
+                }
+              ]
+            },
+            {
+              "RateId": "6c474b80-4a63-4cba-86bf-b1e11367e9f3",
+              "RoomId": "306caab2-048f-4dda-b9f8-611841e2d3ac",
+              "RoomType": "Premium Room, 1 KingBed, Refundable",
+              "RoomDesc": "<p><strong>1 King Bed</strong></p><p>340-sq-foot room with city views </p><br/><p><b>Layout</b> - Separate sitting area</p><p><b>Relax</b> - Fireplace</p><p><b>Internet</b> - Free WiFi and wired Internet access</p><p><b>Entertainment</b> - 42-inch LED TV with premium channels</p><p><b>Food & Drink</b> - Coffee/tea maker, minibar, 24-hour room service, and free bottled water</p><p><b>Sleep</b> - Memory foam bed, Egyptian cotton linens, a down duvet, blackout drapes/curtains, and turndown service </p><p><b>Bathroom</b> - Private bathroom, bathrobes, and a separate bathtub and shower with a rainfall showerhead</p><p><b>Practical</b> - Safe, free newspaper, and iron/ironing board; rollaway/extra beds and free cribs/infant beds available on request</p><p><b>Comfort</b> - Climate-controlled air conditioning and daily housekeeping</p><p><b>Accessibility</b> - Low-height counters and sink, grab bar near toilet, wheelchair-width doorways, wheelchair accessible, and raised toilet seat</p><p>Non-Smoking</p><p>Connecting/adjoining rooms can be requested, subject to availability </p>",
+              "BoardBasis": "Breakfast Buffet",
+              "Rooms": null,
+              "Avl": true,
+              "NetPrice": 399.9,
+              "NetCurrency": "USD",
+              "GrossPrice": 399.9,
+              "GrossCurrency": "USD",
+              "ProviderName": "EAN",
+              "ProviderId": "ean-vt",
+              "NeedsPriceCheck": true,
+              "IsPackageRate": false,
+              "IsRefundable": true,
+              "PayAtHotel": false,
+              "SmokingAllowed": false,
+              "Adult": 2,
+              "Child": 2,
+              "ChildAge": "5,12",
+              "ProviderHotelCode": "13083538",
+              "RateType": "Negotiated",
+              "Images": [
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_z.jpg",
+                  "Size": "Xl"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_b.jpg",
+                  "Size": "Standard"
+                },
+                {
+                  "Type": "",
+                  "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_z.jpg",
+                  "Size": "Xl"
+                }
+              ],
+              "Beds": [
+                {
+                  "Type": "KingBed",
+                  "Count": 1
+                }
+              ],
+              "DailyRates": [
+                {
+                  "NetPrice": 187.98,
+                  "GrossPrice": 187.98,
+                  "Date": "2021-12-02T00:00:00Z",
+                  "TaxIncluded": true
+                },
+                {
+                  "NetPrice": 211.92,
+                  "GrossPrice": 211.92,
+                  "Date": "2021-12-03T00:00:00Z",
+                  "TaxIncluded": true
+                }
+              ],
+              "Taxes": [
+                {
+                  "NetPrice": 67.37,
+                  "GrossPrice": 67.37,
+                  "Description": "tax_and_service_fee"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Code": "39654402",
+      "Name": "Pride Plaza Hotel Aerocity New Delhi",
+      "Address": "5-A, Hospitality District, Aerocity,Indra Gandhi International Airport,New Delhi,India",
+      "Latitude": "28.54922",
+      "Longitude": "77.12115",
+      "Descriptions": [
+        {
+          "Type": "amenities",
+          "Text": "Pamper yourself with a visit to the spa, which offers massages. You can take advantage of recreational amenities such as a health club and an outdoor pool. Additional features at this hotel include complimentary wireless Internet access, concierge services, and a fireplace in the lobby."
+        },
+        {
+          "Type": "dining",
+          "Text": "Enjoy Asian cuisine at Oriental Spice, one of the hotel's 2 restaurants, or stay in and take advantage of the 24-hour room service. Snacks are also available at the coffee shop/café. Relax with your favorite drink at the bar/lounge or the poolside bar. Buffet breakfasts are available daily from 6:00 AM to 10:30 AM for a fee."
+        },
+        {
+          "Type": "business_amenities",
+          "Text": "Featured amenities include complimentary wired Internet access, a business center, and express check-out. Planning an event in New Delhi? This hotel has facilities measuring 10000 square feet (929 square meters), including conference space. Free valet parking is available onsite."
+        },
+        {
+          "Type": "rooms",
+          "Text": "Treat yourself to a stay in one of the 385 guestrooms, featuring fireplaces and LED televisions. Your memory foam bed comes with down comforters and Egyptian cotton sheets. Complimentary wired and wireless Internet access keeps you connected, and satellite programming provides entertainment. Conveniences include phones, as well as safes and desks."
+        },
+        {
+          "Type": "attractions",
+          "Text": "Distances are displayed to the nearest 0.1 mile and kilometer. <br /> <p>Central Mall - 1 km / 0.6 mi <br /> Nelson Mandela Road - 3.5 km / 2.2 mi <br /> Jawaharlal Nehru University - 4.9 km / 3 mi <br /> Fortis Hospital - 5.5 km / 3.4 mi <br /> DLF Emporio Vasant Kunj - 5.6 km / 3.5 mi <br /> DLF Promenade Vasant Kunj - 6.6 km / 4.1 mi <br /> Ambience Mall - 6.6 km / 4.1 mi <br /> Ambience Mall - 7 km / 4.3 mi <br /> DLF Cyber City - 7.2 km / 4.5 mi <br /> DLF Phase II - 7.3 km / 4.5 mi <br /> Indian Institute of Mass Communication - 8.4 km / 5.2 mi <br /> Ayyappa Temple - 8.7 km / 5.4 mi <br /> Malai Mandir - 9.4 km / 5.8 mi <br /> Dada Dev Mandir - 9.6 km / 6 mi <br /> Dhaula Kuan - 10.6 km / 6.6 mi <br /> </p><p>The preferred airport for Pride Plaza Hotel Aerocity New Delhi is Indira Gandhi International Airport (DEL) - 4.2 km / 2.6 mi </p>"
+        },
+        {
+          "Type": "location",
+          "Text": "With a stay at Pride Plaza Hotel Aerocity New Delhi in New Delhi, you'll be 4.3 mi (7 km) from Ambience Mall and 6.7 mi (10.7 km) from Qutub Minar.  This 5-star hotel is 8.6 mi (13.8 km) from Lodhi Garden and 8.8 mi (14.1 km) from Gurudwara Bangla Sahib."
+        },
+        {
+          "Type": "headline",
+          "Text": "In New Delhi (Aerocity)"
+        }
+      ],
+      "Neighbourhoods": null,
+      "NearByAttractions": [
+        {
+          "Name": "Central Mall",
+          "Distance": "1",
+          "Unit": "Km"
+        },
+        {
+          "Name": "Nelson Mandela Road",
+          "Distance": "3.5",
+          "Unit": "Km"
+        },
+        {
+          "Name": "Jawaharlal Nehru University",
+          "Distance": "4.9",
+          "Unit": "Km"
+        },
+        {
+          "Name": "Fortis Hospital",
+          "Distance": "5.5",
+          "Unit": "Km"
+        },
+        {
+          "Name": "DLF Emporio Vasant Kunj",
+          "Distance": "5.6",
+          "Unit": "Km"
+        },
+        {
+          "Name": "DLF Promenade Vasant Kunj",
+          "Distance": "6.6",
+          "Unit": "Km"
+        },
+        {
+          "Name": "Ambience Mall",
+          "Distance": "6.6",
+          "Unit": "Km"
+        },
+        {
+          "Name": "Ambience Mall",
+          "Distance": "7",
+          "Unit": "Km"
+        },
+        {
+          "Name": "DLF Cyber City",
+          "Distance": "7.2",
+          "Unit": "Km"
+        },
+        {
+          "Name": "DLF Phase II",
+          "Distance": "7.3",
+          "Unit": "Km"
+        },
+        {
+          "Name": "Indian Institute of Mass Communication",
+          "Distance": "8.4",
+          "Unit": "Km"
+        },
+        {
+          "Name": "Ayyappa Temple",
+          "Distance": "8.7",
+          "Unit": "Km"
+        },
+        {
+          "Name": "Malai Mandir",
+          "Distance": "9.4",
+          "Unit": "Km"
+        },
+        {
+          "Name": "Dada Dev Mandir",
+          "Distance": "9.6",
+          "Unit": "Km"
+        },
+        {
+          "Name": "Dhaula Kuan",
+          "Distance": "10.6",
+          "Unit": "Km"
+        },
+        {
+          "Name": "The preferred airport for Pride Plaza Hotel Aerocity New Delhi is Indira Gandhi International Airport (DEL)",
+          "Distance": "4.2",
+          "Unit": "Km"
+        }
+      ],
+      "Facilities": [
+        {
+          "Id": "1073744640",
+          "Name": "Wheelchair-accessible on-site restaurant"
+        },
+        {
+          "Id": "1073744641",
+          "Name": "Wheelchair-accessible lounge"
+        },
+        {
+          "Id": "3",
+          "Name": "Bar/lounge"
+        },
+        {
+          "Id": "8",
+          "Name": "Elevator"
+        },
+        {
+          "Id": "2123",
+          "Name": "Full-service spa"
+        },
+        {
+          "Id": "2063",
+          "Name": "24-hour front desk"
+        },
+        {
+          "Id": "400",
+          "Name": "Poolside bar"
+        },
+        {
+          "Id": "81",
+          "Name": "Conference space"
+        },
+        {
+          "Id": "2065",
+          "Name": "Business center"
+        },
+        {
+          "Id": "2129",
+          "Name": "Spa treatment room(s)"
+        },
+        {
+          "Id": "2067",
+          "Name": "Express check-out"
+        },
+        {
+          "Id": "2387",
+          "Name": "Tours/ticket assistance"
+        },
+        {
+          "Id": "2004",
+          "Name": "Coffee shop or café"
+        },
+        {
+          "Id": "3861",
+          "Name": "Free self parking"
+        },
+        {
+          "Id": "2070",
+          "Name": "Dry cleaning/laundry service"
+        },
+        {
+          "Id": "2390",
+          "Name": "Free WiFi"
+        },
+        {
+          "Id": "4438",
+          "Name": "Pool sun loungers"
+        },
+        {
+          "Id": "3863",
+          "Name": "Free valet parking"
+        },
+        {
+          "Id": "24",
+          "Name": "Outdoor pool"
+        },
+        {
+          "Id": "2008",
+          "Name": "Health club"
+        },
+        {
+          "Id": "2392",
+          "Name": "Free wired Internet"
+        },
+        {
+          "Id": "2592",
+          "Name": "Conference space size (meters) - 929"
+        },
+        {
+          "Id": "2593",
+          "Name": "Number of meeting rooms - 4"
+        },
+        {
+          "Id": "4003",
+          "Name": "Luggage storage"
+        },
+        {
+          "Id": "361",
+          "Name": "Breakfast available (surcharge)"
+        },
+        {
+          "Id": "2537",
+          "Name": "Number of restaurants - 2"
+        },
+        {
+          "Id": "43",
+          "Name": "Concierge services"
+        },
+        {
+          "Id": "2539",
+          "Name": "Conference space size (feet) - 10000"
+        },
+        {
+          "Id": "3500",
+          "Name": "Snack bar/deli"
+        },
+        {
+          "Id": "2349",
+          "Name": "Designated smoking areas"
+        },
+        {
+          "Id": "1073744430",
+          "Name": "Wheelchair accessible (may have limitations)"
+        },
+        {
+          "Id": "1073744111",
+          "Name": "Banquet hall"
+        },
+        {
+          "Id": "2352",
+          "Name": "Pool umbrellas"
+        },
+        {
+          "Id": "369",
+          "Name": "Laundry facilities"
+        },
+        {
+          "Id": "2420",
+          "Name": "Accessible bathroom"
+        },
+        {
+          "Id": "2422",
+          "Name": "Wheelchair accessible parking"
+        },
+        {
+          "Id": "1073744630",
+          "Name": "Wheelchair-accessible concierge desk"
+        },
+        {
+          "Id": "2423",
+          "Name": "In-room accessibility"
+        },
+        {
+          "Id": "1073744825",
+          "Name": "Lifeguard on site"
+        },
+        {
+          "Id": "1073744634",
+          "Name": "Wheelchair-accessible path to elevator"
+        },
+        {
+          "Id": "2043",
+          "Name": "Multilingual staff"
+        },
+        {
+          "Id": "1073744635",
+          "Name": "Wheelchair-accessible registration desk"
+        },
+        {
+          "Id": "317",
+          "Name": "Fireplace in lobby"
+        },
+        {
+          "Id": "2047",
+          "Name": "Free newspapers in lobby"
+        }
+      ],
+      "Amenities": [
+        {
+          "Id": "1",
+          "Name": "Parking"
+        },
+        {
+          "Id": "2",
+          "Name": "Lounge"
+        },
+        {
+          "Id": "5",
+          "Name": "Breakfast"
+        },
+        {
+          "Id": "6",
+          "Name": "Business Center"
+        },
+        {
+          "Id": "8",
+          "Name": "Bar"
+        },
+        {
+          "Id": "9",
+          "Name": "Spa"
+        },
+        {
+          "Id": "12",
+          "Name": "Laundry Services"
+        },
+        {
+          "Id": "13",
+          "Name": "Swimming Pool"
+        },
+        {
+          "Id": "14",
+          "Name": "Restaurant"
+        },
+        {
+          "Id": "16",
+          "Name": "Internet"
+        },
+        {
+          "Id": "17",
+          "Name": "Fitness Facility"
+        }
+      ],
+      "Images": [
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/380e3879_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/380e3879_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0938b0ba_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0938b0ba_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/582f68c1_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/582f68c1_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/c3c8746f_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/c3c8746f_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/d0f5dfff_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/d0f5dfff_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ee95500b_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2bdfeada_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0a1d91d9_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/0331150c_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b283411d_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6f4de73d_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/81c9feae_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1304b8f4_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/26097110_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4df0ef62_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/3b86dcf2_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/37f7e286_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/5085e4c5_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/12d1708b_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/36b22e2c_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b2608671_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/dfab79e8_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/d34a66bf_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/d34a66bf_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4cc3abf7_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4cc3abf7_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/cba5fcae_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/cba5fcae_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2921ac01_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2921ac01_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/9bfd060d_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/9bfd060d_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b7cafb71_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b7cafb71_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/85077196_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/85077196_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/38baf08d_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/38baf08d_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2ca4378d_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/2ca4378d_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/65e89650_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/65e89650_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/63057030_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/63057030_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/c19f9650_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/c19f9650_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/e5b377e3_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/e5b377e3_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1cdfcdb5_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1cdfcdb5_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/bd0654fd_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/bd0654fd_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b4ab4cb2_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/b4ab4cb2_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1264b5fc_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/1264b5fc_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4d6bfbe7_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/4d6bfbe7_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/115aee25_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/115aee25_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/51d77be8_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/51d77be8_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ff1e04f6_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ff1e04f6_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ad2393b9_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/ad2393b9_z.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6dc1a3c3_b.jpg",
+          "Size": null
+        },
+        {
+          "Type": "",
+          "Url": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/6dc1a3c3_z.jpg",
+          "Size": null
+        }
+      ],
+      "Star": "5",
+      "ReviewRating": "3.9",
+      "ReviewCount": "701",
+      "Image": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/380e3879_b.jpg",
+      "MinPrice": null,
+      "Offer": null
+    }
+  }
+}

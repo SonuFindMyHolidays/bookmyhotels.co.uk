@@ -1,0 +1,532 @@
+﻿@using Data.GetMeRoom.Models.Detail;
+@model Hotel
+@{ 
+
+    var currency = "INR";
+}
+<link href="~/Content/css/hotel-rooms.css" rel="stylesheet" />
+<style>
+    .modal-open[style] {
+        padding-left: 18px !important;
+    }
+
+    .modal {
+        overflow-y: auto;
+    }
+
+    .modal-open {
+        overflow: auto;
+    }
+
+    .triangle-right {
+        width: 0;
+        height: 0;
+        border-top: 25px solid transparent;
+        border-left: 20px solid #003580;
+        border-bottom: 25px solid transparent;
+    }
+
+
+    .col-xl-5 {
+        -ms-flex: 0 0 41.66667%;
+        flex: 0 0 60.66667% !important;
+        max-width: none !important;
+    }
+</style>
+@{
+    if (Model != null && Model.Rates?.Count() > 0)
+    {
+        var TotalNights = Convert.ToString(Session["TotalNights"]);
+
+        if (Data.GetMeRoom.GlobalConstant.ConfigVariables.SITEROOTPATH.Contains("bookmyhotels.co.in"))
+        {
+            currency = "INR";
+        }
+        else
+        {
+            currency = Model.Rates.FirstOrDefault().Room.FirstOrDefault().GrossCurrency;
+        }
+
+        var noofrooms = Model.Rates.FirstOrDefault().Room.Count;
+        <h5 class="desc-main-title">
+            Select Your Room
+        </h5>
+        @*<div class="row">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex flex-column justify-content-between">
+                <div class="cyr-box">
+                    <div class="cyr-box-top">
+                        <div class="slider-room-box">
+                            <div class="multi-box-wrapper">
+                                <div class="cyr-gallery-btn">
+                                    <img class="img-fluid w-100 max-height-200 min-height-200 rounded" src="https://d2573qu6qrjt8c.cloudfront.net/A6019E5049EB42529CFA8FA21B228DFA/A6019E5049EB42529CFA8FA21B228DFA.JPEG" alt="General view">
+                                </div>
+                                <div class="features-row item-list-3 d-flex justify-content-between flex-column">
+                                    <div class="features-col">
+                                        <div class="studio-combo-title">Double room - Shared bath</div>
+                                    </div>
+                                    <div class="features-col">
+                                        <div class="features-col-title">
+                                            <span><img src="/images/sleeps-icon-rl.svg" alt="Sleeps"></span>
+                                        </div>
+                                        <div class="feature-flx">
+                                            <div class="feature-flx-text">
+                                                2 Adults
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="features-col">
+                                        <div class="features-col-title">
+                                            <span>
+                                                <img src="/images/amenities-icon-rl.svg">
+                                            </span>
+                                        </div>
+                                        <div class="feature-flx">
+                                            <div class="feature-flx-text">
+                                                <div class="ame-data">
+                                                    <div class="ame-data-parent">
+                                                        <span> Television... </span>
+                                                    </div>
+                                                    <div class="ame-data-parent">
+                                                    </div>
+                                                </div>
+                                                <div class="show-price-details">
+                                                    <a data-toggle="modal" style="cursor:pointer; font-weight:bold;" onclick="RoomDetailsCall('BDKSOK29MT','ROH')" data-target="#Roominfo-Popup">More Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="covr-all">
+                            <div class="">
+                                <div class="">
+                                    <div class="feature-flx">
+                                        <div>
+                                            <p class="mb-0">
+
+                                                <strong class="text-black">Room only</strong>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cyr-bottom">
+
+                                <div class="d-flex flex-column justify-content-xl-between">
+
+                                    <div class="one-1 refund-cancel-radio">
+                                        <div class="ref-canc-row">
+                                            <div>
+                                                <div class="d-flex">
+                                                    <div class="icon02 position-relative">
+                                                        <i class="fa fa-info-circle mt-1 mr-1" aria-hidden="true"></i>
+
+                                                        <div class="tooltip02" style="text-align: left;line-height:20px;">
+                                                            <div class="tooltip_totalduration">Cancellation Policy</div>
+                                                            <div class="tooltip_bordermain_div">
+                                                                <div class="stopover_dv_01">
+                                                                    <ul>
+                                                                        <li class="n-rfnd"><strong class="font-weight-bold">No refund:</strong> You won't get a refund, as property is Non refundable </li>
+                                                                    </ul>
+                                                                    <p class="font-size-10 text-white"> *  Times are based on the property's Local time.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="mb-0 txt-non-refund">
+                                                        Non refundable
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="cyr-bflex">
+                                        <div class="cyr-btm-left">
+                                            <div class="tax-and-pbreak">
+                                                <span class="total-top"><strong class="semibld-tx"> Total</strong></span>
+                                                <div class="prpt-row">
+                                                    <div class="cyr-price" id="visiblePrice_0">
+                                                        <strong class="semibld-tx cyr-price-2"> £  99.24</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sub-pric">
+                                            </div>
+                                            <div class="show-price-details" id="priceDetail_0">(Incl all taxes and fees)</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="cyr-btm-right mb-2">
+
+                                        <a data-ratecode="LEI" data-token="0V75D34ZWO_1_11W9SZK57JNW21I7NSNTWRD630" data-rateid="BDKSOK29MT" data-roomid="ROH" class="btnAnime bookroom w-100 btn-10" data-toggle="modal" data-target="#payment-loading">Book</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <div>
+            
+            @using (Html.BeginForm("HotelPayment", "Hotel", FormMethod.Post, new { id = "DetailForm" }))
+            {
+                @Html.Hidden("Token", "", new { id = "Token" });
+                @Html.Hidden("RateCode", "", new { id = "RateCode" });
+                @Html.Hidden("RateId", "", new { id = "RateId" });
+                @Html.Hidden("RoomId", "", new { id = "RoomId" });
+                @Html.Hidden("HotelCode", Model.Rates.FirstOrDefault().Room.FirstOrDefault().ProviderHotelCode, new { id = "HotelCode" });
+
+                @Html.AntiForgeryToken()
+                foreach (var rate in Model.Rates)
+                {
+                    var totalPrice = rate.Room.Sum(x => x.GrossPrice);
+                    int i = 0;
+                    int room = 0;
+                    <div class="card border-co border-0lor-7 mb-5 overflow-hidden filteroom" data-refund="@rate.Room[0].IsRefundable" data-brb="@rate.Room[0].BoardBasis" style="border:1px solid #ccc; border-radius:0px;">
+                        <div class="product-item__outer w-100">
+
+                            @foreach (var _room in rate.Room)
+                            {
+                                int ProviderNum = _room.ProviderName == "Nuitee" ? 80 : _room.ProviderName == "Restel" ? 75 : 86;
+                                room = room + 1;
+                                string htmlimage = string.Empty;
+
+                                var totalPaxes = _room.Adult > 1 ? _room.Adult + " Adults" : _room.Adult + " Adult";
+                                if (_room.Child > 0)
+                                {
+                                    totalPaxes = totalPaxes + " + " + (_room.Child > 1 ? _room.Child + " Children" : _room.Child + " Child");
+                                }
+
+                                try
+                                {
+                                    var images = _room.Images?.Where(x => x.Size == "Standard").ToList();
+                                    if (images != null)
+                                    {
+                                        Random rand = new Random();
+                                        var image = images[rand.Next(images.Count)];
+                                        htmlimage = "<img class='img-fluid rounded-sm' src='" + @image.Url + "' alt='" + @image.Size + "'>";
+                                    }
+                                }
+                                catch (Exception)
+                                {
+                                    htmlimage = "<img class='img-fluid rounded-sm' src='~/../../Content/img/noImage.jpg' style='width:auto;' alt='No Image Available'>";
+                                }
+                                <!--Room Type 1-->
+                                <div class="row">
+
+                                    <div class=" " style="border-bottom:1px solid #ccc;display:block; border:12px solid #003580; width:1%; margin-right:20px;">
+
+                                        <div class="triangle-right"></div>
+
+                                    </div>
+
+                                    <div class="col col-md-7 col-lg-7 col-xl-5 flex-horizontal-center pl-xl-0" style="border-right:1px solid #ccc;border-bottom:1px solid #ccc;">
+                                        <div class="w-100 position-relative m-4 m-md-0">
+                                            <span data-ratecode="@rate.RateCode" data-token="@rate.Token" class="d-inline-block">
+                                                <p style="padding-top: 12px !important;"><span style="color:#003580; font-weight:bold; ">Room @room: <span style="font-weight:normal;">@totalPaxes</span> </span> - <span class="font-weight-bold font-size-17 text-dark text-dark" style="text-transform:capitalize !important;">@_room.RoomType</span>  </p>
+                                                <span style="position:absolute;float: right;right: 45px; color:#fff;">@ProviderNum</span>
+
+
+                                                @*<br />   <span style="color:#23a101;font-weight: 400;">Free Cancellation till check in</span>*@
+
+                                            </span>
+
+
+
+
+                                            <div class="">
+                                                <div class="d-flex mb-1">
+                                                    @*@Html.Raw(Room.RoomDesc)*@
+                                                    <div class="ml-0">
+                                                        <ul class="list-unstyled mb-0">
+                                                            <li class="media mb-3 text-gray-1" style="margin-bottom:0.2rem !important">
+
+
+                                                                @if (_room.IsRefundable)
+                                                                {
+                                                                    <small class="mr-2">
+                                                                        <small class="fa fa-check-square font-size-17 text-primary" style="padding-top: 0px !important; color: green !important;font-size: 20px !important;"></small>
+                                                                    </small>
+                                                                    <div class="media-body font-size-1 ml-1" style="color:#218242 !important; font-weight:bold;">
+                                                                        Refundable
+                                                                    </div>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <div class="media-body font-size-1 ml-1" style="display:none;">
+                                                                        Non Refundable
+                                                                    </div>
+                                                                }
+
+
+
+                                                            </li>
+                                                            @if (!string.IsNullOrEmpty(_room.BoardBasis))
+                                                            {
+                                                                <li class="media mb-3 text-gray-1">
+                                                                    <small class="mr-2">
+                                                                        <small class="fa fa-check-square font-size-17 text-primary" style="color: green !important;font-size: 20px !important;"></small>
+                                                                    </small>
+
+                                                                    <div class="media-body font-size-1 ml-1">
+                                                                        <span style="color:#218242 !important; font-weight:bold;">@_room.BoardBasis</span>
+                                                                    </div>
+                                                                </li>
+                                                            }
+                                                            <li class="media mb-3 text-gray-1" style="display:none;">
+                                                                <small class="mr-2">
+                                                                    <small class="fa fa-child font-size-17 text-primary"></small>
+                                                                </small>
+                                                                @if (_room.PayAtHotel)
+                                                                {
+                                                                    <div class="media-body font-size-1 ml-1">
+                                                                        Pay at Hotel allowed
+                                                                    </div>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <div class="media-body font-size-1 ml-1">
+                                                                        Pay at Hotel not allowed
+                                                                    </div>
+                                                                }
+                                                            </li>
+
+
+
+
+
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ml-7">
+                                                        <ul class="list-unstyled mb-0">
+
+                                                            @if (_room.Beds != null)
+                                                            {
+                                                                foreach (var item in _room.Beds)
+                                                                {
+                                                                    <li class="media mb-3 text-gray-1">
+                                                                        <small class="mr-2">
+                                                                            <small class="fa fa-bed font-size-17 text-primary"></small>
+                                                                        </small>
+                                                                        <div class="media-body font-size-1 ml-1">
+                                                                            @item.Count @item.Type
+                                                                        </div>
+                                                                    </li>
+                                                                }
+                                                            }
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div style="width:100%; float:left; height:auto; ">
+                                                <div class="mob_100_0302" style="display:none !important;">
+                                                    <span style="color:#2b2b2b; font-size:15px; ">
+                                                        <a href="" data-toggle="modal" data-target="#myModal01" onclick="AdditionalCharges('@rate.Token','@rate.RateCode')" style="font-weight:600 !important; color:#003580;"> Additional Charges</a>
+                                                    </span>
+                                                </div>
+
+                                                <div class="mob_100_0302" style="margin-bottom: 15px !important;">
+                                                    <span style="color:#2b2b2b; font-size:15px;  ">
+                                                        @if (_room.IsRefundable)
+                                                        {
+                                                            <a href="" data-toggle="modal" data-target="#myModal01" onclick="CancillationPolicy('@rate.Token','@rate.RateCode')" style="font-weight:600 !important;color:#003580;"> Cancellation Policies</a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="fa fa-info-circle" style="font-weight:bold;"></i> <a style="color: #000 !important; "> Non Refundable </a>
+                                                        }
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </div>
+                                    </div>
+
+                                    @if (i == 0)
+                                    {
+                                        <!--For Desktop Device Price Div Code Begin-->
+                                        <div class="col col-xl-3dot5 align-self-center py-4 py-xl-0 border-top border-xl-top-0 desk_dis_block" style="">
+                                            <div class="flex-content-center  py-xl-5 ml-4 ml-xl-0 justify-content-start justify-content-xl-center" style="padding-bottom: 0rem !important; padding-top: 0rem !important; ">
+                                                <div class="text-center my-xl-1">
+                                                    <div class="mb-0 pb-0">
+                                                        <span>@TotalNights night for @noofrooms Room</span><br />
+
+                                                        <span class="font-weight-bold font-size-25 ml-1" style="font-weight: 900; color: #0071c2; font-size: 15px !important; "> @currency <span style="font-size: 20px; font-weight: bold; color: #0071c2;">@totalPrice</span> </span>
+
+                                                    </div>
+                                                    <a data-ratecode="@rate.RateCode" data-token="@rate.Token" data-RateId="@_room.RateId" data-RoomId="@_room.RoomId" class="selectroom btn btn-primary mt-2"  data-toggle="modal" data-target="#myModal">Select Room <i class="fa fa-angle-right" style="font-weight:bold;"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--For Desktop Device Price Div Code End-->
+                                        i++;
+                                    }
+                                </div>
+
+                            }
+                        </div>
+
+
+                        <!--For Mobile Device Price Div Code Begin-->
+                        <div class="mobile_dis_block" style="width:100%; float:left; height:auto; border-top:1px solid #ccc; background-color:#f2f2f2; ">
+
+                            <div class=" align-self-center py-4 py-xl-0 border-top border-xl-top-0" style="">
+                                <div class="  py-xl-5  ml-xl-0 justify-content-start justify-content-xl-center">
+                                    <div class="text-center ">
+                                        <div class="mb-2 pb-1" style="text-align:center !important;  ">
+                                            <span>@TotalNights night for @noofrooms Room</span><br />
+
+                                            <span class="font-weight-bold font-size-25 ml-1" style="font-weight: 900; color:#003580;"> @currency <span style="font-size:40px; font-weight:bold; color:#003580;">@totalPrice</span></span>
+
+                                        </div>
+                                        <a data-ratecode="@rate.RateCode" data-token="@rate.Token" data-RateId="@rate.Room[0].RateId" data-data-RoomId="@rate.Room[0].RoomId" class="selectroom btn btn-outline-primary border-radius-3 border-width-2 px-4 font-weight-bold min-width-200 py-2 text-lh-lg" style="font-weight: bold !important; text-transform: uppercase !important;background-color:#ff9100 !important; border:1px solid #003580 !important; color:#fff;" data-toggle="modal" data-target="#myModal">Reserve</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                }
+            }
+
+
+        </div>
+
+
+        <!-- Additional Charges -->
+
+        @*<div class="modal fade" id="cancellation" role="dialog">
+
+            </div>*@
+        <!-- Loader content-->
+        <div class="modal fade" id="myModal01" role="dialog">
+
+            <div id="additional">
+
+
+            </div>
+
+            <div class="modal-dialog" style="visibility:hidden">
+                <!-- Modal content-->
+                <div class="modal-content">
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog" style="max-width: 300px !important;">
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 0rem !important;">
+
+                        <p style="        background-color: #fff;"><img src="../content/img/loader.gif" style="max-width:300px;" /></p>
+                        <p style="color:#555; font-size:20px;background-color: #fff; padding:0px; text-align:center;margin-bottom: 0rem; margin-top:-80px;">
+                            Just Moment...<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i>  Please Wait!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+    else
+    {
+        <article class="B8D2gM _3E-II4 _3aQ08V">
+            <h3 style="color: #218242; font-size: 16px; line-height: 10px; font-weight: 500;">
+                It seems Room has been Sold Out.
+            </h3>
+        </article>
+    }
+
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("a.selectroom").click(function () {
+            document.getElementById("Token").value = (this).dataset.token;
+            document.getElementById("RateCode").value = (this).dataset.ratecode;
+            document.getElementById("RateId").value = (this).dataset.rateid;
+            document.getElementById("RoomId").value = (this).dataset.roomid;
+            //document.getElementById("HotelCode").value = (this).dataset.hotelcode;
+            $("#DetailForm").submit();
+        });
+    });
+
+    function AdditionalCharges(token, ratecode) {
+        // alert('AdditionalCharges:- token - ' + token + ', ratecode- ' + ratecode);
+        var jsondata = JSON.stringify({
+            'Token': token,
+            'RateCode': ratecode,
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/Hotel/AdditionalCharges",
+            data: jsondata,
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                $('#additional').html('');
+                $('#additional').html(response);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+
+    function CancillationPolicy(token, ratecode) {
+        // alert('CancillationPolicy:- token - ' + token + ', ratecode- ' + ratecode);
+        var jsondata = JSON.stringify({
+            'Token': token,
+            'RateCode': ratecode,
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/Hotel/CancillationPolicy",
+            data: jsondata,
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                $('#additional').html('');
+                $('#additional').html(response);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+
+</script>

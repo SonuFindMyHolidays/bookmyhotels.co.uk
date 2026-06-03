@@ -1,0 +1,54 @@
+﻿@model List<Data.GetMeRoom.Models.Detail.Image>
+
+@if (Model != null && Model.Count > 0)
+{
+    //var Bigimage = Model.ToList().Where(p => p.Url.Contains("_z.jpg")).Distinct();
+    var Bigimage = Model.ToList().Distinct();
+    //var smallimage = Model.ToList().Select(x => x.Url.Contains("_b.jpg")).ToList();
+
+    <div class="position-relative">
+        <!-- Images Carousel -->
+        <div id="sliderSyncingNav" class="js-slick-carousel u-slick mb-2"
+             data-infinite="true"
+             data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-classic u-slick__arrow-centered--y rounded-circle"
+             data-arrow-left-classes="flaticon-back u-slick__arrow-classic-inner u-slick__arrow-classic-inner--left ml-lg-2 ml-xl-4"
+             data-arrow-right-classes="flaticon-next u-slick__arrow-classic-inner u-slick__arrow-classic-inner--right mr-lg-2 mr-xl-4"
+             data-nav-for="#sliderSyncingThumb">
+            @foreach (var item in Bigimage)
+            {
+                <div class="js-slide">
+                    <img class="img-fluid border-radius-3 sa_gallery_hoteldetail" src="@item.Url" alt="@item.Type" style="">
+                </div>
+            }
+        </div>
+
+        <div id="sliderSyncingThumb" class="js-slick-carousel u-slick u-slick--gutters-4 u-slick--transform-off"
+             data-infinite="true"
+             data-slides-show="@Bigimage.Count()"
+             data-is-thumbs="true"
+             data-nav-for="#sliderSyncingNav"
+             data-responsive='[{
+                               "breakpoint": 992,
+                               "settings": {
+                               "slidesToShow": 4
+                               }
+                               }, {
+                               "breakpoint": 768,
+                               "settings": {
+                               "slidesToShow": 3
+                               }
+                               }, {
+                               "breakpoint": 554,
+                               "settings": {
+                               "slidesToShow": 2
+                               }
+                               }]'>
+
+
+        </div>
+        <!-- End Images Carousel -->
+    </div>
+    }
+
+
+

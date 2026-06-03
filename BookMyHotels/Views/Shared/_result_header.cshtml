@@ -1,0 +1,61 @@
+﻿<style>
+    .dropdown-toggle::after {
+        display: inline-block;
+        font-family: "Font Awesome 5 Free";
+        font-size: 80%;
+        font-weight: 900;
+        content: "" !important;
+        margin-left: .5rem;
+    }
+</style>
+<header id="header" class="u-header u-header--dark-nav-links-xl u-header--nav-links-normal u-header--static-xl u-header--show-hide-xl" data-header-fix-moment="500" data-header-fix-effect="slide">
+    <div class="u-header__section u-header__shadow-on-show-hide py-3 py-xl-0">
+        <div id="logoAndNav" class="container py-1">
+            <!-- Nav -->
+            <nav class="js-mega-menu navbar navbar-expand-xl u-header__navbar u-header__navbar--no-space hs-menu-initialized hs-menu-horizontal">
+                <!-- Logo -->
+                <a class="navbar-brand u-header__navbar-brand-default u-header__navbar-brand-center u-header__navbar-brand-text-white" href="@Data.GetMeRoom.GlobalConstant.ConfigVariables.SITEROOTPATH" aria-label="@Data.GetMeRoom.GlobalConstant.ConfigVariables.COMPANY_NAME">
+                    <img class="w-scroll-logo" src="~/images/logo.jpeg" style="max-width:200px; height:auto;" />
+                </a>
+
+                <div class="callUsMobile">
+                    <a href="tel:@Data.GetMeRoom.GlobalConstant.ConfigVariables.CALLUS"><span class="fa fa-headset"></span></a>
+                </div>
+                <!-- End Scroll Logo -->
+                <div id="navBar" class="navbar-collapse u-header__navbar-collapse collapse order-2 order-xl-0 pt-4 p-xl-0 position-relative">
+                    <!-- End Nav -->
+                    <div class="navbar-nav u-header__navbar-nav">
+                        <a id="languageDropdownInvoker121" class="dropdown-nav-link dropdown-toggle d-flex align-items-center ml-1 py-3" href="~/" role="button">
+                            <span class="d-inline-block">Home</span>
+                        </a>
+                        <a id="languageDropdownInvoker121" class="dropdown-nav-link dropdown-toggle d-flex align-items-center ml-1 py-3" href="~/about-us" role="button">
+                            <span class="d-inline-block">About Us</span>
+                        </a>
+                        <a id="languageDropdownInvoker01" class="dropdown-nav-link dropdown-toggle d-flex align-items-center ml-1 py-3" href="~/contact-us" role="button">
+                            <span class="d-inline-block">Contact Us</span>
+                        </a>
+                        <a id="languageDropdownInvoker01" class="callUsTop dropdown-nav-link dropdown-toggle d-flex align-items-center ml-1 py-3" href="tel:@Data.GetMeRoom.GlobalConstant.ConfigVariables.CALLUS" role="button">
+                            <div class="callUsTop">
+                                <div>
+                                    <span class="fa fa-headset"></span>
+                                </div>
+                                <div>
+                                    <small>Got Question? Call Us</small>
+                                    <big>@Data.GetMeRoom.GlobalConstant.ConfigVariables.CALLUS</big>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Responsive Toggle Button -->
+                <button type="button" class="navbar-toggler btn u-hamburger u-hamburger--primary ml-3" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+                    <span id="hamburgerTrigger" class="u-hamburger__box">
+                        <span class="u-hamburger__inner"></span>
+                    </span>
+                </button>
+            </nav>
+
+            <!-- End Nav -->
+        </div>
+    </div>
+</header>

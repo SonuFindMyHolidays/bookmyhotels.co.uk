@@ -1,0 +1,22 @@
+﻿@media screen and (max-width: 1200px) {
+    .desk_dis_block {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .mobile_dis_block {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .mobile_dis_block {
+        display: none;
+    }
+}
+a {
+    cursor: pointer;
+}
+
+

@@ -1,0 +1,35 @@
+﻿@using Data.GetMeRoom.Models.Detail;
+@using System.Globalization;
+@model Data.GetMeRoom.Models.Detail.Policies
+
+<div class="modal-dialog">
+    <!-- Cancellation Policies-->
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <h4 class="modal-title">Cancellation Policies</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            @if (Model?.Policy?.Count > 0)
+            {
+                foreach (Policy item in Model.Policy)
+                {
+                    DateTime dt = DateTime.ParseExact(item.Start, "dd/MM/yyyy",CultureInfo.InvariantCulture);
+                    DateTime dtEnd = DateTime.ParseExact(item.End, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+                    <p style="color:#3b444f;font-size:15px; ">From @dt.ToString("dd/MM/yyyy hh:mm") to @dtEnd.ToString("dd/MM/yyyy hh:mm") Charges : @item.EstimatedValue</p>
+                }
+            }
+            else
+            {
+                <p style="color:#3b444f;font-size:15px; ">Policy not available</p>
+            }
+        <p>Times are based on the property’s local time</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+
+</div>

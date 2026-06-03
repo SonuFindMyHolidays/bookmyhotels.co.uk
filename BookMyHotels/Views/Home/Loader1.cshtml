@@ -1,0 +1,130 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Hotel Search for + ViewBag.Location</title>
+
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,500,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="~/Content/css/font-mytravel.css">
+    <link rel="stylesheet" href="~/Content/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="~/Content/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="~/Content/vendor/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="~/Content/vendor/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/prism/prism.css">
+    <link rel="stylesheet" href="~/Content/vendor/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="~/Content/vendor/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/dzsparallaxer/dzsparallaxer.css">
+    <link rel="stylesheet" href="~/Content/vendor/ion-rangeslider/css/ion.rangeSlider.css">
+
+    <!-- CSS MyTravel Template -->
+    <link rel="stylesheet" href="~/Content/css/theme.css">
+    <link href="~/Content/css/loader-css.css" rel="stylesheet" />
+</head>
+<body style="background-image: url('~/../../Content/img/hotelbg.jpg');">
+    <main id="content" style="background-image: url('~/../../Content/img/hotelbg.jpg');">
+        <div class="">
+            <div class="container">
+                <div class="row mb-5 mb-md-7 mb-lg-0">
+                    <div class="col-lg-5 col-xl-3dot5">
+                        <div class="space-lg-1 space-xl-3 mt-xl-2 mb-5 mb-md-7 mb-lg-0" style="padding-bottom:0px !important;">
+                            <div class="font-weight-bold font-size-xs-160 font-size-lg-60 font-size-150 text-gray-3 text-md-center text-lg-left" style="font-size:100px;">
+                                <img src="~/images/logo-footer.png" style="max-width:250px;" />
+                            </div>
+                            <div class=" font-weight-bold font-size-xs-160 font-size-lg-60 font-size-150 text-gray-3 text-md-center text-lg-left">
+                                <div class="loadingtxt">Loading <i class="fa fa-spinner fa-spin" style="font-size:35px"></i></div>
+                            </div>
+                            @*<h6 class="font-size-21 font-weight-bold text-gray-3 mb-3 mt-n3 mt-xl-n5 text-center text-lg-left" style="color:#297cbb !important; ">
+                                <div class="wayto">Just wait 1000's hotels on the way to @ViewBag.Location !</div>
+                            </h6>*@
+
+                        </div>
+                        <div style="width:100%; height:auto; float:left; padding-bottom:0px !important; padding-top:0px !important; ">
+
+                            <div style="width:100%; height:auto; float:left; ">
+                                <p class="logoatol"><img src="~/Content/img/atollogo.png" style="max-width: 400px; width: 100%; padding-bottom: 10px;"> </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- End Go to Top -->
+    <!-- JS Global Compulsory -->
+    <script src="~/Content/vendor/jquery/dist/jquery.min.js"></script>
+    @*<script src="~/Content/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="~/Content/vendor/popper.js/dist/umd/popper.min.js"></script>*@
+    <script src="~/Content/vendor/bootstrap/bootstrap.min.js"></script>
+
+    <!-- JS Implementing Plugins -->
+    @*<script src="~/Content/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    <script src="~/Content/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/Content/vendor/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="~/Content/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="~/Content/vendor/slick-carousel/slick/slick.js"></script>
+    <script src="~/Content/vendor/gmaps/gmaps.min.js"></script>
+    <script src="~/Content/vendor/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="~/Content/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>*@
+
+    <!-- JS MyTravel -->
+    @*<script src="~/Content/js/hs.core.js"></script>
+    <script src="~/Content/js/components/hs.header.js"></script>
+    <script src="~/Content/js/components/hs.unfold.js"></script>
+    <script src="~/Content/js/components/hs.validation.js"></script>
+    <script src="~/Content/js/components/hs.show-animation.js"></script>
+    <script src="~/Content/js/components/hs.range-datepicker.js"></script>
+    <script src="~/Content/js/components/hs.selectpicker.js"></script>
+    <script src="~/Content/js/components/hs.range-slider.js"></script>
+    <script src="~/Content/js/components/hs.go-to.js"></script>
+    <script src="~/Content/js/components/hs.slick-carousel.js"></script>
+    <script src="~/Content/js/components/hs.quantity-counter.js"></script>
+    <script src="~/Content/js/components/hs.g-map.js"></script>
+    <script src="~/Content/js/components/hs.toggle-state.js"></script>
+    <script src="~/Content/js/components/hs.malihu-scrollbar.js"></script>*@
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("ready!");
+            // var sessionID='success';
+            $.ajax({
+                url: '/Home/SearchHotel',
+                //url: '/Home/GetLocation',
+                //data: "{ location: '" + request.term + "'}",
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log("Response!" + data.data);
+                    var url = "/Hotel/SearchResult";
+                    window.location.href = url;
+                    //alert(JSON.stringify(data));
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

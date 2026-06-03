@@ -1,0 +1,20 @@
+﻿@model  List<Data.GetMeRoom.Models.Detail.Facility>
+@if (Model != null && Model.Count > 0)
+{
+
+    <h5 class="desc-main-title">
+        Facilities
+    </h5>
+
+    <div style="background-color:#fff; padding:20px;box-shadow: 0 1px 4px 0 rgba(10,17,33,65%);">
+
+        <ul class="list-group list-group-borderless list-group-horizontal list-group-flush no-gutters row">
+            @foreach (var item in Model)
+            {
+                <li class="col-md-4 list-group-item "><i class="fa fa-check-square mr-3 text-primary font-size-24"></i>@item.Name</li>
+            }
+
+        </ul>
+    </div>
+
+}

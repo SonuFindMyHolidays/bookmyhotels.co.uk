@@ -1,0 +1,99 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Loading...Please Wait! </title>
+
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,500,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="~/Content/css/font-mytravel.css">
+    <link rel="stylesheet" href="~/Content/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="~/Content/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="~/Content/vendor/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="~/Content/vendor/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/prism/prism.css">
+    <link rel="stylesheet" href="~/Content/vendor/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="~/Content/vendor/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/dzsparallaxer/dzsparallaxer.css">
+    <link rel="stylesheet" href="~/Content/vendor/ion-rangeslider/css/ion.rangeSlider.css">
+
+    <!-- CSS MyTravel Template -->
+    <link rel="stylesheet" href="~/Content/css/theme.css">
+    <link href="~/Content/css/loader-css.css" rel="stylesheet" />
+</head>
+<body style="background-image: url('~/../../Content/img/hotelbg.jpg');">
+    <main id="content" style="background-image: url('~/../../Content/img/hotelbg.jpg');">
+        <div class="">
+            <div class="container">
+                <div class="row mb-5 mb-md-7 mb-lg-0">
+                    <div class="col-lg-5 col-xl-5 dot5">
+                        <div class="space-lg-1 space-xl-3 mt-xl-2 mb-5 mb-md-7 mb-lg-0" style="padding-bottom:0px !important;">
+                            <div class="font-weight-bold font-size-xs-160 font-size-lg-60 font-size-150 text-gray-3 text-md-center text-lg-left" style="font-size:100px; display:none;">
+                                <img src="~/images/logo-footer.png" style="max-width:250px;" />
+                            </div>
+                            <div class=" font-weight-bold font-size-xs-160 font-size-lg-60 font-size-150 text-gray-3 text-md-center text-lg-left">
+                                <div class="loadingtxt" style="font-size:60px !important">Searching... <i class="fa fa-spinner fa-spin" style="font-size:25px"></i></div>
+                            </div>
+                            <h6 class="font-size-21 font-weight-bold text-gray-3 mb-3 mt-n3 mt-xl-n5 text-center text-lg-left" style="color:#3554d1 !important;margin-top:10px !important; ">
+                                <div class="wayto" style="color: #000; font-weight:normal !important; line-height:28px;   ">Finding the best deals near @ViewBag.Location !</div>
+                            </h6>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- End Go to Top -->
+    <!-- JS Global Compulsory -->
+    <script src="~/Content/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/bootstrap.min.js"></script>
+
+    
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("ready!");
+            // var sessionID='success';
+            $.ajax({
+                url: '/Home/SearchHotel',
+                //url: '/Home/GetLocation',
+                //data: "{ location: '" + request.term + "'}",
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log("Response!" + data.data);
+                    var url = "/Hotel/SearchResult";
+                    window.location.href = url;
+                    //alert(JSON.stringify(data));
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

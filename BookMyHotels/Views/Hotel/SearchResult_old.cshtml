@@ -1,0 +1,972 @@
+﻿@model Data.GetMeRoom.Models.Search.SearchRS
+
+@if (Model != null && Model.Hotels?.Hotel != null && Model.Hotels.Hotel.Count > 0)
+{
+
+    var currency = "";
+    string location = Session["location"].ToString();
+    ViewBag.Title = "Search Cheapest Hotel Result for " + location;
+    Layout = "~/Views/Shared/_result_Layout.cshtml";
+    if (Data.GetMeRoom.GlobalConstant.ConfigVariables.SITEROOTPATH.Contains(".co.in"))
+    {
+        currency = "INR";
+    }
+    else
+    {
+        currency = Model.Hotels.Hotel.FirstOrDefault().GrossCurrency;
+    }
+    List<Data.GetMeRoom.Models.Search.Hotel> hotels = new List<Data.GetMeRoom.Models.Search.Hotel>();
+
+    hotels = Model.Hotels.Hotel.OrderBy(x => x.GrossPrice).ToList();
+
+    Data.GetMeRoom.Models.Search.SearchRQ searchRQ = new Data.GetMeRoom.Models.Search.SearchRQ();
+    searchRQ = (Data.GetMeRoom.Models.Search.SearchRQ)Session["searchRequest"];
+
+    int AdultsCount = searchRQ.SearchRequest.Rooms.Room.Sum(x => x.Adult);
+    int ChildsCount = searchRQ.SearchRequest.Rooms.Room.Sum(x => x.Child.Age.Count());
+    int TotalRooms = searchRQ.SearchRequest.Rooms.Room.Count();
+
+    string TotalRoomInfo = TotalRooms == 1 ? Convert.ToString(TotalRooms) + " room" : Convert.ToString(TotalRooms) + " room(s), ";
+    string TotalAdultInfo = AdultsCount == 1 ? Convert.ToString(AdultsCount) + " adult" : Convert.ToString(AdultsCount) + " adults";
+    string TotalChildInfo = ChildsCount == 0 ? string.Empty : ChildsCount == 1 ? Convert.ToString(ChildsCount) + " child" : Convert.ToString(ChildsCount) + " children";
+
+    if (!string.IsNullOrEmpty(TotalChildInfo))
+    {
+        TotalChildInfo = " & " + TotalChildInfo;
+    }
+
+    TotalRoomInfo = TotalRoomInfo + ", " + TotalAdultInfo + TotalChildInfo;
+
+    //1 room, 2 adult(s) & 1 Child(s)
+
+    int TotalNoOfStay = hotels.Count;
+
+    string[] checkind = searchRQ.SearchRequest.Master.CheckIn.Split('/');
+    string[] checkoutd = searchRQ.SearchRequest.Master.CheckOut.Split('/');
+    DateTime Checkin = Convert.ToDateTime(searchRQ.SearchRequest.Master.CheckIn);
+    DateTime Checkot = Convert.ToDateTime(searchRQ.SearchRequest.Master.CheckOut);
+
+    string CheckInDate = Checkin.ToString("dd MMM");
+    string CheckOutDate = Checkot.ToString("dd MMM");
+    var minPrice = hotels.Min(x => x.GrossPrice);
+    var maxPrice = hotels.Max(x => x.GrossPrice);
+
+    var hotelList = hotels.Select(x => x.Name).ToList();
+    var joinname = string.Join(",", hotelList);
+    var listName = hotelList.Select(x => x.ToString()).ToArray();
+
+    var amenitiesList = hotels.SelectMany(x => x.Amenities)
+.Select(rt => new
+{
+    id = rt.Id,
+    name = rt.Name
+}).Distinct().ToList();
+
+
+    var ratingList = hotels.GroupBy(l => Math.Round(l.Star))
+            .Select(g => new
+            {
+                Start = g.Key,
+                Count = g.Select(l => Math.Round(l.Star)).Count()
+            }).OrderByDescending(x => x.Start);
+    int a = 0;
+    int c = 0;
+    //var reviewRatingList = hotels.Hotel.GroupBy(l => l.ReviewRating)
+    //              .Select(g => new
+    //              {
+    //                  Rating = g.Key,
+    //                  Count = g.Select(l => l.ReviewRating).Count()
+    //              }).OrderByDescending(x => x.Rating);
+
+
+    Random random = new Random();
+    int randimg = random.Next(1, 5);
+    string srcurl = "../../Content/promoimg/" + randimg + ".jpg";
+
+
+
+    <link rel="stylesheet" href="~/Content/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="~/Content/vendor/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/ion-rangeslider/css/ion.rangeSlider.css">
+    <script src="~/Content/ui/1.12.1/jquery-ui.js"></script>
+    <style type="text/css">
+        a {
+            cursor: pointer;
+        }
+
+        .bg_chg {
+            border: 1px solid #ccc;
+            padding: 13px 13px 13px 20px;
+            border-radius: 25px !important;
+            background-color: #144d9d;
+        }
+
+            .bg_chg:hover {
+                border: 1px solid #ccc;
+                padding: 13px 13px 13px 20px;
+                border-radius: 25px !important;
+                background-color: #084191;
+            }
+
+            .bg_chg:active {
+                border: 1px solid #000 !important;
+                padding: 13px 13px 13px 20px;
+                border-radius: 25px !important;
+                background-color: #084191;
+            }
+
+            .bg_chg:focus {
+                border: 1px solid #ff9100 !important;
+                padding: 13px 13px 13px 20px;
+                border-radius: 25px !important;
+                background-color: #084191;
+            }
+
+        .bg_chg_morefilter {
+            height: auto !important;
+            align-items: center !important;
+            border: 1px solid #ccc !important;
+            padding: 13px 13px 13px 20px;
+            border-radius: 5px !important;
+            background-color: #f3f3f3 !important;
+        }
+
+            .bg_chg_morefilter:hover {
+                background-color: #fff !important;
+            }
+
+            .bg_chg_morefilter:focus {
+                background-color: #fff !important;
+            }
+
+
+        svg {
+            margin-bottom: -1.4375rem !important;
+            vertical-align: baseline;
+        }
+
+        .ui-widget.ui-widget-content {
+            border: 1px solid #c5c5c5;
+            overflow: hidden scroll !important;
+            height: auto !important;
+            max-height: 200px !important;
+            z-index: 111111 !important;
+        }
+
+
+        .flatpickr-calendar.open, .flatpickr-calendar.inline {
+            opacity: 1;
+            max-height: 640px;
+            visibility: visible;
+            top: 50px !important;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            // Hide div by setting display to none
+            $(".hide-btn02").click(function () {
+                $("#myDiv_searchotelbyname").hide();
+            });
+
+            // Show div by removing inline display none style rule
+            $(".show-btn02").click(function () {
+                $("#myDiv_searchotelbyname").show();
+            });
+
+            // Toggle div display
+            $(".toggle-btn02").click(function () {
+                $("#myDiv_searchotelbyname").toggle();
+            });
+        });
+        $(function () {
+
+            var avaialbalelist = '@joinname'.split(',');
+            $("#inputhotelsearch").autocomplete({
+                source: avaialbalelist
+            });
+        });
+    </script>
+    <!--Autocomplete Jquery Code END-->
+
+
+    <main id="content" class="sa_topmargin">
+        <div class="border-bottom" style="margin-bottom: 0px;">
+            @*<div class="container" style="background-image: linear-gradient(to right, #022c67, #003580) !important; padding-top: 5px; padding-bottom: 10px; margin-bottom: 0px; max-width: 1075px; ">*@
+            <div class="container" style="background-image: linear-gradient(to bottom, #ffffff, #ffffff) !important; padding-top: 5px; padding-bottom: 10px; margin-bottom: 0px; max-width: 1075px; padding-left: 0px !important; padding-right: 0px !important; ">
+
+                <h3 class="font-size-21 font-weight-bold mb-0 text-lh-1 mr-2 mb-3 mb-md-0 flex-shrink-0" style="padding-top:0px;display:block; padding-bottom:10px;  font-size:35px;text-align:center;">
+                    <a class="link-collapse link-collapse-custom " data-toggle="collapse" href="#collapseLinkExample_modify" role="button" aria-expanded="false" aria-controls="collapseLinkExample_modify">
+                        <span class="d-md-none d-wd-inline sa_font_listing" style="color: #3f3f3f;">
+                            @location <span class="font-size-21 font-weight-bold " style="font-weight: 400 !important;font-size: 15px;color:#3f3f3f;">
+                                @TotalRoomInfo
+                            </span>
+                        </span>
+
+                        <span class="font-size-21 font-weight-bold " style="font-weight: 400 !important; font-size: 15px; color: #3f3f3f;">
+                            @*<span>@TotalNoOfStay+ Stays -</span>*@  @CheckInDate - @CheckOutDate
+                        </span>
+
+                        <span style="margin-top:-5px !important; ">
+                            <span class="link-collapse__default font-size-15" style="text-decoration:underline; background-color:#297cbb;  color:#fff; padding:6px; padding-left:12px;padding-right:12px; border-radius: 0.25rem !important;">Modify <i class="fa fa-search font-size-20" style="vertical-align:middle;"></i></span>
+                            <span class="link-collapse__active font-size-15" style="text-decoration:underline; background-color:#297cbb; color:#fff; padding:6px; padding-left:12px;padding-right:12px;border-radius: 0.25rem !important;">Modify <i class="fa fa-search font-size-20" style="vertical-align:middle;"></i></span>
+                        </span>
+                    </a>
+                </h3>
+
+                @*<div class="collapse" id="collapseLinkExample_modify">*@
+                <div class="collapse" id="collapseLinkExample_modify" style="padding-top:10px;">
+                    @{
+                        Html.RenderPartial("~/Views/Shared/_ModifySearch.cshtml", searchRQ);
+                    }
+                </div>
+                <div class="d-block d-md-flex flex-horizontal-center">
+                    <ul class="nav flex-nowrap  align-items-center py-2 px-0 sa_hidden" role="tablist" style="padding-left: 70px !important;">
+                        <!-- Guest Rating DIV Code BEGIN -->
+                        <li class="nav-item d-flex align-items-center flex-shrink-0 flex-xl-shrink-1 border-left" style="border-left: 0px !important;">
+                            <div class="position-relative px-3 u-header__login-form dropdown-connector-xl u-header__topbar-divider sa_hidden" style="padding-left:0px !important; ">
+                                <a id="signUpDropdownInvokergr01" href="javascript:;"
+                                   class="d-flex align-items-center text-white active bg_chg toggle-btn02" aria-controls="signUpDropdowngr01" aria-haspopup="true" aria-expanded="true" data-unfold-event="click" data-unfold-target="#signUpDropdowngr01" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-delay="300" data-unfold-hide-on-scroll="true" data-unfold-animation-in="slideInUp" data-unfold-animation-out="fadeOut">
+                                    <span class="d-inline-block font-size-14 mr-1" style="color:#fff !important;font-size: 0.938rem !important;">Search by Hotel Name <i class="fa fa-angle-down" style="padding-left:5px; padding-right:12px;"></i> </span>
+                                </a>
+
+
+
+                                <div id="myDiv_searchotelbyname" style="height: auto;
+        margin-top: 20px;
+        width: 100%;
+        float: left;
+        position: absolute;
+        z-index: 111111;
+        background-color: #fff;
+        display: none;
+        box-shadow: 0 5px 9px rgba(41, 124, 187, 0.075), 0 5px 9px rgba(119, 131, 143, 0.075) !important;">
+
+                                    <div style="width:420px;float:left; height:auto;">
+                                        <div style="width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        float: left;
+        height: auto;
+        box-shadow: 0 5px 9px rgba(41, 124, 187, 0.075), 0 5px 9px rgba(119, 131, 143, 0.075);
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 0.3125rem;">
+                                            <!-- Guest Rating -->
+                                            <div style="width:100%; float:left; height:auto;">
+                                                <div id="txtautocomplete" class="x align-items-center text-primary font-weight-semi-bold" style="margin-bottom:15px; ">
+                                                    <div class="ui-widget" style="z-index: 111111 !important;">
+                                                        <input id="inputhotelsearch" class="bg_chg" placeholder="Enter hotel name" type="text" style="width:380px !important;z-index: 111111 !important; border:1px solid #ccc; background-color:#fff !important; " onclick="javascript:this.select();">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="width:30%; float:left; margin-left:0%; height:auto;">
+                                                <a id="sidebarNavToggler" onclick="applyHotelfilter()" class="btn btn-sm btn-primary font-size-16 px-4 px-md-3 px-wd-4 d-flex align-items-center justify-content-center target-of-invoker-has-unfolds" href="javascript:;" style="padding: 0.425rem 1.125rem; padding-left:1rem !important;padding-right: 1rem !important;height: auto !important;background-color: #ff9100 !important;border-color: #ff9100 !important;">
+                                                    <i class="fa fa-search font-size-20"></i>
+                                                    <span class="d-md-none d-wd-inline ml-2 hide-btn02">Search</span>
+                                                </a>
+                                            </div>
+                                            <div style="width:30%; float:right; height:auto; text-align:right;">
+                                                <a class="font-size-16 hide-btn02" style="text-align: right; " onClick="history.go(0);">
+
+                                                    <span style="text-decoration:underline;">Clear Search</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- This code is display none Guest Rating -->
+                                <div id="signUpDropdowngr01" class="dropdown-menu dropdown-unfold dropdown-menu-right py-0 mt-0 u-unfold--css-animation slideInUp u-unfold--reverse-y u-unfold--hidden" aria-labelledby="signUpDropdownInvokergr01" style="min-width: 430px; animation-duration: 300ms; right: 0px;display:none;">
+                                    <div class="card rounded-xs">
+                                        <form class="js-validate" novalidate="novalidate" method="post">
+                                            <!-- Guest Rating -->
+                                            <div id="logingr01" style="opacity: 1;" data-target-group="idForm" class="animated fadeIn">
+                                                <div class="card-body " style="padding:30px !important;">
+                                                    <div id="propertyCategoryAccordion047gr01" class="accordion rounded-0 shadow-none">
+                                                        <div class="border-0">
+                                                            <div id="propertyCategoryOne047gr01" aria-labelledby="propertyCategoryHeadingOne047gr01" data-parent="#propertyCategoryAccordion047gr01">
+                                                                <div class="card-body pt-0 mt-1 px-5" style="padding-left:0px !important; padding-right:0px !important; padding-bottom:0px !important;">
+                                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input type="checkbox" class="custom-control-input" id="Excellent" value="5" onclick="applyfilter()" style="border: #297cbb solid 2px !important;">
+                                                                            <label class="custom-control-label" for="Excellent">Excellent</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input type="checkbox" class="custom-control-input" id="VeryGood" value="4" onclick="applyfilter()" style="    border: #297cbb solid 2px !important;
+">
+                                                                            <label class="custom-control-label" for="VeryGood">Very Good</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input type="checkbox" class="custom-control-input" id="Good01" value="3" onclick="applyfilter()" style="border: #297cbb solid 2px !important;">
+                                                                            <label class="custom-control-label" for="Good01">Good</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="collapse" id="collapseBrand047recgr01">
+                                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="Fair01" value="2" onclick="applyfilter()" style="border: #297cbb solid 2px !important;
+   ">
+                                                                                <label class="custom-control-label" for="Fair01">Fair</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="Okay01" value="1" onclick="applyfilter()" style="border: #297cbb solid 2px !important;
+    ">
+                                                                                <label class="custom-control-label" for="Okay01">Okay</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- End View More - Collapse -->
+                                                                    <!-- Link -->
+                                                                    <a class="link link-collapse small font-size-1" data-toggle="collapse" href="#collapseBrand047recgr01" role="button" aria-expanded="false" aria-controls="collapseBrand047recgr01">
+                                                                        <span class="link-collapse__default font-size-14">Show all</span>
+                                                                        <span class="link-collapse__active font-size-14">Show less</span>
+                                                                    </a>
+                                                                    <!-- End Link -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Guest Rating -->
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+
+                        <!-- Guest Rating DIV Code END -->
+                        <!-- Cancellation Flexibility DIV Code Begin -->
+                        <li class="nav-item d-flex align-items-center flex-shrink-0 flex-xl-shrink-1 border-left" style="border-left:1px solid #ccc !important;">
+                            <div class="position-relative px-3 u-header__login-form dropdown-connector-xl u-header__topbar-divider sa_hidden">
+
+
+
+                                <a id="signUpDropdownInvoker" href="javascript:;"
+                                   class="d-flex align-items-center text-white active bg_chg hide-btn02" aria-controls="signUpDropdown" aria-haspopup="true" aria-expanded="true" data-unfold-event="click" data-unfold-target="#signUpDropdown" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-delay="300" data-unfold-hide-on-scroll="true" data-unfold-animation-in="slideInUp" data-unfold-animation-out="fadeOut">
+                                    <span class="d-inline-block font-size-14 mr-1" style="color:#fff !important;font-size: 0.938rem !important;">Cancellation flexibility <i class="fa fa-angle-down" style="padding-left:5px; padding-right:12px;"></i> </span>
+                                </a>
+
+
+
+                                <div id="signUpDropdown" class="dropdown-menu dropdown-unfold dropdown-menu-right py-0 mt-0 u-unfold--css-animation slideInUp u-unfold--reverse-y u-unfold--hidden" aria-labelledby="signUpDropdownInvoker" style="        min-width: 430px;
+        animation-duration: 300ms;
+        right: 0px;">
+                                    <div class="card rounded-xs">
+                                        <div class="js-validate" novalidate="novalidate" method="post">
+                                            <!-- Cancellation Flexibility Popup Code Begin -->
+                                            <div id="login" style="opacity: 1;" data-target-group="idForm" class="animated fadeIn">
+                                                <!-- Header -->
+                                                <!-- End Header -->
+                                                <div class="card-body " style="padding:30px !important;">
+                                                    <!-- Form Group -->
+                                                    <div class="form-group pb-1" style="">
+                                                        <div style="width:400px; float:left; height:auto;">
+                                                            <div style="width:300px; float:left; height:auto;">Only show stays that offer free cancellation</div>
+                                                            <div style=" width: 100px; float: left; height: auto; text-align: right;">
+                                                                <div style="margin-top: -5px;" class="custom-control map-switch map-lable custom-switch text-lh-2 order-1" data-toggle="collapse" href="#MapcollapseExample02" role="button" aria-expanded="false" aria-controls="MapcollapseExample02">
+                                                                    <input type="checkbox" class="custom-control-input" id="customSwitch12">
+                                                                    <label class="custom-control-label" for="customSwitch12"></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 400px; float: left;height: auto;padding-bottom: 30px;padding-top: 10px;
+">
+                                                            <button type="button" class="btn btn-dark mb-1" style="padding: 0.2rem 1rem !important;" onclick="applyfilter();" aria-controls="signUpDropdown" aria-haspopup="true" aria-expanded="true" data-unfold-event="click" data-unfold-target="#signUpDropdown" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-delay="300" data-unfold-hide-on-scroll="true" data-unfold-animation-in="slideInUp" data-unfold-animation-out="fadeOut">Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Cancellation Flexibility Popup Code End -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Cancellation Flexibility DIV Code END -->
+                        <!-- Our Recommendation DIV Code Begin -->
+                        <li class="nav-item d-flex align-items-center flex-shrink-0 flex-xl-shrink-1 border-left" style="display: block !important; border-left: 1px solid #ccc !important;">
+                            <div class="position-relative px-3 u-header__login-form dropdown-connector-xl u-header__topbar-divider sa_hidden">
+                                <a id="signUpDropdownInvokerrec01" href="javascript:;"
+                                   class="d-flex align-items-center text-white active bg_chg hide-btn02" aria-controls="signUpDropdownrec01" aria-haspopup="true" aria-expanded="true" data-unfold-event="click" data-unfold-target="#signUpDropdownrec01" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-delay="300" data-unfold-hide-on-scroll="true" data-unfold-animation-in="slideInUp" data-unfold-animation-out="fadeOut">
+                                    <span class="d-inline-block font-size-14 mr-1" style="color:#fff !important;font-size: 0.938rem !important;">Our Recommendations <i class="fa fa-angle-down" style="padding-left:5px; padding-right:12px;"></i> </span>
+                                </a>
+                                <div id="signUpDropdownrec01" class="dropdown-menu dropdown-unfold dropdown-menu-right py-0 mt-0 u-unfold--css-animation slideInUp u-unfold--reverse-y u-unfold--hidden" aria-labelledby="signUpDropdownInvokerrec01" style="min-width: 430px; animation-duration: 300ms; right: 0px;">
+                                    <div class="card rounded-xs">
+                                        <div class="js-validate" novalidate="novalidate" method="post">
+                                            <!-- Our Recommendation Pop Up Code Begin -->
+                                            <div id="loginrec01" style="opacity: 1;" data-target-group="idForm" class="animated fadeIn">
+                                                <!-- Header -->
+                                                <!-- End Header -->
+                                                <div class="card-body " style="padding:30px !important;">
+                                                    <div id="propertyCategoryAccordion047rec" class="accordion rounded-0 shadow-none">
+                                                        <div class="border-0">
+                                                            <div id="propertyCategoryOne047rec" aria-labelledby="propertyCategoryHeadingOne047rec" data-parent="#propertyCategoryAccordion047rec">
+                                                                <div class="card-body pt-0 mt-1 px-5" style="padding-left:0px !important; padding-right:0px !important; padding-bottom:0px !important;">
+                                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input type="checkbox" class="custom-control-input" id="rr01" value="1" onclick="applyfilter()" style="border: #297cbb solid 2px !important;">
+                                                                            <label class="custom-control-label" for="rr01">Rating & Recommended</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input type="checkbox" class="custom-control-input" id="pr01" value="2" onclick="applyfilter()" style="border: #297cbb solid 2px !important;">
+                                                                            <label class="custom-control-label" for="pr01">Price & Recommended</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- End Link -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Our Recommendation Pop Up Code END -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Our Recommendation DIV Code END -->
+                    </ul>
+                    <div class="text-center mr-4 mb-4 mb-md-0" style="border-left: 1px solid #ccc !important;padding-left:20px;">
+                        <!-- More Filters button Code design start -->
+
+
+
+
+
+
+
+
+                        <span id="sidebarNavToggler" class="btn btn-sm btn-primary height-50 font-size-16 px-4 px-md-3 px-wd-4 d-flex align-items-center justify-content-center bg_chg_morefilter hide-btn02" style="" href="javascript:;" role="button"
+                              aria-controls="sidebarContent"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                              data-unfold-event="click"
+                              data-unfold-hide-on-scroll="false"
+                              data-unfold-target="#sidebarContent"
+                              data-unfold-type="css-animation"
+                              data-unfold-overlay='{
+                        "className": "u-search-slide-down-bg-overlay",
+                        "background": "rgba(255, 255, 255, .551)",
+                        "animationSpeed": 400
+                        }'
+                              data-unfold-animation-in="fadeInRight"
+                              data-unfold-animation-out="fadeOutRight"
+                              data-unfold-duration="500">
+                            <i class="fa fa-search font-size-20" style="color: #297cbb !important;"></i>
+                            <span class="d-md-none d-wd-inline ml-2" style="color: #297cbb !important; ">More Filters</span>
+                        </span>
+                        <!-- More Filters button Code design end -->
+                        <!-- Sidebar Navigation -->
+                        @*@{
+                                Html.RenderPartial("~/Views/Shared/_SideBarFilters.cshtml",Model);
+                            }*@
+                        <aside id="sidebarContent" class="u-sidebar" aria-labelledby="sidebarNavToggler">
+                            <div class="u-sidebar__scroller">
+                                <div class="u-sidebar__container">
+                                    <div class="u-header-sidebar__footer-offset pb-0" style="overflow: hidden !important;">
+                                        <!-- Toggle Button -->
+                                        <div class="d-flex align-items-center pt-2 px-5">
+                                            <button type="button" class="btn btn-sm ml-auto font-size-14 p-0" style="margin-left: 0px !important;"
+                                                    aria-controls="sidebarContent"
+                                                    aria-haspopup="true"
+                                                    aria-expanded="false"
+                                                    data-unfold-event="click"
+                                                    data-unfold-hide-on-scroll="false"
+                                                    data-unfold-target="#sidebarContent"
+                                                    data-unfold-type="css-animation"
+                                                    data-unfold-animation-in="fadeInRight"
+                                                    data-unfold-animation-out="fadeOutRight"
+                                                    data-unfold-duration="500">
+                                                <i class="fa fa-times" style="font-size:22px; "></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm ml-auto font-size-14 p-0"
+                                                    aria-controls="sidebarContent"
+                                                    aria-haspopup="true"
+                                                    aria-expanded="false"
+                                                    data-unfold-event="click"
+                                                    data-unfold-hide-on-scroll="false"
+                                                    data-unfold-target="#sidebarContent"
+                                                    data-unfold-type="css-animation"
+                                                    data-unfold-animation-in="fadeInRight"
+                                                    data-unfold-animation-out="fadeOutRight"
+                                                    data-unfold-duration="500">
+                                                <span aria-hidden="true" class="text-primary">Back to List <i class="fa fa- ml-2 font-size-10"></i></span>
+                                            </button>
+                                        </div>
+                                        <!-- End Toggle Button -->
+                                        <!-- Content -->
+                                        <div class="js-scrollbar u-sidebar__body">
+                                            <div class="u-sidebar__content u-header-sidebar__content">
+
+                                                <!-- Checkboxes -->
+                                                <div class="sidenav border">
+                                                    <!-- Accordiaon -->
+                                                    <div id="shopCartAccordion" class="accordion rounded shadow-none">
+                                                        <div class="border-0">
+                                                            <div class="card-collapse" id="shopCardHeadingOne">
+                                                                <h3 class="mb-0">
+                                                                    <button type="button" class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed" data-toggle="collapse" data-target="#shopCardOne" aria-expanded="false" aria-controls="shopCardOne">
+                                                                        <span class="row align-items-center">
+                                                                            <span class="col-9">
+                                                                                <span class="d-block font-size-lg-15 font-size-17 font-weight-bold text-dark">Price Range (@currency)</span>
+                                                                            </span>
+                                                                            <span class="col-3 text-right">
+                                                                                <span class="card-btn-arrow">
+                                                                                    <span class="fas fa-chevron-down small"></span>
+                                                                                </span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </button>
+                                                                </h3>
+                                                            </div>
+                                                            <div id="shopCardOne" class="collapse show" aria-labelledby="shopCardHeadingOne" data-parent="#shopCartAccordion">
+                                                                <div class="card-body pt-0 px-5">
+                                                                    <div class="pb-3 mb-1 d-flex text-lh-1">
+                                                                        <span class="spncurr">@currency </span>
+                                                                        <span id="rangeSliderExample3MinResult" class=""></span>
+                                                                        <span class="mx-0dot5"> — </span>
+                                                                        <span class="spncurr">@currency </span>
+                                                                        <span id="rangeSliderExample3MaxResult" class=""></span>
+                                                                    </div>
+                                                                    <input class="js-range-slider" type="text"
+                                                                           data-extra-classes="u-range-slider height-35"
+                                                                           data-type="double"
+                                                                           data-grid="false"
+                                                                           data-hide-from-to="true"
+                                                                           data-min="@minPrice"
+                                                                           data-max="@maxPrice"
+                                                                           data-from="@minPrice"
+                                                                           data-to="@maxPrice"
+                                                                           data-prefix="$"
+                                                                           data-result-min="#rangeSliderExample3MinResult"
+                                                                           data-result-max="#rangeSliderExample3MaxResult">
+                                                                </div>
+                                                                <input type="hidden" id="minfareslide" value="" />
+                                                                <input type="hidden" id="maxfareslide" value="" />
+                                                                @*<div style="width:100%; float:left; height:auto; padding:20px; padding-top:5px; background-color:#f3f3f3;">
+                                                                    <div style="width:50%; float:left; height:40px; ">
+                                                                        <input type="number" class="form-control" name="min_txt" id="min_txt" placeholder="Min Price £" aria-label="Min Price £" aria-describedby="signinEmail" required="" data-msg="Please enter a valid number." data-error-class="u-has-error" data-success-class="u-has-success" style="border:1px solid #ccc;">
+                                                                    </div>
+                                                                    <div style="width:50%; float:left; height:40px;  ">
+                                                                        <input type="number" class="form-control" name="max_txt" id="max_txt" placeholder="Max Price £" aria-label="Max Price £" aria-describedby="signinEmail" required="" data-msg="Please enter a valid number." data-error-class="u-has-error" data-success-class="u-has-success" style="border:1px solid #ccc;">
+                                                                    </div>
+                                                                </div>
+                                                                <div style="width:100%; float:left; height:auto; padding:20px; padding-top:5px; background-color:#f3f3f3;">
+                                                                    <button type="button" class="btn btn-secondary btn-sm" onclick="applyfilter()">Save</button>
+                                                                </div>*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="propertyCategoryAccordionstar" class="accordion rounded-0 shadow-none border-top">
+                                                        <div class="border-0">
+                                                            <div class="card-collapse" id="propertyCategoryHeadingOnestar">
+                                                                <h3 class="mb-0">
+                                                                    <button type="button" class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed" data-toggle="collapse" data-target="#propertyCategoryOne01star" aria-expanded="false" aria-controls="propertyCategoryOne01star">
+                                                                        <span class="row align-items-center">
+                                                                            <span class="col-9">
+                                                                                <span class="font-weight-bold font-size-17 text-dark mb-3">Star Rating</span>
+                                                                            </span>
+                                                                            <span class="col-3 text-right">
+                                                                                <span class="card-btn-arrow">
+                                                                                    <span class="fas fa-chevron-down small"></span>
+                                                                                </span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </button>
+                                                                </h3>
+                                                            </div>
+                                                            <div id="propertyCategoryOne01star" class="collapse" aria-labelledby="propertyCategoryHeadingOnestar" data-parent="#propertyCategoryAccordionstar">
+                                                                <div class="card-body pt-0 mt-1 px-5 pb-4">
+
+
+                                                                    @foreach (var item in ratingList)
+                                                                    {
+                                                                        a++;
+                                                                        if (ratingList.Count() == a)
+                                                                        {
+                                                                            <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-3 pb-1">
+                                                                                <div class="custom-control custom-checkbox">
+                                                                                    <input type="checkbox" class="custom-control-input" value="@item.Start" id="r_@item.Start" onclick="applyfilter()" style="border: #297cbb solid 2px !important;">
+                                                                                    <label class="custom-control-label" for="r_@item.Start">
+                                                                                        @for (int b = 0; b < Convert.ToInt32(item.Start); b++)
+                                                                                        {
+                                                                                            <small>
+                                                                                                <img src="~/Content/img/star.png" />
+                                                                                            </small>
+                                                                                        }
+                                                                                    </label>
+                                                                                </div>
+                                                                                <small>@item.Count</small>
+                                                                            </div>
+                                                                        }
+                                                                        else
+                                                                        {
+
+                                                                            <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                                <div class="custom-control custom-checkbox">
+                                                                                    <input type="checkbox" class="custom-control-input" value="@item.Start" id="r_@item.Start" onclick="applyfilter()" style="border: #297cbb solid 2px !important;">
+                                                                                    <label class="custom-control-label" for="r_@item.Start">
+                                                                                        @for (int i = 0; i < Convert.ToInt32(item.Start); i++)
+                                                                                        {
+                                                                                            <small>
+                                                                                                <img src="~/Content/img/star.png" />
+                                                                                            </small>
+                                                                                        }
+                                                                                    </label>
+                                                                                </div>
+                                                                                <small>@item.Count</small>
+                                                                            </div>
+                                                                        }
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="propertyCategoryAccordion046" class="accordion rounded-0 shadow-none border-top" style="clear:both;display:none;">
+                                                        <div class="border-0">
+                                                            <div class="card-collapse" id="propertyCategoryHeadingOne046">
+                                                                <h3 class="mb-0">
+                                                                    <button type="button" class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed" data-toggle="collapse" data-target="#propertyCategoryOne046" aria-expanded="false" aria-controls="propertyCategoryOne046">
+                                                                        <span class="row align-items-center">
+                                                                            <span class="col-9">
+                                                                                <span class="font-weight-bold font-size-17 text-dark mb-3">Guest Rating</span>
+                                                                            </span>
+                                                                            <span class="col-3 text-right">
+                                                                                <span class="card-btn-arrow">
+                                                                                    <span class="fas fa-chevron-down small"></span>
+                                                                                </span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </button>
+                                                                </h3>
+                                                            </div>
+                                                            <div id="propertyCategoryOne046" class="collapse" aria-labelledby="propertyCategoryHeadingOne045" data-parent="#propertyCategoryAccordion046">
+                                                                <div class="card-body pt-0 mt-1 px-5 pb-4">
+                                                                    <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                        <div class="custom-control custom-checkbox">
+                                                                            <input type="checkbox" class="custom-control-input" value="5" id="5" onclick="applyfilter()">
+                                                                            <label class="custom-control-label" for="5">Excellent</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="collapse" id="collapseBrand046">
+                                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" value="4" id="4" onclick="applyfilter()">
+                                                                                <label class="custom-control-label" for="4">Very good</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" value="3" id="3" onclick="applyfilter()">
+                                                                                <label class="custom-control-label" for="3">Good</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" value="2" id="2" onclick="applyfilter()">
+                                                                                <label class="custom-control-label" for="2">Fair</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-3">
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" value="1" id="1" onclick="applyfilter()">
+                                                                                <label class="custom-control-label" for="1">Okay</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- End View More - Collapse -->
+                                                                    <!-- Link -->
+                                                                    <a class="link link-collapse small font-size-1" data-toggle="collapse" href="#collapseBrand046" role="button" aria-expanded="false" aria-controls="collapseBrand046">
+                                                                        <span class="link-collapse__default font-size-14">Show all</span>
+                                                                        <span class="link-collapse__active font-size-14">Show less</span>
+                                                                    </a>
+                                                                    <!-- End Link -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div id="propertyCategoryAccordionamen" class="accordion rounded-0 shadow-none border-top">
+                                                        <div class="border-0">
+                                                            <div class="card-collapse" id="propertyCategoryHeadingOneamen">
+                                                                <h3 class="mb-0">
+                                                                    <button type="button" class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed" data-toggle="collapse" data-target="#propertyCategoryOneamen" aria-expanded="false" aria-controls="propertyCategoryOneamen">
+                                                                        <span class="row align-items-center">
+                                                                            <span class="col-9">
+                                                                                <span class="font-weight-bold font-size-17 text-dark mb-3">Filter Amenities </span>
+                                                                            </span>
+                                                                            <span class="col-3 text-right">
+                                                                                <span class="card-btn-arrow">
+                                                                                    <span class="fas fa-chevron-down small"></span>
+                                                                                </span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </button>
+                                                                </h3>
+                                                            </div>
+                                                            <div id="propertyCategoryOneamen" class="collapse" aria-labelledby="propertyCategoryHeadingOneamen" data-parent="#propertyCategoryAccordionamen">
+                                                                <div class="card-body pt-0 mt-1 px-5 pb-4">
+
+                                                                    @foreach (var item in amenitiesList.Take(5))
+                                                                    {
+                                                                        <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" id="f_@item.id" value="@item.id" onclick="applyfilter()" class="custom-control-input">
+                                                                                <label class="custom-control-label" for="f_@item.id">@item.name</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+
+
+
+
+                                                                    <!-- End Checkboxes -->
+                                                                    <!-- View More - Collapse -->
+                                                                    <div class="collapse" id="collapseBrand2amen">
+                                                                        @foreach (var item in amenitiesList.Skip(5))
+                                                                        {
+                                                                            c++;
+                                                                            if (amenitiesList.Skip(5).Count() == c)
+                                                                            {
+                                                                                <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-3 pb-1">
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input type="checkbox" class="custom-control-input" id="f_@item.id" value="@item.id" onclick="applyfilter()">
+                                                                                        <label class="custom-control-label" for="f_@item.id">@item.name</label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            }
+                                                                            else
+                                                                            {
+
+                                                                                <div class="form-group d-flex align-items-center justify-content-between font-size-1 text-lh-md text-secondary mb-1">
+                                                                                    <div class="custom-control custom-checkbox">
+                                                                                        <input type="checkbox" id="f_@item.id" value="@item.id" onclick="applyfilter()" class="custom-control-input">
+                                                                                        <label class="custom-control-label" for="f_@item.id">@item.name</label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            }
+
+
+                                                                        }
+
+
+                                                                    </div>
+                                                                    <!-- End View More - Collapse -->
+                                                                    <!-- Link -->
+                                                                    <a class="link link-collapse small font-size-1" data-toggle="collapse" href="#collapseBrand2amen" role="button" aria-expanded="false" aria-controls="collapseBrand2amen">
+                                                                        <span class="link-collapse__default font-size-14">Show all (@amenitiesList.Skip(5).Count())</span>
+                                                                        <span class="link-collapse__active font-size-14">Show less</span>
+                                                                    </a>
+                                                                    <!-- End Link -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @*<div class="pb-4 mb-2">
+                                                        <a href="https://goo.gl/maps/kCVqYkjHX3XvoC4B9" class="d-block border">
+                                                            <img src="~/Content/img/map-markers/map.jpg" alt="" width="100%">
+                                                        </a>
+                                                    </div>*@
+                                            </div>
+                                        </div>
+                                        <!-- End Content -->
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        <!-- End Sidebar Navigation -->
+                    </div>
+
+
+                    <!-- Hide Map Show Map Code Begin -->
+                    <div class="ml-auto flex-shrink-0 sa_hidden" style="display:none;">
+                        <div class="flex-horizontal-center">
+                            <!-- Checkbox Switch -->
+                            <div class="custom-control map-switch map-lable custom-switch text-lh-2 order-1" data-toggle="collapse" href="#MapcollapseExample" role="button" aria-expanded="false" aria-controls="MapcollapseExample">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+                                <label class="custom-control-label" for="customSwitch1"></label>
+                            </div>
+                            <!-- End Checkbox Switch -->
+                            <div class="mr-3 font-size-14 map-lable-list ">
+                                <div class="map-hide">Hide Map</div>
+                                <div class="map-show">Show Map</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hide Map Show Map Code END -->
+                </div>
+            </div>
+        </div>
+        <!--map collapse collapse start
+        <div class="map-collapse collapse" id="MapcollapseExample">
+          Hide map show div
+        </div>-->
+        <!--map collapse collapse end-->
+        <!--HOTEL LISTING SHOWING WITH MAP BEGIN CODE-->
+        <div class="map-collapse-hidden" style="background-color:#f3f3f3 !important; ">
+            <div class="row no-gutters">
+                <div class="col-lg-9 col-xl-9 col-wd-9 order-1 order-lg-0" id="hotelaccomodation" style="margin: 0 auto !important;">
+                    @{
+                        Html.RenderPartial("~/Views/Shared/searchresult/_SearchResult.cshtml", hotels);
+                    }
+                </div>
+
+
+                <!--HOTEL LISTING SHOWING WITH MAP END CODE-->
+                <div class="col-lg-3 col-xl-3 col-wd-3 height-350-md-down sa_hidden" style="display:block; padding-top:15px !important; display:none;">
+
+                    <div style="width:300px !important; height:600px !important; float:left; border:1px solid #ccc; background-color:#fff;  margin-left:20px;">
+                        <p style="padding:0px;font-size:11px; color:#555; padding:10px;">
+                            @*<img src="@srcurl" />*@
+                            Advertisement
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+
+
+    <!--HOTEL LISTING SHOWING WITH MAP END CODE-->
+
+    <!-- JS Implementing Plugins -->
+}
+else
+{
+    var siterootpath = Data.GetMeRoom.GlobalConstant.ConfigVariables.SITEROOTPATH;
+    <main id="content" style="background-color: #fff !important;">
+        <div class="border-bottom" style="margin-bottom: 10px;">
+            <a href="@siterootpath">
+                <div class="container-fluid" style="background-color: #f3f3f3;padding-top: 5px;padding-bottom: 5px; height:700px; background-color:#297cbb; background-image:url('/Content/img/404bg.jpg'); background-position:center top;  ">
+                    <h3 class="font-size-21 font-weight-bold mb-0 text-lh-1 mr-2 mb-3 mb-md-0 flex-shrink-0" style="padding-top: 20px;padding-bottom: 5px;
+        font-weight: 400 !important;font-size: 15px;">
+                    </h3>
+                </div>
+            </a>
+        </div>
+    </main>
+}
+
+<script src="~/Content/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="~/Content/vendor/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+<script src="~/Content/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="~/Content/vendor/flatpickr/dist/flatpickr.min.js"></script>
+<script type="text/javascript">
+
+    function applyFilterbutton() {
+        $("#minfareslide").val("");
+        $("#maxfareslide").val("");
+        applyfilter();
+    }
+
+    function applyfilter() {
+        var minfare = $("#min_txt").val();
+        var maxfare = $("#max_txt").val();
+        if ($("#minfareslide").val() !== "") {
+            minfare = $("#minfareslide").val();
+            maxfare = $("#maxfareslide").val();
+        }
+
+        var amenities = $("#propertyCategoryAccordionamen input:checkbox:checked").map(function () {
+            return $(this).val();
+        }).get();
+
+        var starrating = $("#propertyCategoryOne01star input:checkbox:checked").map(function () {
+            return $(this).val();
+        }).get();
+
+        var guestratingtop = $("#propertyCategoryOne047gr01 input:checkbox:checked").map(function () {
+            return $(this).val();
+        }).get();
+
+        var guestrating = $("#propertyCategoryAccordion046 input:checkbox:checked").map(function () {
+            return $(this).val();
+        }).get();
+
+        var ourrecom = $("#propertyCategoryAccordion047rec input:checkbox:checked").map(function () {
+            return $(this).val();
+        }).get();
+
+        var customSwitch12 = $("#customSwitch12").prop("checked");
+        var guestrate = $.merge(guestratingtop, guestrating);
+
+        var jsondata = JSON.stringify({
+            'guestrating': guestrate,
+            'amenities': amenities,
+            'starrating': starrating,
+            'ourrecom': ourrecom,
+            'IsFreeCancellation': customSwitch12,
+            'minfare': minfare,
+            'maxfare': maxfare
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/Hotel/FilterAccomodation",
+            data: jsondata,
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                $('#hotelaccomodation').html('');
+                $('#hotelaccomodation').html(response);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+
+
+    function applyHotelfilter() {
+        var hotelname = $("#inputhotelsearch").val();
+        if (hotelname === "") {
+            alert("Please select hotel name");
+            return false;
+        }
+
+        var jsondata = JSON.stringify({
+            'hotelname': hotelname,
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/Hotel/FilterByName",
+            data: jsondata,
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                $('#hotelaccomodation').html('');
+                $('#hotelaccomodation').html(response);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+
+</script>
+

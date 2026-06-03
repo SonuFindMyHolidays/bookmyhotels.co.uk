@@ -1,0 +1,40 @@
+﻿@model List<Data.GetMeRoom.Models.Detail.Nearbyattraction>
+
+@if (Model != null && Model.Count > 0)
+{
+    int bindFirst = Convert.ToInt32((Model.Count / 2).ToString().Split('.')[0]);
+
+    <p id="scroll-around" style="padding-bottom:10px; visibility:hidden;"></p>
+    <div class="border-bottom py-4 position-relative">
+        <div style="background-color:#fff; padding:20px;box-shadow: 0 2px 4px 0 #c8c8c8 !important;">
+            <h5 id="scroll-specifications" class="font-size-21 font-weight-bold text-dark mb-4">
+                What’s around
+            </h5>
+            <ul class="list-group list-group-borderless list-group-horizontal list-group-flush no-gutters row">
+                <li class="col-md-4 list-group-item py-0">
+                    <div class="font-weight-bold text-dark mb-2">Popular &amp; Nearby  landmarks</div>
+                    @for (int i = 0; i < bindFirst; i++)
+                    {
+                        <div class="text-gray-1 mb-2 pt-1">@Model[i] - @Model[i].Distance @Model[i].Unit</div>
+                    }
+
+                </li>
+            </ul>
+            <div class="collapse" id="collapseLinkExample3">
+                <ul class="list-group list-group-borderless list-group-horizontal list-group-flush no-gutters row">
+                    <li class="col-md-4 mb-2 list-group-item py-0">
+                        @for (int i = bindFirst; i < Model.Count; i++)
+                        {
+                            <div class="text-gray-1 mb-2 pt-1">@Model[i] - @Model[i].Distance @Model[i].Unit</div>
+                        }
+
+                    </li>
+                </ul>
+            </div>
+            <p class="link-collapse link-collapse-custom gradient-overlay-half mb-5 d-inline-block border-bottom border-primary" data-toggle="collapse" href="#collapseLinkExample3" role="button" aria-expanded="false" aria-controls="collapseLinkExample3" style="cursor:pointer;">
+                <span class="link-collapse__default font-size-14">View More <i class="flaticon-down-chevron font-size-10 ml-1"></i></span>
+                <span class="link-collapse__active font-size-14">View Less <i class="flaticon-arrow font-size-10 ml-1"></i></span>
+            </p>
+        </div>    
+        </div>
+        }

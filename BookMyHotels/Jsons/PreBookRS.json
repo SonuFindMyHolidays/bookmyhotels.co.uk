@@ -1,0 +1,188 @@
+{
+  "ResponseInfo": {
+    "ResponseId": null,
+    "Currency": "USD",
+    "Nights": 2,
+    "IsBookable": true,
+    "IsPriceChanged": false,
+    "IsSoldOut": false,
+    "Token": "5630612e-9323-4df2-bcf1-230e02451a78",
+    "BookingToken": "a00d6040-58a4-495b-b7ff-c58a3c91409c",
+    "RateCode": "7a071868-cdc4-44a0-9de3-71120f9cb8e8",
+    "CheckIn": "2021-12-02T00:00:00",
+    "CheckOut": "2021-12-04T00:00:00",
+    "TotalAdult": 4,
+    "TotalChild": 2,
+    "TotalRooms": 2,
+    "ErrorCode": null,
+    "ErrorMessage": null
+  },
+  "Hotel": {
+    "Code": "39654402",
+    "Name": "Pride Plaza Hotel Aerocity New Delhi",
+    "Address": "New Delhi",
+    "City": null,
+    "Country": "India",
+    "Phone": "91-20-66471471",
+    "Fax": "91-11-66007783",
+    "Email": null,
+    "Star": "5",
+    "Image": "https://i.travelapi.com/hotels/14000000/13090000/13083600/13083538/380e3879_b.jpg",
+    "MinPrice": null,
+    "Offer": null,
+    "Rate": {
+      "Token": "5630612e-9323-4df2-bcf1-230e02451a78",
+      "RateCode": "",
+      "Room": [
+        {
+          "RateId": "0b6a6430-c081-4055-9c17-944614461cc6",
+          "RoomId": "306caab2-048f-4dda-b9f8-611841e2d3ac",
+          "RoomType": "Premium Room, 1 KingBed, Refundable",
+          "RoomDesc": "<p><strong>1 King Bed</strong></p><p>340-sq-foot room with city views </p><br/><p><b>Layout</b> - Separate sitting area</p><p><b>Relax</b> - Fireplace</p><p><b>Internet</b> - Free WiFi and wired Internet access</p><p><b>Entertainment</b> - 42-inch LED TV with premium channels</p><p><b>Food & Drink</b> - Coffee/tea maker, minibar, 24-hour room service, and free bottled water</p><p><b>Sleep</b> - Memory foam bed, Egyptian cotton linens, a down duvet, blackout drapes/curtains, and turndown service </p><p><b>Bathroom</b> - Private bathroom, bathrobes, and a separate bathtub and shower with a rainfall showerhead</p><p><b>Practical</b> - Safe, free newspaper, and iron/ironing board; rollaway/extra beds and free cribs/infant beds available on request</p><p><b>Comfort</b> - Climate-controlled air conditioning and daily housekeeping</p><p><b>Accessibility</b> - Low-height counters and sink, grab bar near toilet, wheelchair-width doorways, wheelchair accessible, and raised toilet seat</p><p>Non-Smoking</p><p>Connecting/adjoining rooms can be requested, subject to availability </p>",
+          "BoardBasis": "Breakfast Buffet",
+          "Rooms": null,
+          "Avl": true,
+          "NetPrice": 393.53,
+          "NetCurrency": "USD",
+          "GrossPrice": 393.53,
+          "GrossCurrency": "USD",
+          "ProviderName": "EAN",
+          "ProviderId": "ean-vt",
+          "NeedsPriceCheck": true,
+          "IsPackageRate": false,
+          "IsRefundable": true,
+          "PayAtHotel": true,
+          "SmokingAllowed": false,
+          "Adult": 2,
+          "Child": 2,
+          "ChildAge": "5,12",
+          "ProviderHotelCode": null,
+          "RateType": "Published",
+          "Images": null,
+          "Beds": [
+            {
+              "Type": "KingBed",
+              "Count": 1
+            }
+          ],
+          "DailyRates": [
+            {
+              "NetPrice": 184.99,
+              "GrossPrice": 184.99,
+              "Date": "2021-12-02T00:00:00Z",
+              "TaxIncluded": true
+            },
+            {
+              "NetPrice": 208.55,
+              "GrossPrice": 208.55,
+              "Date": "2021-12-03T00:00:00Z",
+              "TaxIncluded": true
+            }
+          ],
+          "Taxes": [
+            {
+              "NetPrice": 60.03,
+              "GrossPrice": 60.03,
+              "Description": "tax_and_service_fee"
+            }
+          ],
+          "Policies": {
+            "Policy": [
+              {
+                "Value": 0,
+                "ValueType": "Nights",
+                "EstimatedValue": 0.0,
+                "Start": "2021-10-19T18:06:52.3011777Z",
+                "End": "2021-11-30T12:29:00Z"
+              },
+              {
+                "Value": 1,
+                "ValueType": "Nights",
+                "EstimatedValue": 184.99,
+                "Start": "2021-11-30T12:30:00Z",
+                "End": "2021-12-02T12:30:00Z"
+              }
+            ]
+          },
+          "AdditionalCharges": null,
+          "Notes": "Promotion:-25% off food and beverages (soft drinks) for 2 per day"
+        },
+        {
+          "RateId": "fa0502ee-44aa-4a6a-b740-089556bbb8ad",
+          "RoomId": "306caab2-048f-4dda-b9f8-611841e2d3ac",
+          "RoomType": "Premium Room, 1 KingBed, Refundable",
+          "RoomDesc": "<p><strong>1 King Bed</strong></p><p>340-sq-foot room with city views </p><br/><p><b>Layout</b> - Separate sitting area</p><p><b>Relax</b> - Fireplace</p><p><b>Internet</b> - Free WiFi and wired Internet access</p><p><b>Entertainment</b> - 42-inch LED TV with premium channels</p><p><b>Food & Drink</b> - Coffee/tea maker, minibar, 24-hour room service, and free bottled water</p><p><b>Sleep</b> - Memory foam bed, Egyptian cotton linens, a down duvet, blackout drapes/curtains, and turndown service </p><p><b>Bathroom</b> - Private bathroom, bathrobes, and a separate bathtub and shower with a rainfall showerhead</p><p><b>Practical</b> - Safe, free newspaper, and iron/ironing board; rollaway/extra beds and free cribs/infant beds available on request</p><p><b>Comfort</b> - Climate-controlled air conditioning and daily housekeeping</p><p><b>Accessibility</b> - Low-height counters and sink, grab bar near toilet, wheelchair-width doorways, wheelchair accessible, and raised toilet seat</p><p>Non-Smoking</p><p>Connecting/adjoining rooms can be requested, subject to availability </p>",
+          "BoardBasis": "Breakfast Buffet",
+          "Rooms": null,
+          "Avl": true,
+          "NetPrice": 336.07,
+          "NetCurrency": "USD",
+          "GrossPrice": 336.07,
+          "GrossCurrency": "USD",
+          "ProviderName": "EAN",
+          "ProviderId": "ean-vt",
+          "NeedsPriceCheck": true,
+          "IsPackageRate": false,
+          "IsRefundable": true,
+          "PayAtHotel": true,
+          "SmokingAllowed": false,
+          "Adult": 2,
+          "Child": 0,
+          "ChildAge": "",
+          "ProviderHotelCode": null,
+          "RateType": "Published",
+          "Images": null,
+          "Beds": [
+            {
+              "Type": "KingBed",
+              "Count": 1
+            }
+          ],
+          "DailyRates": [
+            {
+              "NetPrice": 156.26,
+              "GrossPrice": 156.26,
+              "Date": "2021-12-02T00:00:00Z",
+              "TaxIncluded": true
+            },
+            {
+              "NetPrice": 179.82,
+              "GrossPrice": 179.82,
+              "Date": "2021-12-03T00:00:00Z",
+              "TaxIncluded": true
+            }
+          ],
+          "Taxes": [
+            {
+              "NetPrice": 51.27,
+              "GrossPrice": 51.27,
+              "Description": "tax_and_service_fee"
+            }
+          ],
+          "Policies": {
+            "Policy": [
+              {
+                "Value": 0,
+                "ValueType": "Nights",
+                "EstimatedValue": 0.0,
+                "Start": "2021-10-19T18:06:52.3011806Z",
+                "End": "2021-11-30T12:29:00Z"
+              },
+              {
+                "Value": 1,
+                "ValueType": "Nights",
+                "EstimatedValue": 156.26,
+                "Start": "2021-11-30T12:30:00Z",
+                "End": "2021-12-02T12:30:00Z"
+              }
+            ]
+          },
+          "AdditionalCharges": null,
+          "Notes": "Promotion:-25% off food and beverages (soft drinks) for 2 per day"
+        }
+      ]
+    },
+    "ReviewRating": "3.9",
+    "ReviewCount": "701"
+  }
+}
