@@ -2,7 +2,7 @@
 using NLog;
 using System.IO;
 using System.Web;
-
+ 
 namespace GetMeRoom
 {
     public static class AppLogger
